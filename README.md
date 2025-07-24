@@ -1,61 +1,56 @@
-# ------------------------------------------
-# Omkar Mahesh - Personal Portfolio Project
-# ------------------------------------------
+#====================================================#
+#  PROJECT: Omkar Mahesh - Personal Portfolio        #
+#====================================================#
 
-# This is the repository for my personal portfolio website, designed to showcase my skills, 
+# DESCRIPTION:
+# This repository contains the source code for my personal portfolio website. 
+# It's a modern, single-page application designed to showcase my skills, 
 # experience, and projects as an aspiring DevOps Engineer and Full-Stack Developer.
-# The portfolio is a clean, modern, single-page application built with HTML, Tailwind CSS, 
-# and vanilla JavaScript.
 
-[Live Demo]: # (Link to your deployed portfolio)
+[LIVE_DEMO]: "https://your-portfolio-link.com"
 
----
+#----------------------------------------------------
+#  FEATURES
+#----------------------------------------------------
+- [x] Fully Responsive Design
+- [x] Dark/Light Mode w/ Preference Saving
+- [x] Dynamic Content Injection via JS Object
+- [x] Interactive Skill Matrix w/ Proficiency Tooltips
+- [x] Animated Timelines for Experience & Education
+- [x] Scroll-Reveal Animations for a Dynamic Feel
+- [x] Dual Contact Options (Direct & Google Form)
 
-### > FEATURES
+#----------------------------------------------------
+#  TECH_STACK
+#----------------------------------------------------
+- HTML5: For semantic markup and structure.
+- Tailwind_CSS: For a utility-first, responsive design system.
+- JavaScript_ES6+: For all interactivity and dynamic content rendering.
+- Font_Awesome: For a comprehensive library of high-quality icons.
 
-- **Fully Responsive Design:** Looks great on all devices, from mobile phones to desktops.
-- **Dark/Light Mode:** A theme toggle to switch between dark and light modes, with the user's preference saved in local storage.
-- **Dynamic Content:** All personal data is stored in a single JavaScript object for easy updates.
-- **Interactive Skill Matrix:** Skills are displayed in a "bento box" grid with hover-to-reveal proficiency details.
-- **Animated Timelines:** Experience and education are presented in a vertical timeline that animates on scroll.
-- **Scroll-Reveal Animations:** Elements subtly fade and slide into view.
-- **Integrated Contact Options:** Includes direct contact info and a link to a Google Form for formal inquiries.
+#----------------------------------------------------
+#  GETTING_STARTED
+#----------------------------------------------------
 
----
+# PREREQUISITES: A modern web browser.
 
-### > TECH_STACK
-
-# This portfolio is built with a focus on simplicity and performance, using only front-end technologies:
-
-- **HTML5:** For the core structure and content.
-- **Tailwind CSS:** For all styling, enabling a modern and responsive design.
-- **JavaScript (ES6+):** For dynamic content rendering, interactivity, and animations.
-- **Font Awesome:** For a wide range of high-quality icons.
-
----
-
-### > GETTING_STARTED
-
-# Since this is a static website, there is no complex setup required.
-
+# INSTALLATION:
 # 1. Clone the repository:
 $ git clone https://github.com/omkarmm19/Portfolio-Omkar.git
 
 # 2. Navigate to the project directory:
 $ cd Portfolio-Omkar
 
-# 3. Open index.html in your browser:
-# You can simply double-click the index.html file to open it locally.
+# 3. Open index.html in your browser.
+# (No build process required)
 
----
+#----------------------------------------------------
+#  CUSTOMIZATION_GUIDE
+#----------------------------------------------------
+# All personal data is managed from the `resumeData` object
+# inside the <script> tag at the bottom of index.html.
 
-### > CUSTOMIZATION_GUIDE
-
-# All personal information is managed from a single JavaScript object `resumeData`
-# located inside the <script> tag at the bottom of the index.html file.
-
-# To update, simply edit the values within this object:
-
+# To personalize, edit the values in this object:
 ```javascript
 const resumeData = {
     profileImage: '/main.jpg', // Path to your image in the project folder
@@ -77,15 +72,25 @@ const resumeData = {
             icon: 'fa-solid fa-code' // Font Awesome icon class
         },
     ],
-    // ... edit projects, education, certifications, and achievements in the same way.
+    // ... edit projects, education, etc.
 };
 ```
 
----
+#----------------------------------------------------
+#  DEPLOYMENT
+#----------------------------------------------------
+# This is a static site, deployable on any static hosting service.
 
-### > CONTACT
+- [GitHub Pages](https://pages.github.com/)
+- [Vercel](https://vercel.com/)
+- [Netlify](https://www.netlify.com/)
 
-- **Omkar Mahesh**
-- **Email:** omkarmahesh12345@gmail.com
-- **LinkedIn:** https://www.linkedin.com/in/omkar-mahesh-a99b70289/
+# Simply connect your GitHub repository to one of these services.
+
+#----------------------------------------------------
+#  CONTACT
+#----------------------------------------------------
+[NAME]: "Omkar Mahesh"
+[EMAIL]: "omkarmahesh12345@gmail.com"
+[LINKEDIN]: "https://www.linkedin.com/in/omkar-mahesh-a99b70289/"
 
