@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omkar Mahesh - Cloud & DevOps Enthusiast</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f7f7f9;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --accent-primary: #4f46e5;
+            --accent-secondary: #7c3aed;
+            --border-color: #e5e7eb;
+            --card-bg: #ffffff;
+        }
+        html.dark {
+            --bg-primary: #111827;
+            --bg-secondary: #1f2937;
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
+            --accent-primary: #6366f1;
+            --accent-secondary: #a78bfa;
+            --border-color: #374151;
+            --card-bg: #1f2937;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .section-title {
+            @apply text-5xl font-extrabold tracking-tight sm:text-6xl;
+            background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1), transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .timeline-line-animated {
+            height: 0;
+            transition: height 1.5s cubic-bezier(0.6, 0.2, 0.1, 1);
+        }
+        .timeline-line-animated.visible {
+            height: 100%;
+        }
+        .skill-item .tooltip {
+            visibility: hidden; opacity: 0; transition: opacity 0.3s, transform 0.3s; transform: translateY(10px);
+        }
+        .skill-item:hover .tooltip {
+            visibility: visible; opacity: 1; transform: translateY(0);
+        }
+        @keyframes subtle-gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .hero-ambient-bg {
+            background: linear-gradient(-45deg, var(--bg-primary), var(--bg-secondary), var(--bg-primary));
+            background-size: 400% 400%;
+            animation: subtle-gradient 15s ease infinite;
+        }
+        html.dark .hero-ambient-bg {
+             background: linear-gradient(-45deg, var(--bg-primary), #1a2035, var(--bg-primary));
+             background-size: 400% 400%;
+             animation: subtle-gradient 15s ease infinite;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header id="header" class="bg-[var(--bg-primary)]/80 backdrop-blur-lg sticky top-0 left-0 right-0 z-50 border-b border-[var(--border-color)]">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex justify-between items-center py-4">
+                <a href="#hero" class="text-3xl font-bold tracking-wider gradient-text">OM</a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#skills" class="text-base font-medium text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">Skills</a>
+                    <a href="#experience" class="text-base font-medium text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">Experience</a>
+                    <a href="#projects" class="text-base font-medium text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">Projects</a>
+                    <a href="#education" class="text-base font-medium text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">Education</a>
+                    <a href="#certifications" class="text-base font-medium text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">Certifications</a>
+                    <a href="#contact" class="text-base font-medium text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">Contact</a>
+                    <button id="theme-toggle" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-2xl ml-4">
+                        <i id="theme-icon-sun" class="fas fa-sun"></i>
+                        <i id="theme-icon-moon" class="fas fa-moon hidden"></i>
+                    </button>
+                    <a href="#contact" class="bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white px-5 py-2.5 rounded-lg font-semibold hover:opacity-90 transition-opacity text-base shadow-lg hover:shadow-indigo-500/50">Get in Touch</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden text-2xl text-[var(--text-primary)]">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[var(--bg-primary)]/95 backdrop-blur-lg border-t border-[var(--border-color)]">
+             <a href="#skills" class="block text-center py-3 px-4 text-lg text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">Skills</a>
+            <a href="#experience" class="block text-center py-3 px-4 text-lg text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">Experience</a>
+            <a href="#projects" class="block text-center py-3 px-4 text-lg text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">Projects</a>
+            <a href="#education" class="block text-center py-3 px-4 text-lg text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">Education</a>
+            <a href="#certifications" class="block text-center py-3 px-4 text-lg text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">Certifications</a>
+            <a href="#contact" class="block text-center py-3 px-4 text-lg text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">Contact</a>
+            <button id="mobile-theme-toggle" class="w-full py-3 px-4 text-lg text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">Toggle Theme</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="relative pt-24 pb-16 md:pt-32 md:pb-24 hero-ambient-bg overflow-hidden">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">Omkar Mahesh</h1>
+                <p class="mt-4 text-xl md:text-2xl font-semibold gradient-text">Aspiring DevOps Engineer | Full-Stack Developer | Cloud & GenAI Enthusiast</p>
+                <p class="mt-8 max-w-3xl mx-auto text-lg text-[var(--text-secondary)]">
+                    I’m a Computer Science undergraduate at VIT Bhopal with a strong drive to innovate, automate, and scale solutions at the intersection of development and operations. I'm working toward a career in DevOps, blending my experience in full-stack development, cloud infrastructure, and automation to build robust, deployable systems.
+                </p>
+                <div class="mt-10 flex flex-wrap justify-center items-center gap-6">
+                    <a href="https://raw.githubusercontent.com/omkarmm19/Resume-Omkar/main/Omkar%20Mahesh.pdf" target="_blank" download="Omkar-Mahesh-Resume.pdf" class="inline-flex items-center gap-2 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
+                        <i class="fas fa-file-arrow-down"></i>
+                        View Resume
+                    </a>
+                    <div class="flex items-center space-x-6 text-3xl text-gray-500 dark:text-gray-400">
+                        <a id="linkedin-link" href="" target="_blank" class="hover:text-[var(--accent-primary)] transition-colors"><i class="fab fa-linkedin"></i></a>
+                        <a id="github-link" href="" target="_blank" class="hover:text-[var(--accent-primary)] transition-colors"><i class="fab fa-github"></i></a>
+                        <a id="leetcode-link" href="" target="_blank" class="hover:text-[var(--accent-primary)] transition-colors"><i class="fa-solid fa-code"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 bg-[var(--bg-secondary)]">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="section-title">Technical Skill Matrix</h2>
+                    <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">
+                        My expertise across multiple domains. Hover over a skill to see my proficiency.
+                    </p>
+                </div>
+                <div id="skills-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    <!-- Skills will be injected here by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Timeline -->
+        <section id="experience" class="py-20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                 <div class="text-center mb-16 reveal">
+                    <h2 class="section-title">Professional Journey</h2>
+                    <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">
+                       My journey in tech has been defined by hands-on learning and contribution.
+                    </p>
+                </div>
+                <div id="experience-timeline-container" class="relative max-w-3xl mx-auto">
+                    <div class="absolute left-4 md:left-1/2 -translate-x-1/2 top-0 h-full w-0.5 bg-[var(--border-color)]">
+                        <div id="experience-timeline-line" class="w-full bg-gradient-to-b from-[var(--accent-primary)] to-[var(--accent-secondary)] timeline-line-animated"></div>
+                    </div>
+                    <!-- Timeline items will be injected by JS -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Projects Showcase -->
+        <section id="projects" class="py-20 bg-[var(--bg-secondary)]">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                 <div class="text-center mb-16 reveal">
+                    <h2 class="section-title">Project Showcase</h2>
+                    <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">
+                        Highlights of my work where I've transformed ideas into functional applications.
+                    </p>
+                </div>
+                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                   <!-- Project cards will be injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Timeline -->
+        <section id="education" class="py-20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                 <div class="text-center mb-16 reveal">
+                    <h2 class="section-title">Education</h2>
+                    <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">
+                       My academic foundation in Computer Science with a focus on Cloud Computing.
+                    </p>
+                </div>
+                <div id="education-timeline-container" class="relative max-w-3xl mx-auto">
+                    <div class="absolute left-4 md:left-1/2 -translate-x-1/2 top-0 h-full w-0.5 bg-[var(--border-color)]">
+                         <div id="education-timeline-line" class="w-full bg-gradient-to-b from-[var(--accent-primary)] to-[var(--accent-secondary)] timeline-line-animated"></div>
+                    </div>
+                    <!-- Education items will be injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section id="certifications" class="py-20 bg-[var(--bg-secondary)]">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                 <div class="text-center mb-16 reveal">
+                    <h2 class="section-title">Licenses & Certifications</h2>
+                     <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">
+                       My commitment to continuous learning, validated by industry credentials.
+                    </p>
+                </div>
+                <div id="certifications-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    <!-- Certifications will be injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements -->
+        <section id="achievements" class="py-20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                 <div class="text-center mb-16 reveal">
+                    <h2 class="section-title">Key Achievements</h2>
+                     <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">
+                       Highlights of my accomplishments in competitive programming and leadership.
+                    </p>
+                </div>
+                <div id="achievements-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <!-- Achievements will be injected by JS -->
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-800 dark:bg-gray-900 text-gray-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center">
+                <h2 class="text-4xl font-bold text-white">Get In Touch</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-lg">I'm actively seeking new opportunities and collaborations. Feel free to reach out directly or use the contact form for more detailed inquiries.</p>
+            </div>
+            
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-start max-w-4xl mx-auto">
+                <!-- Direct Contact -->
+                <div class="text-center md:text-left">
+                    <h3 class="text-2xl font-bold text-white mb-4">Contact Me Directly</h3>
+                    <div class="space-y-4 text-lg">
+                        <div class="flex items-center justify-center md:justify-start gap-3">
+                            <i class="fas fa-envelope text-[var(--accent-primary)] text-xl w-6 text-center"></i>
+                            <a href="mailto:omkarmahesh12345@gmail.com" class="hover:underline">omkarmahesh12345@gmail.com</a>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start gap-3">
+                            <i class="fas fa-phone text-[var(--accent-primary)] text-xl w-6 text-center"></i>
+                            <span>+91 7019936868</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google Form -->
+                <div class="text-center md:text-left">
+                     <h3 class="text-2xl font-bold text-white mb-4">Send an Inquiry</h3>
+                     <p class="text-gray-400 mb-4">For project proposals or formal inquiries, please use the button below.</p>
+                     <a href="https://forms.gle/V4AaUsNXDPzP8kHJ8" target="_blank" class="inline-block bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-indigo-500/50">
+                        Open Inquiry Form
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-16 border-t border-gray-700 pt-8 text-sm text-gray-400 text-center">
+                <p>&copy; 2025 Omkar Mahesh. Designed & Built with &hearts;.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const resumeData = {
+                profileImage: '/main.jpg',
+                links: {
+                    linkedin: 'https://www.linkedin.com/in/omkar-mahesh-a99b70289/',
+                    github: 'https://github.com/omkarmm19',
+                    leetcode: 'https://leetcode.com/u/omkarmm19/'
+                },
+                skills: [
+                    { category: 'Languages', items: ['Java', 'Python', 'C++', 'JavaScript', 'TypeScript', 'SQL'], proficiency: [90, 85, 80, 85, 75, 75] },
+                    { category: 'Frontend/Backend', items: ['React.js', 'Next.js', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS', 'REST APIs'], proficiency: [85, 85, 80, 75, 75, 95, 85] },
+                    { category: 'Cloud/DevOps', items: ['AWS', 'Google Cloud', 'Firebase', 'Docker', 'Terraform', 'Ansible', 'CI/CD', 'Grafana', 'Linux'], proficiency: [75, 70, 85, 75, 65, 60, 70, 65, 80] },
+                    { category: 'AI', items: ['OpenAI API', 'Gen AI & LLMs', 'Prompt Engineering', 'Vertex AI', 'Streamlit'], proficiency: [80, 85, 90, 70, 75] },
+                    { category: 'Developer Tools', items: ['Git & GitHub', 'Postman', 'VS Code', 'Figma'], proficiency: [90, 85, 95, 70] },
+                ],
+                experience: [
+                     {
+                        role: 'Web Development Intern',
+                        company: 'Coding Samurai',
+                        date: 'May 2025 - Jun 2025',
+                        desc: 'Fused full-stack development with cloud-native architecture to build and deploy scalable web applications. Engineered interactive frontends using Next.js and React, consuming Firebase cloud services for real-time databases and authentication.',
+                        icon: 'fa-solid fa-code'
+                    },
+                    {
+                        role: 'Open Source Contributor',
+                        company: 'GSSoC & Hacktoberfest \'24',
+                        date: '2024',
+                        desc: 'Contributed to various open-source projects, fixing critical frontend and backend issues. Gained expertise in full-stack development and collaborative workflows on GitHub.',
+                        icon: 'fa-solid fa-code-pull-request'
+                    }
+                ],
+                education: [
+                    {
+                        role: 'B.Tech, CSE (Cloud Computing & Automation)',
+                        company: 'VIT Bhopal University',
+                        date: '2023 - 2027',
+                        desc: 'Pursuing a comprehensive curriculum with a focus on core computer science fundamentals, cloud technologies, and software development. Maintained a CGPA of 8.38.',
+                        icon: 'fa-solid fa-graduation-cap'
+                    }
+                ],
+                projects: [
+                    {
+                        title: 'Place Prep - AI Voice Interview Platform',
+                        desc: 'Engineered a full-stack AI interview simulator using Next.js, providing users with realistic voice-based practice and instant, AI-driven performance feedback.',
+                        tech: ['Next.js', 'React', 'Tailwind', 'OpenAI API', 'Deepgram'],
+                        image: 'https://placehold.co/600x400/111827/9ca3af?text=Place+Prep'
+                    },
+                    {
+                        title: 'NewsVITaa - Event Management System',
+                        desc: 'Architected a scalable, serverless backend using the Firebase suite and engineered a responsive UI with React.js to streamline event discovery and registration.',
+                        tech: ['React.js', 'Firebase', 'JavaScript (ES6+)'],
+                        image: 'https://placehold.co/600x400/111827/9ca3af?text=NewsVITaa'
+                    }
+                ],
+                certifications: [
+                    { title: 'DevOps, Agile & Design Thinking', issuer: 'IBM', icon: 'fa-solid fa-brain'},
+                    { title: 'Azure Data Fundamentals', issuer: 'Microsoft', icon: 'fa-brands fa-microsoft'},
+                    { title: 'DevOps Fundamentals', issuer: 'IBM', icon: 'fa-solid fa-infinity'},
+                    { title: 'Gen AI Academy', issuer: 'Google', icon: 'fa-brands fa-google'},
+                    { title: 'API Fundamentals Expert', issuer: 'Postman', icon: 'fa-solid fa-rocket'},
+                    { title: 'Data Visualization', issuer: 'TATA Forage', icon: 'fa-solid fa-chart-bar'},
+                    { title: 'Fundamentals Of AIML', issuer: 'Vityarthi', icon: 'fa-solid fa-robot'},
+                    { title: 'Python Essentials', issuer: 'Vityarthi', icon: 'fa-brands fa-python'}
+                ],
+                achievements: [
+                    { title: '1st Rank in Google Gen AI Exchange', issuer: 'Google Program 2025', icon: 'fa-solid fa-trophy', spotlight: true},
+                    { title: 'Leetcode DSA 100 Days Challenge', issuer: 'Completed in Java', icon: 'fa-solid fa-laptop-code', spotlight: false},
+                    { title: 'Event Management Lead', issuer: 'Mozilla Firefox & VITKult Clubs', icon: 'fa-solid fa-users', spotlight: false},
+                ]
+            };
+
+            // Populate Hero Section
+            document.getElementById('linkedin-link').href = resumeData.links.linkedin;
+            document.getElementById('github-link').href = resumeData.links.github;
+            document.getElementById('leetcode-link').href = resumeData.links.leetcode;
+
+            // Theme Toggle Logic
+            const themeToggle = document.getElementById('theme-toggle');
+            const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+            const sunIcon = document.getElementById('theme-icon-sun');
+            const moonIcon = document.getElementById('theme-icon-moon');
+            const htmlEl = document.documentElement;
+
+            const applyTheme = (theme) => {
+                if (theme === 'dark') {
+                    htmlEl.classList.add('dark');
+                    sunIcon.classList.add('hidden');
+                    moonIcon.classList.remove('hidden');
+                } else {
+                    htmlEl.classList.remove('dark');
+                    sunIcon.classList.remove('hidden');
+                    moonIcon.classList.add('hidden');
+                }
+            };
+
+            const toggleTheme = () => {
+                const currentTheme = localStorage.getItem('theme') || 'light';
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                localStorage.setItem('theme', newTheme);
+                applyTheme(newTheme);
+            };
+
+            themeToggle.addEventListener('click', toggleTheme);
+            mobileThemeToggle.addEventListener('click', toggleTheme);
+            
+            const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            applyTheme(savedTheme);
+
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            mobileMenu.addEventListener('click', (e) => {
+                if(e.target.tagName === 'A') mobileMenu.classList.add('hidden');
+            });
+
+            // Skills Bento Grid Population
+            const skillsGrid = document.getElementById('skills-grid');
+            resumeData.skills.forEach(skillCategory => {
+                const bentoBox = document.createElement('div');
+                bentoBox.className = 'bg-[var(--card-bg)] p-6 rounded-xl shadow-lg reveal border border-[var(--border-color)] transition-all duration-300 hover:shadow-indigo-500/20 hover:-translate-y-1';
+                
+                let itemsHtml = skillCategory.items.map((item, index) => {
+                    const proficiency = skillCategory.proficiency[index];
+                    return `
+                        <div class="skill-item relative">
+                            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium px-3 py-1 rounded-full cursor-default">${item}</span>
+                            <div class="tooltip absolute bottom-full mb-2 w-48 bg-gray-800 text-white text-xs rounded-lg p-2 z-10 left-1/2 -translate-x-1/2 shadow-xl">
+                                <p class="font-bold text-center">${item}</p>
+                                <p class="text-center text-gray-300">Proficiency: ${proficiency}%</p>
+                                <div class="w-full bg-gray-600 rounded-full h-1.5 mt-1">
+                                    <div class="bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] h-1.5 rounded-full" style="width: ${proficiency}%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                bentoBox.innerHTML = `
+                    <h3 class="text-xl font-bold mb-4">${skillCategory.category}</h3>
+                    <div class="flex flex-wrap gap-2">
+                        ${itemsHtml}
+                    </div>
+                `;
+                skillsGrid.appendChild(bentoBox);
+            });
+
+            // Generic Timeline Populator
+            function populateTimeline(containerId, data) {
+                const timelineContainer = document.getElementById(containerId);
+                if (!timelineContainer) return;
+                timelineContainer.innerHTML = '';
+                data.forEach((item, index) => {
+                    const timelineItem = document.createElement('div');
+                    timelineItem.className = `relative pl-12 md:pl-0 md:flex md:justify-between md:items-center w-full mb-8 reveal`;
+                    
+                    const contentBlock = `
+                        <div class="bg-[var(--card-bg)] rounded-lg shadow-md px-6 py-4 w-full md:w-5/12 border border-[var(--border-color)] transition-all duration-300 hover:shadow-indigo-500/20 hover:border-[var(--accent-primary)]">
+                            <p class="text-sm font-medium gradient-text">${item.date}</p>
+                            <h3 class="mb-1 font-bold text-lg">${item.role}</h3>
+                            <p class="mb-2 font-semibold text-[var(--text-secondary)]">${item.company}</p>
+                            <p class="text-sm leading-snug tracking-wide text-[var(--text-secondary)]">${item.desc}</p>
+                        </div>
+                    `;
+                    
+                    const iconBlock = `
+                        <div class="z-20 absolute left-4 md:left-1/2 top-1 -translate-x-1/2 flex items-center justify-center bg-gradient-to-br from-[var(--accent-primary)] to-[var(--accent-secondary)] shadow-xl w-10 h-10 rounded-full">
+                            <i class="${item.icon} text-white mx-auto text-lg"></i>
+                        </div>
+                    `;
+
+                    if (index % 2 === 0) {
+                        timelineItem.innerHTML = `<div class="md:order-1 timeline-item-left">${contentBlock}</div><div class="md:order-2">${iconBlock}</div><div class="md:order-3 w-5/12 hidden md:block"></div>`;
+                    } else {
+                         timelineItem.innerHTML = `<div class="md:order-3 timeline-item-right">${contentBlock}</div><div class="md:order-2">${iconBlock}</div><div class="md:order-1 w-5/12 hidden md:block"></div>`;
+                    }
+                    timelineContainer.appendChild(timelineItem);
+                });
+            }
+
+            populateTimeline('experience-timeline-container', resumeData.experience);
+            populateTimeline('education-timeline-container', resumeData.education);
+            
+            // Populate Projects
+            const projectsGrid = document.getElementById('projects-grid');
+            projectsGrid.innerHTML = '';
+            resumeData.projects.forEach(project => {
+                const projectCard = document.createElement('div');
+                projectCard.className = 'bg-[var(--card-bg)] rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 reveal border border-[var(--border-color)] flex flex-col';
+                projectCard.innerHTML = `
+                    <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold">${project.title}</h3>
+                        <p class="mt-2 text-[var(--text-secondary)] flex-grow">${project.desc}</p>
+                        <div class="mt-6 pt-4 border-t border-[var(--border-color)]">
+                             <h4 class="font-semibold text-sm text-[var(--text-secondary)] mb-2">Core Technologies</h4>
+                             <div class="flex flex-wrap gap-2">
+                                ${project.tech.map(t => `<span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-300 text-xs font-medium px-2.5 py-0.5 rounded-full">${t}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                projectsGrid.appendChild(projectCard);
+            });
+
+            // Populate Certifications
+            const certificationsGrid = document.getElementById('certifications-grid');
+            certificationsGrid.innerHTML = '';
+            resumeData.certifications.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'bg-[var(--card-bg)] p-4 rounded-lg shadow-md flex items-center space-x-4 reveal border border-[var(--border-color)] transition-all duration-300 hover:shadow-indigo-500/20 hover:-translate-y-1';
+                card.innerHTML = `
+                    <div class="flex-shrink-0">
+                        <div class="w-12 h-12 rounded-full bg-indigo-100 dark:bg-gray-700 flex items-center justify-center">
+                            <i class="${item.icon} text-2xl gradient-text"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold">${item.title}</h4>
+                        <p class="text-[var(--text-secondary)] text-sm">${item.issuer}</p>
+                    </div>
+                `;
+                certificationsGrid.appendChild(card);
+            });
+
+            // Populate Achievements
+            const achievementsGrid = document.getElementById('achievements-grid');
+            achievementsGrid.innerHTML = '';
+            resumeData.achievements.forEach(item => {
+                const card = document.createElement('div');
+                const spotlightClass = item.spotlight ? 'md:col-span-2 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white shadow-lg shadow-indigo-500/50' : 'bg-[var(--card-bg)] border border-[var(--border-color)]';
+                const textClass = item.spotlight ? 'text-white' : 'text-[var(--text-primary)]';
+                const subtextClass = item.spotlight ? 'text-indigo-200' : 'text-[var(--text-secondary)]';
+                const iconBg = item.spotlight ? 'bg-white/20' : 'bg-indigo-100 dark:bg-gray-700';
+                const iconText = item.spotlight ? 'text-white' : 'gradient-text';
+
+                card.className = `p-6 rounded-lg shadow-lg flex items-center space-x-4 reveal transition-all duration-300 hover:-translate-y-1 ${spotlightClass}`;
+                card.innerHTML = `
+                    <div class="flex-shrink-0">
+                        <div class="w-12 h-12 rounded-full ${iconBg} flex items-center justify-center">
+                            <i class="${item.icon} text-2xl ${iconText}"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold ${textClass}">${item.title}</h4>
+                        <p class="${subtextClass} text-sm">${item.issuer}</p>
+                    </div>
+                `;
+                achievementsGrid.appendChild(card);
+            });
+
+
+            // Scroll Reveal Logic
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        if (entry.target.id.includes('-timeline-container')) {
+                            entry.target.querySelector('.timeline-line-animated').classList.add('visible');
+                        }
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+            const expTimeline = document.getElementById('experience-timeline-container');
+            const eduTimeline = document.getElementById('education-timeline-container');
+            if(expTimeline) observer.observe(expTimeline);
+            if(eduTimeline) observer.observe(eduTimeline);
+
+        });
+    </script>
+</body>
+</html>
