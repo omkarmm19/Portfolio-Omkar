@@ -9,33 +9,40 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     
     <style>
         :root {
+            /* Light Theme */
             --bg-primary: #ffffff;
-            --bg-secondary: #f7f7f9;
-            --text-primary: #111827;
-            --text-secondary: #4b5563;
-            --accent-primary: #4f46e5;
-            --accent-secondary: #7c3aed;
-            --border-color: #e5e7eb;
+            --bg-secondary: #f0f4f8; /* Slightly softer secondary background */
+            --text-primary: #1a202c; /* Darker text for better contrast */
+            --text-secondary: #4a5568; /* Slightly darker secondary text */
+            --accent-primary: #4c51bf; /* Deeper indigo */
+            --accent-secondary: #667eea; /* Lighter, vibrant indigo */
+            --border-color: #e2e8f0; /* Softer border */
             --card-bg: #ffffff;
+            --shadow-light: rgba(0, 0, 0, 0.08); /* More pronounced light shadow */
+            --shadow-hover-light: rgba(0, 0, 0, 0.12); /* More pronounced hover shadow */
         }
         html.dark {
-            --bg-primary: #111827;
-            --bg-secondary: #1f2937;
-            --text-primary: #f9fafb;
-            --text-secondary: #9ca3af;
-            --accent-primary: #6366f1;
-            --accent-secondary: #a78bfa;
-            --border-color: #374151;
+            /* Dark Theme */
+            --bg-primary: #0a0f18; /* Even darker primary background */
+            --bg-secondary: #161b22;
+            --text-primary: #e2e8f0; /* Lighter text for dark background */
+            --text-secondary: #a0aec0; /* Softer secondary text for dark background */
+            --accent-primary: #6366f1; /* Consistent with light theme */
+            --accent-secondary: #a78bfa; /* Consistent with light theme */
+            --border-color: #2d3748; /* Darker border */
             --card-bg: #1f2937;
+            --shadow-dark: rgba(0, 0, 0, 0.2); /* Darker shadow for dark theme */
+            --shadow-hover-dark: rgba(0, 0, 0, 0.3); /* Darker hover shadow for dark theme */
         }
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-primary);
             color: var(--text-primary);
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out; /* Smoother transition */
         }
         .section-title {
             @apply text-5xl font-extrabold tracking-tight sm:text-6xl;
@@ -58,19 +65,6 @@
             opacity: 1;
             transform: translateY(0);
         }
-        .timeline-line-animated {
-            height: 0;
-            transition: height 1.5s cubic-bezier(0.6, 0.2, 0.1, 1);
-        }
-        .timeline-line-animated.visible {
-            height: 100%;
-        }
-        .skill-item .tooltip {
-            visibility: hidden; opacity: 0; transition: opacity 0.3s, transform 0.3s; transform: translateY(10px);
-        }
-        .skill-item:hover .tooltip {
-            visibility: visible; opacity: 1; transform: translateY(0);
-        }
         @keyframes subtle-gradient {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -85,6 +79,322 @@
              background: linear-gradient(-45deg, var(--bg-primary), #1a2035, var(--bg-primary));
              background-size: 400% 400%;
              animation: subtle-gradient 15s ease infinite;
+        }
+
+        /* === Skill Box Styles === */
+        .skill-box {
+            position: relative;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            background: var(--card-bg);
+            box-shadow: 0 6px 20px 0 var(--shadow-light); /* Improved initial shadow */
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out; /* Smoother transitions */
+        }
+        .skill-box:hover {
+            transform: translateY(-8px); /* More pronounced lift */
+            box-shadow: 0 16px 30px 0 var(--shadow-hover-light); /* More pronounced hover shadow */
+            border-color: var(--accent-primary); /* Highlight border on hover */
+        }
+        html.dark .skill-box {
+            box-shadow: 0 6px 20px 0 var(--shadow-dark);
+        }
+        html.dark .skill-box:hover {
+            box-shadow: 0 16px 30px 0 var(--shadow-hover-dark);
+        }
+
+        @supports (backdrop-filter: blur(24px)) {
+            .skill-box {
+                background: var(--card-bg-transparent, rgba(255, 255, 255, 0.85)); /* Slightly less transparent */
+                -webkit-backdrop-filter: blur(24px);
+                backdrop-filter: blur(24px);
+            }
+        }
+        html.dark .skill-box {
+            --card-bg-transparent: rgba(31, 41, 55, 0.75); /* Slightly less transparent for dark */
+            border-color: rgba(255, 255, 255, 0.15); /* Slightly more visible dark border */
+        }
+        .skill-box::before, .skill-box::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.12; /* Slightly more visible aurora */
+            filter: blur(100px); /* Reduced blur for crisper effect */
+            z-index: -1;
+            transition: opacity 0.5s ease; /* Smooth transition for aurora opacity */
+        }
+        .skill-box:hover::before, .skill-box:hover::after {
+            opacity: 0.18; /* Increased opacity on hover */
+        }
+        .skill-box::before {
+            width: 220px; height: 220px; /* Slightly larger */
+            top: -60px; left: -60px; /* Adjusted position */
+            background: radial-gradient(circle, var(--accent-primary), transparent 80%);
+            animation: move-aurora-1 28s infinite alternate ease-in-out; /* Slower, smoother animation */
+        }
+        .skill-box::after {
+            width: 220px; height: 220px; /* Slightly larger */
+            bottom: -60px; right: -60px; /* Adjusted position */
+            background: radial-gradient(circle, var(--accent-secondary), transparent 80%);
+            animation: move-aurora-2 33s infinite alternate ease-in-out; /* Slower, smoother animation */
+        }
+        @keyframes move-aurora-1 {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(50px, 70px) rotate(200deg); } /* More dynamic movement */
+        }
+        @keyframes move-aurora-2 {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-50px, -70px) rotate(-200deg); } /* More dynamic movement */
+        }
+        .skill-box-title {
+            @apply text-2xl font-bold mb-8 flex items-center;
+            color: var(--text-primary);
+        }
+        /* Using Multi-Column Layout for perfect alignment */
+        .skill-box-content {
+            column-count: 1;
+            column-gap: 2.5rem;
+        }
+        @media (min-width: 500px) {
+            .skill-box-content {
+                column-count: 2;
+            }
+        }
+        .skill-item {
+            @apply flex items-center gap-3 py-2;
+            break-inside: avoid;
+            -webkit-column-break-inside: avoid;
+        }
+        .skill-item i {
+            @apply text-2xl w-6 text-center;
+            color: var(--accent-primary); /* Default for all Font Awesome icons */
+        }
+        /* Devicons will retain their colored versions by default from the devicon stylesheet */
+        .skill-item .devicon-java-plain.colored,
+        .skill-item .devicon-python-plain.colored,
+        .skill-item .devicon-cplusplus-plain.colored,
+        .skill-item .devicon-javascript-plain.colored,
+        .skill-item .devicon-typescript-plain.colored,
+        .skill-item .devicon-html5-plain.colored,
+        .skill-item .devicon-css3-plain.colored,
+        .skill-item .devicon-react-original.colored,
+        .skill-item .devicon-nextjs-original.colored,
+        .skill-item .devicon-tailwindcss-plain.colored,
+        .skill-item .devicon-nodejs-plain.colored,
+        .skill-item .devicon-express-original.colored,
+        .skill-item .devicon-mongodb-plain.colored,
+        .skill-item .devicon-amazonwebservices-plain.colored, /* Changed from original-wordmark */
+        .skill-item .devicon-googlecloud-plain.colored,
+        .skill-item .devicon-linux-plain.colored,
+        .skill-item .devicon-docker-plain.colored,
+        .skill-item .devicon-terraform-plain.colored,
+        .skill-item .devicon-ansible-plain.colored,
+        .skill-item .devicon-git-plain.colored,
+        .skill-item .devicon-github-original.colored,
+        .skill-item .devicon-vscode-plain.colored,
+        .skill-item .devicon-firebase-plain.colored,
+        .skill-item .devicon-figma-plain.colored,
+        .skill-item .devicon-graphql-plain.colored,
+        .skill-item .devicon-prometheus-original.colored {
+            font-size: 1.8rem; /* Consistent size for all icons */
+            color: unset; /* Allow colored devicons to show their default colors */
+        }
+        .skill-item span {
+            @apply font-medium text-base;
+            color: var(--text-secondary);
+        }
+
+        /* Timeline specific styles (Experience & Education) */
+        #experience-timeline-container, #education-timeline-container {
+            position: relative;
+            padding-left: 24px; /* Space for the line on mobile */
+        }
+        
+        #experience-timeline-container > .absolute, 
+        #education-timeline-container > .absolute {
+            left: 24px; /* Adjust line position for mobile */
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            display: flex;
+            align-items: center; /* Vertically align icon with content */
+            width: 100%;
+            margin-bottom: 2.5rem; /* Space between items */
+            padding-left: 48px; /* Space for the absolute icon */
+            box-sizing: border-box; /* Include padding in width calculation */
+        }
+        
+        .timeline-item-icon {
+            position: absolute;
+            left: 0; /* Align to the left edge of the .timeline-item's padding */
+            top: 50%; /* Center vertically */
+            transform: translateY(-50%);
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to bottom right, var(--accent-primary), var(--accent-secondary));
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.6rem;
+            flex-shrink: 0;
+        }
+
+        .timeline-item-content {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            box-shadow: 0 4px 15px var(--shadow-light);
+            padding: 1.75rem;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out;
+            flex-grow: 1; /* Allow content to fill remaining space */
+        }
+        html.dark .timeline-item-content {
+            box-shadow: 0 4px 15px var(--shadow-dark);
+        }
+        .timeline-item-content:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px var(--shadow-hover-light);
+            border-color: var(--accent-primary);
+        }
+        html.dark .timeline-item-content:hover {
+            box-shadow: 0 8px 20px var(--shadow-hover-dark);
+        }
+        /* Custom list styles for Education section */
+        .timeline-item-content ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 0.75rem;
+        }
+        .timeline-item-content li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        .timeline-item-content li::before {
+            content: '\f058'; /* Font Awesome check-circle icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--accent-primary);
+        }
+
+        @media (min-width: 768px) {
+            #experience-timeline-container, #education-timeline-container {
+                padding-left: 0; /* Remove mobile padding */
+            }
+
+            #experience-timeline-container > .absolute, 
+            #education-timeline-container > .absolute {
+                left: 50%; /* Center line on desktop */
+                transform: translateX(-50%);
+            }
+
+            .timeline-item {
+                display: flex; /* Ensure flex behavior */
+                justify-content: space-between; /* Distribute items */
+                align-items: center;
+                padding-left: 0; /* Remove mobile-specific padding */
+                width: 100%; /* Take full width */
+            }
+
+            .timeline-item-content {
+                width: 45%; /* Each content block takes 45% of width */
+                max-width: none; /* Override max-width set for mobile */
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-item-content {
+                margin-right: calc(50% - 24px); /* Pushes content to the left of the line, accounting for icon width */
+                margin-left: 0;
+            }
+
+            .timeline-item:nth-child(even) .timeline-item-content {
+                margin-left: calc(50% - 24px); /* Pushes content to the right of the line, accounting for icon width */
+                margin-right: 0;
+            }
+
+            .timeline-item-icon {
+                left: 50%; /* Center the icon relative to the parent (which is full width) */
+                transform: translate(-50%, -50%); /* Truly center the icon */
+            }
+        }
+
+        /* Project & Certification Cards */
+        .project-card, .certification-card {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            box-shadow: 0 6px 20px 0 var(--shadow-light);
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out;
+            border: 1px solid var(--border-color);
+        }
+        html.dark .project-card, html.dark .certification-card {
+            box-shadow: 0 6px 20px 0 var(--shadow-dark);
+        }
+        .project-card:hover, .certification-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 30px 0 var(--shadow-hover-light);
+            border-color: var(--accent-primary);
+        }
+        html.dark .project-card:hover, html.dark .certification-card:hover {
+            box-shadow: 0 16px 30px 0 var(--shadow-hover-dark);
+        }
+        .project-card img {
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+        }
+        .certification-card .icon-wrapper {
+            background-color: var(--bg-secondary); /* Slightly different background for icon wrapper */
+            transition: background-color 0.3s ease-out;
+        }
+        .certification-card:hover .icon-wrapper {
+            background-color: var(--accent-primary); /* Change background on hover */
+        }
+        .certification-card .gradient-text {
+            transition: -webkit-text-fill-color 0.3s ease-out;
+        }
+        .certification-card:hover .gradient-text {
+            -webkit-text-fill-color: white; /* Change icon color on hover */
+        }
+        
+        /* Achievement Cards */
+        .achievement-card {
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 15px var(--shadow-light);
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+        }
+        html.dark .achievement-card {
+            box-shadow: 0 4px 15px var(--shadow-dark);
+        }
+        .achievement-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px var(--shadow-hover-light);
+        }
+        html.dark .achievement-card:hover {
+            box-shadow: 0 8px 20px var(--shadow-hover-dark);
+        }
+        .achievement-card.spotlight {
+            background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            box-shadow: 0 8px 25px var(--accent-primary), 0 0 40px rgba(0,0,0,0.1); /* Enhanced spotlight shadow */
+        }
+        .achievement-card.spotlight:hover {
+            box-shadow: 0 12px 35px var(--accent-primary), 0 0 50px rgba(0,0,0,0.15);
+            transform: translateY(-6px);
+        }
+        .achievement-card.spotlight .icon-bg {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
         }
     </style>
 </head>
@@ -129,7 +439,7 @@
                 <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">Omkar Mahesh</h1>
                 <p class="mt-4 text-xl md:text-2xl font-semibold gradient-text">Aspiring DevOps Engineer | Full-Stack Developer | Cloud & GenAI Enthusiast</p>
                 <p class="mt-8 max-w-3xl mx-auto text-lg text-[var(--text-secondary)]">
-                    I’m a Computer Science undergraduate at VIT Bhopal with a strong drive to innovate, automate, and scale solutions at the intersection of development and operations. I'm working toward a career in DevOps, blending my experience in full-stack development, cloud infrastructure, and automation to build robust, deployable systems.
+                    Mastering the synergy between code, cloud, and automation. With a core of elite DSA expertise, I deliver end-to-end excellence in Full-Stack development (MERN & Next.js), implement resilient Cloud-native systems, and drive efficiency through advanced DevOps pipelines. My goal is to deliver not just features, but a competitive advantage.
                 </p>
                 <div class="mt-10 flex flex-wrap justify-center items-center gap-6">
                     <a href="https://raw.githubusercontent.com/omkarmm19/Resume-Omkar/main/Omkar%20Mahesh.pdf" target="_blank" download="Omkar-Mahesh-Resume.pdf" class="inline-flex items-center gap-2 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
@@ -149,83 +459,138 @@
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 reveal">
                     <h2 class="section-title">Technical Skill Matrix</h2>
-                    <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">
-                        My expertise across multiple domains. Hover over a skill to see my proficiency.
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-[var(--text-secondary)]">
+                        A comprehensive overview of my capabilities across development, cloud infrastructure, and automation.
                     </p>
                 </div>
-                <div id="skills-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                    <div class="skill-box reveal">
+                        <h3 class="skill-box-title"><i class="fas fa-code mr-4"></i>Languages</h3>
+                        <div class="skill-box-content">
+                            <div class="skill-item"><i class="devicon-java-plain colored"></i><span>Java</span></div>
+                            <div class="skill-item"><i class="devicon-python-plain colored"></i><span>Python</span></div>
+                            <div class="skill-item"><i class="devicon-cplusplus-plain colored"></i><span>C++</span></div>
+                            <div class="skill-item"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
+                            <div class="skill-item"><i class="devicon-typescript-plain colored"></i><span>TypeScript</span></div>
+                            <div class="skill-item"><i class="fas fa-database"></i><span>SQL</span></div>
+                            <div class="skill-item"><i class="devicon-html5-plain colored"></i><span>HTML</span></div>
+                            <div class="skill-item"><i class="devicon-css3-plain colored"></i><span>CSS</span></div>
+                        </div>
                     </div>
+                    <div class="skill-box reveal">
+                        <h3 class="skill-box-title"><i class="fas fa-cloud-upload-alt mr-4"></i>Cloud & DevOps</h3>
+                        <div class="skill-box-content">
+                            <div class="skill-item"><i class="devicon-amazonwebservices-plain colored"></i><span>AWS</span></div>
+                            <div class="skill-item"><i class="devicon-googlecloud-plain colored"></i><span>Google Cloud (GCP)</span></div>
+                            <div class="skill-item"><i class="devicon-linux-plain colored"></i><span>Linux</span></div>
+                            <div class="skill-item"><i class="devicon-docker-plain colored"></i><span>Docker</span></div>
+                            <div class="skill-item"><i class="fas fa-sync-alt"></i><span>CI/CD</span></div>
+                            <div class="skill-item"><i class="devicon-terraform-plain colored"></i><span>Terraform</span></div>
+                            <div class="skill-item"><i class="devicon-ansible-plain colored"></i><span>Ansible</span></div>
+                            <div class="skill-item"><i class="devicon-grafana-plain colored"></i><span>Grafana</span></div>
+                            <div class="skill-item"><i class="fas fa-people-carry-box"></i><span>Scrum</span></div>
+                        </div>
+                    </div>
+                    <div class="skill-box reveal">
+                        <h3 class="skill-box-title"><i class="fas fa-layer-group mr-4"></i>Frontend & Backend</h3>
+                        <div class="skill-box-content">
+                            <div class="skill-item"><i class="devicon-react-original colored"></i><span>React.js</span></div>
+                            <div class="skill-item"><i class="devicon-nextjs-original colored"></i><span>Next.js</span></div>
+                            <div class="skill-item"><i class="devicon-tailwindcss-plain colored"></i><span>Tailwind CSS</span></div>
+                            <div class="skill-item"><i class="devicon-nodejs-plain colored"></i><span>Node.js</span></div>
+                            <div class="skill-item"><i class="devicon-express-original colored"></i><span>Express.js</span></div>
+                            <div class="skill-item"><i class="devicon-mongodb-plain colored"></i><span>MongoDB</span></div>
+                            <div class="skill-item"><i class="fas fa-bolt"></i><span>REST APIs</span></div>
+                        </div>
+                    </div>
+                    <div class="skill-box reveal">
+                        <h3 class="skill-box-title"><i class="fas fa-brain mr-4"></i>DSA & Foundations</h3>
+                        <div class="skill-box-content">
+                            <div class="skill-item"><i class="fas fa-check-double"></i><span>DSA (Java)</span></div>
+                            <div class="skill-item"><i class="fas fa-puzzle-piece"></i><span>Advanced Problem Solving</span></div>
+                            <div class="skill-item"><i class="fas fa-chart-line"></i><span>Algorithmic Analysis</span></div>
+                            <div class="skill-item"><i class="fas fa-object-group"></i><span>OOPS Concepts</span></div>
+                            <div class="skill-item"><i class="fas fa-memory"></i><span>Operating Systems (OS)</span></div>
+                            <div class="skill-item"><i class="fas fa-database"></i><span>DBMS</span></div>
+                            <div class="skill-item"><i class="fas fa-network-wired"></i><span>Computer Networks (CN)</span></div>
+                        </div>
+                    </div>
+                    <div class="skill-box reveal">
+                        <h3 class="skill-box-title"><i class="fas fa-tools mr-4"></i>Developer Tools</h3>
+                        <div class="skill-box-content">
+                            <div class="skill-item"><i class="devicon-git-plain colored"></i><span>Git</span></div>
+                            <div class="skill-item"><i class="devicon-github-original colored"></i><span>GitHub</span></div>
+                            <div class="skill-item"><i class="devicon-vscode-plain colored"></i><span>VSCode</span></div>
+                            <div class="skill-item"><i class="fas fa-paper-plane"></i><span>Postman API</span></div>
+                            <div class="skill-item"><i class="devicon-firebase-plain colored"></i><span>Firebase</span></div>
+                            <div class="skill-item"><i class="devicon-figma-plain colored"></i><span>Figma</span></div>
+                        </div>
+                    </div>
+                    <div class="skill-box reveal">
+                        <h3 class="skill-box-title"><i class="fas fa-robot mr-4"></i>AI & Machine Learning</h3>
+                        <div class="skill-box-content">
+                            <div class="skill-item"><i class="fas fa-lightbulb"></i><span>OpenAI API</span></div>
+                            <div class="skill-item"><i class="fas fa-brain"></i><span>LLMs & GenAI</span></div>
+                            <div class="skill-item"><i class="fas fa-keyboard"></i><span>Prompt Engineering</span></div>
+                            <div class="skill-item"><i class="fas fa-retweet"></i><span>RAG Systems</span></div>
+                            <div class="skill-item"><i class="fas fa-stream"></i><span>Streamlit</span></div>
+                            <div class="skill-item"><i class="fas fa-cloud"></i><span>Vertex AI</span></div>
+                            <div class="skill-item"><i class="fas fa-terminal"></i><span>Google Cloud SDK</span></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="experience" class="py-20">
+        <section id="experience" class="py-20 bg-[var(--bg-primary)]">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                 <div class="text-center mb-16 reveal">
+                <div class="text-center mb-16 reveal">
                     <h2 class="section-title">Professional Journey</h2>
-                    <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">
-                       My journey in tech has been defined by hands-on learning and contribution.
-                    </p>
+                    <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">My journey in tech has been defined by hands-on learning, tangible results, and continuous improvement.</p>
                 </div>
                 <div id="experience-timeline-container" class="relative max-w-3xl mx-auto">
-                    <div class="absolute left-4 md:left-1/2 -translate-x-1/2 top-0 h-full w-0.5 bg-[var(--border-color)]">
-                        <div id="experience-timeline-line" class="w-full bg-gradient-to-b from-[var(--accent-primary)] to-[var(--accent-secondary)] timeline-line-animated"></div>
-                    </div>
                     </div>
             </div>
         </section>
         
         <section id="projects" class="py-20 bg-[var(--bg-secondary)]">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                 <div class="text-center mb-16 reveal">
+                <div class="text-center mb-16 reveal">
                     <h2 class="section-title">Project Showcase</h2>
-                    <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">
-                        Highlights of my work where I've transformed ideas into functional applications.
-                    </p>
+                    <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">Highlights of my work where I've transformed ideas into functional applications.</p>
                 </div>
-                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                   </div>
+                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"></div>
             </div>
         </section>
 
-        <section id="education" class="py-20">
+        <section id="education" class="py-20 bg-[var(--bg-primary)]">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                 <div class="text-center mb-16 reveal">
-                    <h2 class="section-title">Education</h2>
-                    <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">
-                       My academic foundation in Computer Science with a focus on Cloud Computing.
-                    </p>
+                <div class="text-center mb-16 reveal">
+                    <h2 class="section-title">Academic Foundation</h2>
+                    <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">Grounding my practical skills in core Computer Science principles with a specialization in Cloud and Automation.</p>
                 </div>
                 <div id="education-timeline-container" class="relative max-w-3xl mx-auto">
-                    <div class="absolute left-4 md:left-1/2 -translate-x-1/2 top-0 h-full w-0.5 bg-[var(--border-color)]">
-                         <div id="education-timeline-line" class="w-full bg-gradient-to-b from-[var(--accent-primary)] to-[var(--accent-secondary)] timeline-line-animated"></div>
-                    </div>
                     </div>
             </div>
         </section>
 
         <section id="certifications" class="py-20 bg-[var(--bg-secondary)]">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                 <div class="text-center mb-16 reveal">
+                <div class="text-center mb-16 reveal">
                     <h2 class="section-title">Licenses & Certifications</h2>
-                     <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">
-                       My commitment to continuous learning, validated by industry credentials.
-                    </p>
+                    <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">My commitment to continuous learning, validated by industry credentials.</p>
                 </div>
-                <div id="certifications-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                    </div>
+                <div id="certifications-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"></div>
             </div>
         </section>
 
-        <section id="achievements" class="py-20">
+        <section id="achievements" class="py-20 bg-[var(--bg-primary)]">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                 <div class="text-center mb-16 reveal">
+                <div class="text-center mb-16 reveal">
                     <h2 class="section-title">Key Achievements</h2>
-                     <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">
-                       Highlights of my accomplishments in competitive programming and leadership.
-                    </p>
+                    <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">Highlights of my accomplishments in competitive programming and leadership.</p>
                 </div>
-                <div id="achievements-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                    </div>
+                <div id="achievements-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"></div>
             </div>
         </section>
     </main>
@@ -234,9 +599,8 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div class="text-center">
                 <h2 class="text-4xl font-bold text-white">Get In Touch</h2>
-                <p class="mt-4 max-w-2xl mx-auto text-lg">I'm actively seeking new opportunities and collaborations. Feel free to reach out directly or use the contact form for more detailed inquiries.</p>
+                <p class="mt-4 max-w-2xl mx-auto text-lg">I'm actively seeking new opportunities and collaborations. Feel free to reach out directly.</p>
             </div>
-            
             <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-start max-w-4xl mx-auto">
                 <div class="text-center md:text-left">
                     <h3 class="text-2xl font-bold text-white mb-4">Contact Me Directly</h3>
@@ -251,18 +615,14 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="text-center md:text-left">
                      <h3 class="text-2xl font-bold text-white mb-4">Send an Inquiry</h3>
                      <p class="text-gray-400 mb-4">For project proposals or formal inquiries, please use the button below.</p>
-                     <a href="https://forms.gle/V4AaUsNXDPzP8kHJ8" target="_blank" class="inline-block bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-indigo-500/50">
-                        Open Inquiry Form
-                    </a>
+                     <a href="https://forms.gle/V4AaUsNXDPzP8kHJ8" target="_blank" class="inline-block bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-indigo-500/50">Open Inquiry Form</a>
                 </div>
             </div>
-
             <div class="mt-16 border-t border-gray-700 pt-8 text-sm text-gray-400 text-center">
-                <p>&copy; 2025 Omkar Mahesh. Designed & Built with &hearts;.</p>
+                <p>&copy; <span id="current-year">2025</span> Omkar Mahesh. Designed & Built with &hearts;.</p>
             </div>
         </div>
     </footer>
@@ -271,42 +631,41 @@
         document.addEventListener('DOMContentLoaded', function() {
             
             const resumeData = {
-                profileImage: '/main.jpg',
                 links: {
                     linkedin: 'https://www.linkedin.com/in/omkar-mahesh-a99b70289/',
                     github: 'https://github.com/omkarmm19',
                     leetcode: 'https://leetcode.com/u/omkarmm19/'
                 },
-                skills: [
-                    { category: 'Languages', items: ['Java', 'Python', 'C++', 'JavaScript', 'TypeScript', 'SQL'], proficiency: [90, 85, 80, 85, 75, 75] },
-                    { category: 'Frontend/Backend', items: ['React.js', 'Next.js', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS', 'REST APIs'], proficiency: [85, 85, 80, 75, 75, 95, 85] },
-                    { category: 'Cloud/DevOps', items: ['AWS', 'Google Cloud', 'Firebase', 'Docker', 'Terraform', 'Ansible', 'CI/CD', 'Grafana', 'Linux'], proficiency: [75, 70, 85, 75, 65, 60, 70, 65, 80] },
-                    { category: 'AI', items: ['OpenAI API', 'Gen AI & LLMs', 'Prompt Engineering', 'Vertex AI', 'Streamlit'], proficiency: [80, 85, 90, 70, 75] },
-                    { category: 'Developer Tools', items: ['Git & GitHub', 'Postman', 'VS Code', 'Figma'], proficiency: [90, 85, 95, 70] },
-                ],
+                // =========== UPDATED EXPERIENCE DATA (Removed Freelance) ===========
                 experience: [
-                     {
-                        role: 'Web Development Intern',
-                        company: 'Coding Samurai',
-                        date: 'May 2025 - Jun 2025',
-                        desc: 'Fused full-stack development with cloud-native architecture to build and deploy scalable web applications. Engineered interactive frontends using Next.js and React, consuming Firebase cloud services for real-time databases and authentication.',
-                        icon: 'fa-solid fa-code'
+                    { 
+                        role: 'Web Development Intern', 
+                        company: 'Coding Samurai', 
+                        date: 'July 2025 - August 2025', 
+                        desc: 'Architected and deployed a scalable, full-stack event management web application. Leveraged Next.js for SSR and performance, integrated Firebase for real-time database and auth, and deployed on Vercel, resulting in a 30% reduction in average page load time.', 
+                        icon: 'fa-solid fa-code' 
                     },
-                    {
-                        role: 'Open Source Contributor',
-                        company: 'GSSoC & Hacktoberfest \'24',
-                        date: '2024',
-                        desc: 'Contributed to various open-source projects, fixing critical frontend and backend issues. Gained expertise in full-stack development and collaborative workflows on GitHub.',
-                        icon: 'fa-solid fa-code-pull-request'
+                    { 
+                        role: 'Open Source Contributor', 
+                        company: 'GSSoC & Hacktoberfest \'24', 
+                        date: '2024', 
+                        desc: 'Actively contributed to 5+ open-source projects. Merged 15+ pull requests, resolving critical bugs and adding features. Enhanced UI components in React and optimized backend API endpoints in Node.js, improving application responsiveness and maintainability.', 
+                        icon: 'fa-solid fa-code-pull-request' 
                     }
                 ],
+                // =========== ORIGINAL EDUCATION DATA (Restored) ===========
                 education: [
-                    {
-                        role: 'B.Tech, CSE (Cloud Computing & Automation)',
-                        company: 'VIT Bhopal University',
-                        date: '2023 - 2027',
-                        desc: 'Pursuing a comprehensive curriculum with a focus on core computer science fundamentals, cloud technologies, and software development. Maintained a CGPA of 8.38.',
-                        icon: 'fa-solid fa-graduation-cap'
+                    { 
+                        role: 'B.Tech, CSE (Cloud Computing & Automation)', 
+                        company: 'VIT Bhopal University', 
+                        date: '2023 - 2027', 
+                        desc: `<ul>
+                                   <li>CGPA: <strong>8.38/10.0</strong></li>
+                                   <li><strong>Relevant Coursework:</strong> Data Structures & Algorithms, OOPS, Operating Systems, Computer Networks, Database Management Systems.</li>
+                                   <li><strong>Key Skills:</strong> Gained hands-on experience in Full-Stack Development, Cloud service management (AWS/GCP), and CI/CD pipeline implementation.</li>
+                                   <li><strong>Leadership:</strong> Event Management Lead for the Mozilla Firefox Club, organizing technical workshops and coding events for 500+ students.</li>
+                               </ul>`, 
+                        icon: 'fa-solid fa-graduation-cap' 
                     }
                 ],
                 projects: [
@@ -320,9 +679,16 @@
                     {
                         title: 'NewsVITaa - Event Management System',
                         desc: 'Architected a scalable, serverless backend using the Firebase suite and engineered a responsive UI with React.js to streamline event discovery and registration.',
-                        tech: ['React.js', 'Firebase', 'JavaScript (ES6+)'],
+                        tech: ['React.js', 'Firebase', 'JavaScript'],
                         image: 'https://placehold.co/600x400/111827/9ca3af?text=NewsVITaa',
                         link: 'https://newsvita-59b66.web.app/'
+                    },
+                    {
+                        title: 'Serverless Music Player',
+                        desc: 'Deployed a serverless music player using AWS S3 for hosting and CloudFront for secure, low-latency content delivery, providing a seamless streaming experience.',
+                        tech: ['AWS S3', 'AWS CloudFront', 'HTML', 'CSS', 'JS'],
+                        image: 'https://placehold.co/600x400/111827/9ca3af?text=Music+Player',
+                        link: 'https://dqwynj1udvvj0.cloudfront.net'
                     }
                 ],
                 certifications: [
@@ -342,10 +708,13 @@
                 ]
             };
 
-            // Populate Hero Section
+            // Populate Hero Section & Links
             document.getElementById('linkedin-link').href = resumeData.links.linkedin;
             document.getElementById('github-link').href = resumeData.links.github;
             document.getElementById('leetcode-link').href = resumeData.links.leetcode;
+            
+            // Dynamic Year in Footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
 
             // Theme Toggle Logic
             const themeToggle = document.getElementById('theme-toggle');
@@ -353,7 +722,6 @@
             const sunIcon = document.getElementById('theme-icon-sun');
             const moonIcon = document.getElementById('theme-icon-moon');
             const htmlEl = document.documentElement;
-
             const applyTheme = (theme) => {
                 if (theme === 'dark') {
                     htmlEl.classList.add('dark');
@@ -365,17 +733,13 @@
                     moonIcon.classList.add('hidden');
                 }
             };
-
             const toggleTheme = () => {
-                const currentTheme = localStorage.getItem('theme') || 'light';
-                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                const newTheme = localStorage.getItem('theme') === 'light' ? 'dark' : 'light';
                 localStorage.setItem('theme', newTheme);
                 applyTheme(newTheme);
             };
-
             themeToggle.addEventListener('click', toggleTheme);
             mobileThemeToggle.addEventListener('click', toggleTheme);
-            
             const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
             applyTheme(savedTheme);
 
@@ -386,141 +750,82 @@
             mobileMenu.addEventListener('click', (e) => {
                 if(e.target.tagName === 'A') mobileMenu.classList.add('hidden');
             });
+            
+            // Timeline Populator
+            function populateTimeline(containerId, data) {
+                const timelineContainer = document.getElementById(containerId);
+                if (!timelineContainer) return;
 
-            // Skills Bento Grid Population
-            const skillsGrid = document.getElementById('skills-grid');
-            resumeData.skills.forEach(skillCategory => {
-                const bentoBox = document.createElement('div');
-                bentoBox.className = 'bg-[var(--card-bg)] p-6 rounded-xl shadow-lg reveal border border-[var(--border-color)] transition-all duration-300 hover:shadow-indigo-500/20 hover:-translate-y-1';
-                
-                let itemsHtml = skillCategory.items.map((item, index) => {
-                    const proficiency = skillCategory.proficiency[index];
+                let itemsHtml = data.map((item, index) => {
+                    // Determine desktop alignment class based on index
+                    const desktopAlignmentClass = (index % 2 === 0) ? '' : 'md:flex-row-reverse';
+                    
                     return `
-                        <div class="skill-item relative">
-                            <span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium px-3 py-1 rounded-full cursor-default">${item}</span>
-                            <div class="tooltip absolute bottom-full mb-2 w-48 bg-gray-800 text-white text-xs rounded-lg p-2 z-10 left-1/2 -translate-x-1/2 shadow-xl">
-                                <p class="font-bold text-center">${item}</p>
-                                <p class="text-center text-gray-300">Proficiency: ${proficiency}%</p>
-                                <div class="w-full bg-gray-600 rounded-full h-1.5 mt-1">
-                                    <div class="bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] h-1.5 rounded-full" style="width: ${proficiency}%"></div>
-                                </div>
+                        <div class="timeline-item reveal ${desktopAlignmentClass}">
+                            <div class="timeline-item-icon"><i class="${item.icon}"></i></div>
+                            <div class="timeline-item-content">
+                                <p class="text-sm font-medium gradient-text">${item.date}</p>
+                                <h3 class="mb-1 font-bold text-lg">${item.role}</h3>
+                                <p class="mb-2 font-semibold text-[var(--text-secondary)]">${item.company}</p>
+                                <div class="text-sm leading-relaxed tracking-wide text-[var(--text-secondary)]">${item.desc}</div>
                             </div>
                         </div>
                     `;
                 }).join('');
-
-                bentoBox.innerHTML = `
-                    <h3 class="text-xl font-bold mb-4">${skillCategory.category}</h3>
-                    <div class="flex flex-wrap gap-2">
-                        ${itemsHtml}
+                
+                // Add the vertical line to the timeline container
+                timelineContainer.innerHTML = `
+                    <div class="absolute w-0.5 h-full bg-[var(--border-color)]" style="top: 0;">
+                        <div id="${containerId}-line" class="w-full h-full bg-gradient-to-b from-[var(--accent-primary)] to-[var(--accent-secondary)]" style="transform: scaleY(0); transform-origin: top; transition: transform 1s ease-out;"></div>
                     </div>
-                `;
-                skillsGrid.appendChild(bentoBox);
-            });
-
-            // Generic Timeline Populator
-            function populateTimeline(containerId, data) {
-                const timelineContainer = document.getElementById(containerId);
-                if (!timelineContainer) return;
-                timelineContainer.innerHTML = '';
-                data.forEach((item, index) => {
-                    const timelineItem = document.createElement('div');
-                    timelineItem.className = `relative pl-12 md:pl-0 md:flex md:justify-between md:items-center w-full mb-8 reveal`;
-                    
-                    const contentBlock = `
-                        <div class="bg-[var(--card-bg)] rounded-lg shadow-md px-6 py-4 w-full md:w-5/12 border border-[var(--border-color)] transition-all duration-300 hover:shadow-indigo-500/20 hover:border-[var(--accent-primary)]">
-                            <p class="text-sm font-medium gradient-text">${item.date}</p>
-                            <h3 class="mb-1 font-bold text-lg">${item.role}</h3>
-                            <p class="mb-2 font-semibold text-[var(--text-secondary)]">${item.company}</p>
-                            <p class="text-sm leading-snug tracking-wide text-[var(--text-secondary)]">${item.desc}</p>
-                        </div>
-                    `;
-                    
-                    const iconBlock = `
-                        <div class="z-20 absolute left-4 md:left-1/2 top-1 -translate-x-1/2 flex items-center justify-center bg-gradient-to-br from-[var(--accent-primary)] to-[var(--accent-secondary)] shadow-xl w-10 h-10 rounded-full">
-                            <i class="${item.icon} text-white mx-auto text-lg"></i>
-                        </div>
-                    `;
-
-                    if (index % 2 === 0) {
-                        timelineItem.innerHTML = `<div class="md:order-1 timeline-item-left">${contentBlock}</div><div class="md:order-2">${iconBlock}</div><div class="md:order-3 w-5/12 hidden md:block"></div>`;
-                    } else {
-                         timelineItem.innerHTML = `<div class="md:order-3 timeline-item-right">${contentBlock}</div><div class="md:order-2">${iconBlock}</div><div class="md:order-1 w-5/12 hidden md:block"></div>`;
-                    }
-                    timelineContainer.appendChild(timelineItem);
-                });
+                ` + itemsHtml;
             }
+            
+            // Generic Section Populator
+            const populateSection = (gridId, data, renderer) => {
+                const grid = document.getElementById(gridId);
+                if (!grid) return;
+                grid.innerHTML = data.map(renderer).join('');
+            };
 
+            // Populate all dynamic sections
             populateTimeline('experience-timeline-container', resumeData.experience);
             populateTimeline('education-timeline-container', resumeData.education);
-            
-            // Populate Projects
-            const projectsGrid = document.getElementById('projects-grid');
-            projectsGrid.innerHTML = '';
-            resumeData.projects.forEach(project => {
-                const projectCard = document.createElement('a');
-                projectCard.href = project.link;
-                projectCard.target = '_blank';
-                projectCard.rel = 'noopener noreferrer';
-                projectCard.className = 'bg-[var(--card-bg)] rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 reveal border border-[var(--border-color)] flex flex-col';
-                
-                projectCard.innerHTML = `
+
+            populateSection('projects-grid', resumeData.projects, project => `
+                <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="project-card flex flex-col reveal">
                     <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover">
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-xl font-bold">${project.title}</h3>
                         <p class="mt-2 text-[var(--text-secondary)] flex-grow">${project.desc}</p>
                         <div class="mt-6 pt-4 border-t border-[var(--border-color)]">
                              <h4 class="font-semibold text-sm text-[var(--text-secondary)] mb-2">Core Technologies</h4>
-                             <div class="flex flex-wrap gap-2">
-                                ${project.tech.map(t => `<span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-300 text-xs font-medium px-2.5 py-0.5 rounded-full">${t}</span>`).join('')}
-                            </div>
+                             <div class="flex flex-wrap gap-2">${project.tech.map(t => `<span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-300 text-xs font-medium px-2.5 py-0.5 rounded-full">${t}</span>`).join('')}</div>
                         </div>
                     </div>
-                `;
-                projectsGrid.appendChild(projectCard);
-            });
+                </a>`);
 
-            // Populate Certifications
-            const certificationsGrid = document.getElementById('certifications-grid');
-            certificationsGrid.innerHTML = '';
-            resumeData.certifications.forEach(item => {
-                const isLink = !!item.link;
-                const card = document.createElement(isLink ? 'a' : 'div');
-                
-                if (isLink) {
-                    card.href = item.link;
-                    card.target = '_blank';
-                    card.rel = 'noopener noreferrer';
-                }
-
-                card.className = 'bg-[var(--card-bg)] p-4 rounded-lg shadow-md flex items-center space-x-4 reveal border border-[var(--border-color)] transition-all duration-300 hover:shadow-indigo-500/20 hover:-translate-y-1';
-                card.innerHTML = `
-                    <div class="flex-shrink-0">
-                        <div class="w-12 h-12 rounded-full bg-indigo-100 dark:bg-gray-700 flex items-center justify-center">
-                            <i class="${item.icon} text-2xl gradient-text"></i>
-                        </div>
+            populateSection('certifications-grid', resumeData.certifications, item => {
+                const Tag = item.link ? 'a' : 'div';
+                const linkAttrs = item.link ? `href="${item.link}" target="_blank" rel="noopener noreferrer"` : '';
+                return `<${Tag} ${linkAttrs} class="certification-card p-4 flex items-center space-x-4 reveal">
+                    <div class="flex-shrink-0 icon-wrapper w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-300">
+                        <i class="${item.icon} text-2xl gradient-text transition-colors duration-300"></i>
                     </div>
                     <div>
                         <h4 class="font-bold">${item.title}</h4>
                         <p class="text-[var(--text-secondary)] text-sm">${item.issuer}</p>
                     </div>
-                `;
-                certificationsGrid.appendChild(card);
+                </${Tag}>`;
             });
 
-            // Populate Achievements
-            const achievementsGrid = document.getElementById('achievements-grid');
-            achievementsGrid.innerHTML = '';
-            resumeData.achievements.forEach(item => {
-                const card = document.createElement('div');
-                const spotlightClass = item.spotlight ? 'md:col-span-2 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white shadow-lg shadow-indigo-500/50' : 'bg-[var(--card-bg)] border border-[var(--border-color)]';
+            populateSection('achievements-grid', resumeData.achievements, item => {
+                const spotlightClass = item.spotlight ? 'achievement-card spotlight' : 'achievement-card bg-[var(--card-bg)] border border-[var(--border-color)]';
                 const textClass = item.spotlight ? 'text-white' : 'text-[var(--text-primary)]';
                 const subtextClass = item.spotlight ? 'text-indigo-200' : 'text-[var(--text-secondary)]';
-                const iconBg = item.spotlight ? 'bg-white/20' : 'bg-indigo-100 dark:bg-gray-700';
+                const iconBg = item.spotlight ? 'icon-bg bg-white/20' : 'icon-bg bg-indigo-100 dark:bg-gray-700';
                 const iconText = item.spotlight ? 'text-white' : 'gradient-text';
-
-                card.className = `p-6 rounded-lg shadow-lg flex items-center space-x-4 reveal transition-all duration-300 hover:-translate-y-1 ${spotlightClass}`;
-                card.innerHTML = `
+                return `<div class="${spotlightClass} flex items-center space-x-4 reveal">
                     <div class="flex-shrink-0">
                         <div class="w-12 h-12 rounded-full ${iconBg} flex items-center justify-center">
                             <i class="${item.icon} text-2xl ${iconText}"></i>
@@ -530,29 +835,36 @@
                         <h4 class="font-bold ${textClass}">${item.title}</h4>
                         <p class="${subtextClass} text-sm">${item.issuer}</p>
                     </div>
-                `;
-                achievementsGrid.appendChild(card);
+                </div>`;
             });
-
 
             // Scroll Reveal Logic
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        if (entry.target.id.includes('-timeline-container')) {
-                            entry.target.querySelector('.timeline-line-animated').classList.add('visible');
+                        // Animate timeline line if it's a timeline container
+                        const timelineLine = entry.target.querySelector('[id$="-line"]');
+                        if (timelineLine) {
+                            timelineLine.style.transform = 'scaleY(1)'; // Animate timeline line
                         }
+                    } else {
+                         // Optional: You can uncomment this block if you want elements to hide again
+                         // when they scroll out of view, and the animation to re-trigger on re-entry.
+                         // entry.target.classList.remove('visible');
+                         // const timelineLine = entry.target.querySelector('[id$="-line"]');
+                         // if (timelineLine) {
+                         //     timelineLine.style.transform = 'scaleY(0)';
+                         // }
                     }
                 });
-            }, { threshold: 0.1 });
+            }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
 
             document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-            const expTimeline = document.getElementById('experience-timeline-container');
-            const eduTimeline = document.getElementById('education-timeline-container');
-            if(expTimeline) observer.observe(expTimeline);
-            if(eduTimeline) observer.observe(eduTimeline);
-
+            // Observe the timeline containers specifically for the line animation
+            document.querySelectorAll('#experience-timeline-container, #education-timeline-container').forEach(el => {
+                observer.observe(el);
+            });
         });
     </script>
 </body>
