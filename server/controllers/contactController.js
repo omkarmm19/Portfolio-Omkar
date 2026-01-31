@@ -10,8 +10,12 @@ exports.sendEmail = async (req, res) => {
     try {
         // Create transporter
         // NOTE: USER MUST CONFIGURE .env WITH EMAIL_USER and EMAIL_PASS
+        // Create transporter
+        // NOTE: USER MUST CONFIGURE .env WITH EMAIL_USER and EMAIL_PASS
         const transporter = nodemailer.createTransport({
-            service: 'gmail',
+            host: 'smtp.gmail.com',
+            port: 465,
+            secure: true, // Use SSL
             auth: {
                 user: process.env.EMAIL_USER, // e.g., 'your-email@gmail.com'
                 pass: process.env.EMAIL_PASS  // e.g., 'your-app-password'
