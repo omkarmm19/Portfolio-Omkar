@@ -84,7 +84,7 @@ const projects = [
 const certifications = [
     { title: 'The Bits and Bytes of Computer Networking', issuer: 'Google', icon: 'fa-brands fa-google', link: 'https://drive.google.com/file/d/1KL7XlRQkuywLr_UejbRvXnhw3ET-bRLn/view?usp=drive_link' },
     { title: 'Oracle Certified AI Foundations Associate', issuer: 'Oracle', icon: 'fa-brands fa-oracle', link: 'https://drive.google.com/file/d/1CfKuinaQwsQCh9elpbqLJ8M3ZpSZ7uiY/view?usp=drive_link' },
-    { title: 'Oracle Certified Cloud Foundations Associate', issuer: 'Oracle', icon: 'fa-solid fa-cloud', link: 'https://drive.google.com/file/d/1G8CVaYLL7PfoKPR6ibMccY1_ONSq5s4w/view?usp=drive_link' },
+    { title: 'Oracle Certified Cloud Foundations Associate', issuer: 'Oracle', icon: 'fa-brands fa-cloud', link: 'https://drive.google.com/file/d/1G8CVaYLL7PfoKPR6ibMccY1_ONSq5s4w/view?usp=drive_link' },
     { title: 'DevOps, Agile & Design Thinking', issuer: 'IBM', icon: 'fa-solid fa-brain', link: 'https://courses.vit.skillsnetwork.site/certificates/9c348048d331464cbcedaabd3cd335ac' },
     { title: 'Azure Data Fundamentals', issuer: 'Microsoft', icon: 'fa-brands fa-microsoft', link: 'https://www.credly.com/badges/68487755-3375-4887-a1b3-4268023b3ec7/public_url' },
     { title: 'DevOps Fundamentals', issuer: 'IBM', icon: 'fa-solid fa-infinity', link: 'https://courses.vit.skillsnetwork.site/certificates/d0bde818921c4b5982b1e4e647a77f9b' },
