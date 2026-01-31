@@ -13,16 +13,16 @@ exports.sendEmail = async (req, res) => {
         // Create transporter
         // NOTE: USER MUST CONFIGURE .env WITH EMAIL_USER and EMAIL_PASS
         const transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-            port: 587,
-            secure: false, // true for 465, false for other ports
+            host: 'smtp.googlemail.com', // Alternative hostname
+            port: 465,
+            secure: true, // Use SSL
             auth: {
                 user: process.env.EMAIL_USER,
                 pass: process.env.EMAIL_PASS
             },
-            tls: {
-                rejectUnauthorized: false // Helps if Render IP is flagged
-            },
+            connectionTimeout: 10000,
+            greetingTimeout: 10000,
+            socketTimeout: 10000,
             logger: true,
             debug: true
         });
