@@ -39,6 +39,9 @@ const Contact = () => {
                 {
                     from_name: formData.name,
                     from_email: formData.email,
+                    // Also send these as 'name' and 'email' to match the sidebar defaults (for Reply button)
+                    name: formData.name,
+                    email: formData.email,
                     subject: formData.subject,
                     message: formData.message,
                     to_name: "Omkar"
