@@ -153,14 +153,14 @@ const skills = [
         category: 'DSA & Foundations',
         icon: 'fas fa-brain',
         items: [
-            { name: 'DSA (Java)', icon: 'fas fa-check-double' },
             { name: 'System Design', icon: 'fas fa-sitemap' },
-            { name: 'Advanced Problem Solving', icon: 'fas fa-puzzle-piece' },
-            { name: 'Algorithmic Analysis', icon: 'fas fa-chart-line' },
+            { name: 'Data Structures', icon: 'fas fa-layer-group' },
+            { name: 'Algorithms', icon: 'fas fa-calculator' },
             { name: 'OOPS Concepts', icon: 'fas fa-object-group' },
-            { name: 'Operating Systems (OS)', icon: 'fas fa-memory' },
+            { name: 'OS', icon: 'fas fa-memory' },
             { name: 'DBMS', icon: 'fas fa-database' },
-            { name: 'Computer Networks (CN)', icon: 'fas fa-network-wired' }
+            { name: 'CN', icon: 'fas fa-network-wired' },
+            { name: 'Problem Solving', icon: 'fas fa-puzzle-piece' }
         ]
     },
     {

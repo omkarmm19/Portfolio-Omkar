@@ -80,12 +80,13 @@ const skillsData = [
         icon: 'fas fa-brain',
         items: [
             { name: 'System Design', icon: 'fas fa-sitemap' },
-            { name: 'DSA (Java)', icon: 'fas fa-check-double' },
+            { name: 'Data Structures', icon: 'fas fa-layer-group' },
+            { name: 'Algorithms', icon: 'fas fa-calculator' },
             { name: 'OOPS Concepts', icon: 'fas fa-object-group' },
             { name: 'OS', icon: 'fas fa-memory' },
             { name: 'DBMS', icon: 'fas fa-database' },
             { name: 'CN', icon: 'fas fa-network-wired' },
-            { name: 'Adv. Problem Solving', icon: 'fas fa-puzzle-piece' }
+            { name: 'Problem Solving', icon: 'fas fa-puzzle-piece' }
         ]
     },
     {
