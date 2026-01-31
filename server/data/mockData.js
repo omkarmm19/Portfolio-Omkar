@@ -10,7 +10,7 @@ Strong in Python backend development (FastAPI) with hands-on exposure to MERN st
 
 Driven by cloud-native architectures, automation, and reliability-first engineering.
 
-📌 Open to internships and real-world project collaborations (2027 batch).`,
+Open to internships and real-world project collaborations (2027 batch).`,
     email: 'omkarmahesh12345@gmail.com',
     phone: '+91 7019936868',
     location: 'Bidar, Karnataka',
@@ -44,7 +44,7 @@ const education = [
         role: 'B.Tech, CSE (Cloud Computing & Automation)',
         company: 'VIT Bhopal University',
         date: '2023 - 2027',
-        desc: 'CGPA: 8.38/10.0. Relevant Coursework: Data Structures & Algorithms, OOPS, Operating Systems, Computer Networks, Database Management Systems. Key Skills: Gained hands-on experience in Full-Stack Development, Cloud service management (AWS/GCP), and CI/CD pipeline implementation. Leadership: Event Management Lead for the Mozilla Firefox Club, organizing technical workshops and coding events for 500+ students.',
+        desc: 'CGPA: 8.54/10.0. Relevant Coursework: Data Structures & Algorithms, OOPS, Operating Systems, Computer Networks, Database Management Systems. Key Skills: Gained hands-on experience in Full-Stack Development, Cloud service management (AWS/GCP), and CI/CD pipeline implementation. Leadership: Event Management Lead for the Mozilla Firefox Club, organizing technical workshops and coding events for 500+ students.',
         icon: 'fa-solid fa-graduation-cap'
     }
 ];
@@ -74,17 +74,25 @@ const projects = [
 ];
 
 const certifications = [
+    { title: 'The Bits and Bytes of Computer Networking', issuer: 'Google', icon: 'fa-brands fa-google', link: 'https://drive.google.com/file/d/1KL7XlRQkuywLr_UejbRvXnhw3ET-bRLn/view?usp=drive_link' },
+    { title: 'Oracle Certified AI Foundations Associate', issuer: 'Oracle', icon: 'fa-brands fa-oracle', link: 'https://drive.google.com/file/d/1CfKuinaQwsQCh9elpbqLJ8M3ZpSZ7uiY/view?usp=drive_link' },
+    { title: 'Oracle Certified Cloud Foundations Associate', issuer: 'Oracle', icon: 'fa-solid fa-brain', link: 'https://drive.google.com/file/d/1G8CVaYLL7PfoKPR6ibMccY1_ONSq5s4w/view?usp=drive_link' },
     { title: 'DevOps, Agile & Design Thinking', issuer: 'IBM', icon: 'fa-solid fa-brain', link: 'https://courses.vit.skillsnetwork.site/certificates/9c348048d331464cbcedaabd3cd335ac' },
     { title: 'Azure Data Fundamentals', issuer: 'Microsoft', icon: 'fa-brands fa-microsoft', link: 'https://www.credly.com/badges/68487755-3375-4887-a1b3-4268023b3ec7/public_url' },
     { title: 'DevOps Fundamentals', issuer: 'IBM', icon: 'fa-solid fa-infinity', link: 'https://courses.vit.skillsnetwork.site/certificates/d0bde818921c4b5982b1e4e647a77f9b' },
+    { title: 'Introduction to Internet of Things IIT KHARAGPUR ', issuer: 'NPTEL', icon: 'fa-solid fa-microchip', link: 'https://drive.google.com/file/d/1EyED9jpmtWrlA8iqAo9s1n0TSwSxnQo2/view?usp=drive_link' },
     { title: 'Gen AI Academy', issuer: 'Google', icon: 'fa-brands fa-google', link: 'https://certificate.hack2skill.com/user/genai2/2025H2S04GENAI-A100367' },
     { title: 'API Fundamentals Expert', issuer: 'Postman', icon: 'fa-solid fa-rocket', link: 'https://badgr.com/public/assertions/toYF93bjSFKvqWqrHA9i2w' },
     { title: 'Data Visualization', issuer: 'TATA Forage', icon: 'fa-solid fa-chart-bar', link: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Tata/MyXvBcppsW2FkNYCX_Tata%20Group_nvcYESxQthhFMataX_1725794820145_completion_certificate.pdf' },
     { title: 'Fundamentals Of AIML', issuer: 'Vityarthi', icon: 'fa-solid fa-robot' },
-    { title: 'Python Essentials', issuer: 'Vityarthi', icon: 'fa-brands fa-python' }
+    { title: 'Python Essentials', issuer: 'Vityarthi', icon: 'fa-brands fa-python' },
+    { title: 'Oracle Cloud Foundations', issuer: 'Oracle', icon: 'fa-solid fa-cloud' },
+    { title: 'Oracle AI Foundations', issuer: 'Oracle', icon: 'fa-solid fa-brain' },
+    { title: 'Bits and Bytes of Computer Networking', issuer: 'Google', icon: 'fa-solid fa-network-wired' }
 ];
 
 const achievements = [
+    { title: 'PR and Outreach Lead', issuer: 'Health O Tech Club', icon: 'fa-solid fa-users', spotlight: true },
     { title: '1st Rank in Google Gen AI Exchange', issuer: 'Google Program 2025', icon: 'fa-solid fa-trophy', spotlight: true },
     { title: 'Leetcode DSA 100 Days Challenge', issuer: 'Completed in Java', icon: 'fa-solid fa-laptop-code', spotlight: false },
     { title: 'Event Management Lead', issuer: 'Mozilla Firefox & VITKult Clubs', icon: 'fa-solid fa-users', spotlight: false },
@@ -153,7 +161,7 @@ const skills = [
         category: 'DSA & Foundations',
         icon: 'fas fa-brain',
         items: [
-            { name: 'DSA (Java)', icon: 'fas fa-check-double' },
+            { name: 'Data Structures', icon: 'fas fa-check-double' },
             { name: 'System Design', icon: 'fas fa-sitemap' },
             { name: 'Advanced Problem Solving', icon: 'fas fa-puzzle-piece' },
             { name: 'Algorithmic Analysis', icon: 'fas fa-chart-line' },
