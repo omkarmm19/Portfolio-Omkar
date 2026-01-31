@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import axios from 'axios';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -20,15 +20,38 @@ const Contact = () => {
         e.preventDefault();
         setStatus('loading');
 
+        // Check for EmailJS keys
+        const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+        const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+        const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+        if (!serviceId || !templateId || !publicKey) {
+            setStatus('error');
+            setStatusMsg('Missing EmailJS keys in .env file!');
+            setTimeout(() => setStatus('idle'), 5000);
+            return;
+        }
+
         try {
-            await axios.post(`${import.meta.env.VITE_API_URL}/api/contact`, formData);
+            await emailjs.send(
+                serviceId,
+                templateId,
+                {
+                    from_name: formData.name,
+                    from_email: formData.email,
+                    subject: formData.subject,
+                    message: formData.message,
+                    to_name: "Omkar"
+                },
+                publicKey
+            );
             setStatus('success');
             setStatusMsg('Message sent successfully! I will get back to you soon.');
             setFormData({ name: '', email: '', subject: '', message: '' });
         } catch (error) {
             setStatus('error');
-            console.error(error);
-            setStatusMsg('Failed to send message. Please try again or email me directly.');
+            console.error('EmailJS Error:', error);
+            setStatusMsg('Failed to send message. Please try again.');
         }
 
         // Reset status after 5 seconds
@@ -181,10 +204,7 @@ const Contact = () => {
                                     </>
                                 )}
                             </button>
-                            <p className="text-xs text-[var(--text-secondary)] text-center mt-2 opacity-70">
-                                <i className="fas fa-info-circle mr-1"></i>
-                                Note: The server sleeps when inactive. The first message may take up to 60 seconds to send.
-                            </p>
+
 
                             <AnimatePresence>
                                 {status === 'success' && (
