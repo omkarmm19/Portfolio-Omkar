@@ -181,6 +181,10 @@ const Contact = () => {
                                     </>
                                 )}
                             </button>
+                            <p className="text-xs text-[var(--text-secondary)] text-center mt-2 opacity-70">
+                                <i className="fas fa-info-circle mr-1"></i>
+                                Note: The server sleeps when inactive. The first message may take up to 60 seconds to send.
+                            </p>
 
                             <AnimatePresence>
                                 {status === 'success' && (
