@@ -14,12 +14,17 @@ exports.sendEmail = async (req, res) => {
         // NOTE: USER MUST CONFIGURE .env WITH EMAIL_USER and EMAIL_PASS
         const transporter = nodemailer.createTransport({
             host: 'smtp.gmail.com',
-            port: 465,
-            secure: true, // Use SSL
+            port: 587,
+            secure: false, // true for 465, false for other ports
             auth: {
-                user: process.env.EMAIL_USER, // e.g., 'your-email@gmail.com'
-                pass: process.env.EMAIL_PASS  // e.g., 'your-app-password'
-            }
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS
+            },
+            tls: {
+                rejectUnauthorized: false // Helps if Render IP is flagged
+            },
+            logger: true,
+            debug: true
         });
 
         // Email options
