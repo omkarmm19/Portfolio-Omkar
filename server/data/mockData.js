@@ -85,10 +85,7 @@ const certifications = [
     { title: 'API Fundamentals Expert', issuer: 'Postman', icon: 'fa-solid fa-rocket', link: 'https://badgr.com/public/assertions/toYF93bjSFKvqWqrHA9i2w' },
     { title: 'Data Visualization', issuer: 'TATA Forage', icon: 'fa-solid fa-chart-bar', link: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Tata/MyXvBcppsW2FkNYCX_Tata%20Group_nvcYESxQthhFMataX_1725794820145_completion_certificate.pdf' },
     { title: 'Fundamentals Of AIML', issuer: 'Vityarthi', icon: 'fa-solid fa-robot' },
-    { title: 'Python Essentials', issuer: 'Vityarthi', icon: 'fa-brands fa-python' },
-    { title: 'Oracle Cloud Foundations', issuer: 'Oracle', icon: 'fa-solid fa-cloud' },
-    { title: 'Oracle AI Foundations', issuer: 'Oracle', icon: 'fa-solid fa-brain' },
-    { title: 'Bits and Bytes of Computer Networking', issuer: 'Google', icon: 'fa-solid fa-network-wired' }
+    { title: 'Python Essentials', issuer: 'Vityarthi', icon: 'fa-brands fa-python' }
 ];
 
 const achievements = [
