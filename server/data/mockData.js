@@ -70,6 +70,13 @@ const projects = [
         tech: ['AWS S3', 'AWS CloudFront', 'HTML', 'CSS', 'JS'],
         image: 'https://placehold.co/600x400/111827/9ca3af?text=Music+Player',
         link: 'https://dqwynj1udvvj0.cloudfront.net'
+    },
+    {
+        title: 'Dynamic MERN Portfolio',
+        desc: 'Built a highly interactive, responsive personal portfolio using the MERN stack. Features include a dynamic content management system via MongoDB, real-time email integration with Nodemailer, and a premium "Cyberpunk Elegance" UI powered by Framer Motion.',
+        tech: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'Tailwind', 'Framer Motion'],
+        image: 'https://placehold.co/600x400/111827/9ca3af?text=Portfolio',
+        link: 'https://github.com/omkarmm19/Portfolio-Omkar'
     }
 ];
 
