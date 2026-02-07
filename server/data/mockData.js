@@ -86,9 +86,9 @@ const certifications = [
     { title: 'The Bits and Bytes of Computer Networking', issuer: 'Google', icon: 'fa-brands fa-google', link: 'https://drive.google.com/file/d/1KL7XlRQkuywLr_UejbRvXnhw3ET-bRLn/view?usp=drive_link' },
     { title: 'Oracle Certified AI Foundations Associate', issuer: 'Oracle', icon: 'devicon-oracle-original colored', link: 'https://drive.google.com/file/d/1CfKuinaQwsQCh9elpbqLJ8M3ZpSZ7uiY/view?usp=drive_link' },
     { title: 'Oracle Certified Cloud Foundations Associate', issuer: 'Oracle', icon: 'devicon-oracle-original colored', link: 'https://drive.google.com/file/d/1G8CVaYLL7PfoKPR6ibMccY1_ONSq5s4w/view?usp=drive_link' },
-    { title: 'DevOps, Agile & Design Thinking', issuer: 'IBM', icon: 'fa-brands fa-ibm', link: 'https://courses.vit.skillsnetwork.site/certificates/9c348048d331464cbcedaabd3cd335ac' },
+    { title: 'DevOps, Agile & Design Thinking', issuer: 'IBM', icon: 'fa-solid fa-infinity', link: 'https://courses.vit.skillsnetwork.site/certificates/9c348048d331464cbcedaabd3cd335ac' },
     { title: 'Azure Data Fundamentals', issuer: 'Microsoft', icon: 'fa-brands fa-microsoft', link: 'https://www.credly.com/badges/68487755-3375-4887-a1b3-4268023b3ec7/public_url' },
-    { title: 'DevOps Fundamentals', issuer: 'IBM', icon: 'fa-brands fa-ibm', link: 'https://courses.vit.skillsnetwork.site/certificates/d0bde818921c4b5982b1e4e647a77f9b' },
+    { title: 'DevOps Fundamentals', issuer: 'IBM', icon: 'fa-solid fa-infinity', link: 'https://courses.vit.skillsnetwork.site/certificates/d0bde818921c4b5982b1e4e647a77f9b' },
     { title: 'Introduction to Internet of Things, IIT Kharagpur', issuer: 'NPTEL', icon: 'fa-solid fa-microchip', link: 'https://drive.google.com/file/d/1EyED9jpmtWrlA8iqAo9s1n0TSwSxnQo2/view?usp=drive_link' },
     { title: 'Gen AI Academy', issuer: 'Google', icon: 'fa-brands fa-google', link: 'https://certificate.hack2skill.com/user/genai2/2025H2S04GENAI-A100367' },
     { title: 'API Fundamentals Expert', issuer: 'Postman', icon: 'devicon-postman-plain colored', link: 'https://badgr.com/public/assertions/toYF93bjSFKvqWqrHA9i2w' },
@@ -101,7 +101,7 @@ const achievements = [
     { title: 'PR and Outreach Lead', issuer: 'Health O Tech Club', icon: 'fa-solid fa-users', spotlight: true },
     { title: '1st Rank in Google Gen AI Exchange', issuer: 'Google Program 2025', icon: 'fa-solid fa-trophy', spotlight: true },
     { title: 'Leetcode DSA 100 Days Challenge', issuer: 'Completed in Java', icon: 'fa-solid fa-laptop-code', spotlight: false },
-    { title: 'Event Management Lead', issuer: 'Mozilla Firefox & VITKult Clubs', icon: 'fa-solid fa-users', spotlight: false },
+    { title: 'Event Management Lead', issuer: 'Mozilla Firefox Club', icon: 'fa-solid fa-users', spotlight: false },
 ];
 
 const skills = [
