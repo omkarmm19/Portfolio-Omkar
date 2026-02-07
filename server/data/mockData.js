@@ -82,15 +82,16 @@ const projects = [
 ];
 
 const certifications = [
+    { title: 'Google IT Support Certificate', issuer: 'Google', icon: 'fa-brands fa-google', link: 'https://www.credly.com/badges/7d04edcd-5d4f-4e25-bed1-48138478c5d2/public_url' },
     { title: 'The Bits and Bytes of Computer Networking', issuer: 'Google', icon: 'fa-brands fa-google', link: 'https://drive.google.com/file/d/1KL7XlRQkuywLr_UejbRvXnhw3ET-bRLn/view?usp=drive_link' },
-    { title: 'Oracle Certified AI Foundations Associate', issuer: 'Oracle', icon: 'fa-brands fa-oracle', link: 'https://drive.google.com/file/d/1CfKuinaQwsQCh9elpbqLJ8M3ZpSZ7uiY/view?usp=drive_link' },
-    { title: 'Oracle Certified Cloud Foundations Associate', issuer: 'Oracle', icon: 'fa-brands fa-cloud', link: 'https://drive.google.com/file/d/1G8CVaYLL7PfoKPR6ibMccY1_ONSq5s4w/view?usp=drive_link' },
-    { title: 'DevOps, Agile & Design Thinking', issuer: 'IBM', icon: 'fa-solid fa-brain', link: 'https://courses.vit.skillsnetwork.site/certificates/9c348048d331464cbcedaabd3cd335ac' },
+    { title: 'Oracle Certified AI Foundations Associate', issuer: 'Oracle', icon: 'devicon-oracle-original colored', link: 'https://drive.google.com/file/d/1CfKuinaQwsQCh9elpbqLJ8M3ZpSZ7uiY/view?usp=drive_link' },
+    { title: 'Oracle Certified Cloud Foundations Associate', issuer: 'Oracle', icon: 'devicon-oracle-original colored', link: 'https://drive.google.com/file/d/1G8CVaYLL7PfoKPR6ibMccY1_ONSq5s4w/view?usp=drive_link' },
+    { title: 'DevOps, Agile & Design Thinking', issuer: 'IBM', icon: 'fa-brands fa-ibm', link: 'https://courses.vit.skillsnetwork.site/certificates/9c348048d331464cbcedaabd3cd335ac' },
     { title: 'Azure Data Fundamentals', issuer: 'Microsoft', icon: 'fa-brands fa-microsoft', link: 'https://www.credly.com/badges/68487755-3375-4887-a1b3-4268023b3ec7/public_url' },
-    { title: 'DevOps Fundamentals', issuer: 'IBM', icon: 'fa-solid fa-infinity', link: 'https://courses.vit.skillsnetwork.site/certificates/d0bde818921c4b5982b1e4e647a77f9b' },
-    { title: 'Introduction to Internet of Things', issuer: 'NPTEL (IIT Kharagpur)', icon: 'fa-solid fa-microchip', link: 'https://drive.google.com/file/d/1EyED9jpmtWrlA8iqAo9s1n0TSwSxnQo2/view?usp=drive_link' },
+    { title: 'DevOps Fundamentals', issuer: 'IBM', icon: 'fa-brands fa-ibm', link: 'https://courses.vit.skillsnetwork.site/certificates/d0bde818921c4b5982b1e4e647a77f9b' },
+    { title: 'Introduction to Internet of Things, IIT Kharagpur', issuer: 'NPTEL', icon: 'fa-solid fa-microchip', link: 'https://drive.google.com/file/d/1EyED9jpmtWrlA8iqAo9s1n0TSwSxnQo2/view?usp=drive_link' },
     { title: 'Gen AI Academy', issuer: 'Google', icon: 'fa-brands fa-google', link: 'https://certificate.hack2skill.com/user/genai2/2025H2S04GENAI-A100367' },
-    { title: 'API Fundamentals Expert', issuer: 'Postman', icon: 'fa-solid fa-rocket', link: 'https://badgr.com/public/assertions/toYF93bjSFKvqWqrHA9i2w' },
+    { title: 'API Fundamentals Expert', issuer: 'Postman', icon: 'devicon-postman-plain colored', link: 'https://badgr.com/public/assertions/toYF93bjSFKvqWqrHA9i2w' },
     { title: 'Data Visualization', issuer: 'TATA Forage', icon: 'fa-solid fa-chart-bar', link: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Tata/MyXvBcppsW2FkNYCX_Tata%20Group_nvcYESxQthhFMataX_1725794820145_completion_certificate.pdf' },
     { title: 'Fundamentals Of AIML', issuer: 'Vityarthi', icon: 'fa-solid fa-robot' },
     { title: 'Python Essentials', issuer: 'Vityarthi', icon: 'fa-brands fa-python' }
