@@ -72,6 +72,13 @@ const projects = [
         link: 'https://github.com/omkarmm19/Portfolio-Omkar'
     },
     {
+    title: 'Eira - AI Voice Assistant',
+    desc: 'Developed an AI-powered virtual assistant in Python capable of real-time voice interaction, web navigation, and intelligent search. Integrated conversational AI, speech recognition, and text-to-speech APIs to simulate a natural digital companion experience.',
+    tech: ['Python', 'Speech Recognition', 'Edge TTS', 'OpenRouter API', 'Google Search API'],
+    image: 'https://placehold.co/600x400/111827/9ca3af?text=Eira+AI',
+    link: 'https://github.com/omkarmm19/Eira'
+   },
+    {
         title: 'Serverless Music Player',
         desc: 'Deployed a serverless music player using AWS S3 for hosting and CloudFront for secure, low-latency content delivery, providing a seamless streaming experience.',
         tech: ['AWS S3', 'AWS CloudFront', 'HTML', 'CSS', 'JS'],
