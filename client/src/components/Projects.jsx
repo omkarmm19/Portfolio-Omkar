@@ -58,7 +58,7 @@ const Projects = () => {
                                         </span>
                                     ))}
                                 </div>
-                                <p className="text-[var(--text-secondary)] text-sm flex-grow line-clamp-3">{project.desc}</p>
+                                <p className="text-[var(--text-secondary)] text-sm flex-grow" style={{ overflowWrap: 'break-word', wordBreak: 'break-word' }}>{project.desc}</p>
                             </div>
                         </motion.a>
                     ))}

@@ -51,18 +51,25 @@ const education = [
 
 const projects = [
     {
+        title: 'HotReload — Go CLI Dev Tool',
+        desc: 'Built a Go CLI tool that watches project files and automatically rebuilds and restarts servers during development. Implemented filesystem monitoring with fsnotify, file filtering, and a 300ms debounce to prevent redundant rebuilds. Designed modular components with crash-loop protection and graceful process termination.',
+        tech: ['Go', 'fsnotify', 'CLI', 'Process Management'],
+        image: 'https://placehold.co/600x400/111827/9ca3af?text=HotReload+CLI',
+        link: 'https://www.loom.com/share/cb4f2b8444a34fea9570accc484c0531'
+    },
+    {
+        title: 'Forge Todo App',
+        desc: 'Developed a full-stack task management app with JWT authentication and REST APIs for secure CRUD operations. Containerized services using Docker Compose and implemented CI/CD with GitHub Actions for automated builds and deployment. Deployed on Vercel with Neon PostgreSQL for scalable production hosting.',
+        tech: ['Next.js', 'Express.js', 'TypeScript', 'PostgreSQL', 'Docker', 'Prisma', 'GitHub Actions'],
+        image: 'https://placehold.co/600x400/111827/9ca3af?text=Forge+Todo+App',
+        link: 'https://forge-todo-cloud.vercel.app/'
+    },
+    {
         title: 'Place Prep - AI Voice Interview Platform',
         desc: 'Engineered a full-stack AI interview simulator using Next.js, providing users with realistic voice-based practice and instant, AI-driven performance feedback.',
         tech: ['Next.js', 'React', 'Tailwind', 'OpenAI API', 'Deepgram'],
         image: 'https://placehold.co/600x400/111827/9ca3af?text=Place+Prep',
         link: 'https://place-prep.vercel.app/'
-    },
-    {
-        title: 'NewsVITaa - Event Management System',
-        desc: 'Architected a scalable, serverless backend using the Firebase suite and engineered a responsive UI with React.js to streamline event discovery and registration.',
-        tech: ['React.js', 'Firebase', 'JavaScript'],
-        image: 'https://placehold.co/600x400/111827/9ca3af?text=NewsVITaa',
-        link: 'https://newsvita-59b66.web.app/'
     },
     {
         title: 'Dynamic MERN Portfolio',
@@ -72,12 +79,19 @@ const projects = [
         link: 'https://github.com/omkarmm19/Portfolio-Omkar'
     },
     {
-    title: 'Eira - AI Voice Assistant',
-    desc: 'Developed an AI-powered virtual assistant in Python capable of real-time voice interaction, web navigation, and intelligent search. Integrated conversational AI, speech recognition, and text-to-speech APIs to simulate a natural digital companion experience.',
-    tech: ['Python', 'Speech Recognition', 'Edge TTS', 'OpenRouter API', 'Google Search API'],
-    image: 'https://placehold.co/600x400/111827/9ca3af?text=Eira+AI',
-    link: 'https://github.com/omkarmm19/Eira'
-   },
+        title: 'Eira - AI Voice Assistant',
+        desc: 'Developed an AI-powered virtual assistant in Python capable of real-time voice interaction, web navigation, and intelligent search. Integrated conversational AI, speech recognition, and text-to-speech APIs to simulate a natural digital companion experience.',
+        tech: ['Python', 'Speech Recognition', 'Edge TTS', 'OpenRouter API', 'Google Search API'],
+        image: 'https://placehold.co/600x400/111827/9ca3af?text=Eira+AI',
+        link: 'https://github.com/omkarmm19/Eira'
+    },
+    {
+        title: 'NewsVITaa - Event Management System',
+        desc: 'Architected a scalable, serverless backend using the Firebase suite and engineered a responsive UI with React.js to streamline event discovery and registration.',
+        tech: ['React.js', 'Firebase', 'JavaScript'],
+        image: 'https://placehold.co/600x400/111827/9ca3af?text=NewsVITaa',
+        link: 'https://newsvita-59b66.web.app/'
+    },
     {
         title: 'Serverless Music Player',
         desc: 'Deployed a serverless music player using AWS S3 for hosting and CloudFront for secure, low-latency content delivery, providing a seamless streaming experience.',

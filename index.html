@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,40 +11,60 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-    
+
     <style>
         :root {
             /* Light Theme */
             --bg-primary: #ffffff;
-            --bg-secondary: #f0f4f8; /* Slightly softer secondary background */
-            --text-primary: #1a202c; /* Darker text for better contrast */
-            --text-secondary: #4a5568; /* Slightly darker secondary text */
-            --accent-primary: #4c51bf; /* Deeper indigo */
-            --accent-secondary: #667eea; /* Lighter, vibrant indigo */
-            --border-color: #e2e8f0; /* Softer border */
+            --bg-secondary: #f0f4f8;
+            /* Slightly softer secondary background */
+            --text-primary: #1a202c;
+            /* Darker text for better contrast */
+            --text-secondary: #4a5568;
+            /* Slightly darker secondary text */
+            --accent-primary: #4c51bf;
+            /* Deeper indigo */
+            --accent-secondary: #667eea;
+            /* Lighter, vibrant indigo */
+            --border-color: #e2e8f0;
+            /* Softer border */
             --card-bg: #ffffff;
-            --shadow-light: rgba(0, 0, 0, 0.08); /* More pronounced light shadow */
-            --shadow-hover-light: rgba(0, 0, 0, 0.12); /* More pronounced hover shadow */
+            --shadow-light: rgba(0, 0, 0, 0.08);
+            /* More pronounced light shadow */
+            --shadow-hover-light: rgba(0, 0, 0, 0.12);
+            /* More pronounced hover shadow */
         }
+
         html.dark {
             /* Dark Theme */
-            --bg-primary: #0a0f18; /* Even darker primary background */
+            --bg-primary: #0a0f18;
+            /* Even darker primary background */
             --bg-secondary: #161b22;
-            --text-primary: #e2e8f0; /* Lighter text for dark background */
-            --text-secondary: #a0aec0; /* Softer secondary text for dark background */
-            --accent-primary: #6366f1; /* Consistent with light theme */
-            --accent-secondary: #a78bfa; /* Consistent with light theme */
-            --border-color: #2d3748; /* Darker border */
+            --text-primary: #e2e8f0;
+            /* Lighter text for dark background */
+            --text-secondary: #a0aec0;
+            /* Softer secondary text for dark background */
+            --accent-primary: #6366f1;
+            /* Consistent with light theme */
+            --accent-secondary: #a78bfa;
+            /* Consistent with light theme */
+            --border-color: #2d3748;
+            /* Darker border */
             --card-bg: #1f2937;
-            --shadow-dark: rgba(0, 0, 0, 0.2); /* Darker shadow for dark theme */
-            --shadow-hover-dark: rgba(0, 0, 0, 0.3); /* Darker hover shadow for dark theme */
+            --shadow-dark: rgba(0, 0, 0, 0.2);
+            /* Darker shadow for dark theme */
+            --shadow-hover-dark: rgba(0, 0, 0, 0.3);
+            /* Darker hover shadow for dark theme */
         }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-primary);
             color: var(--text-primary);
-            transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out; /* Smoother transition */
+            transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+            /* Smoother transition */
         }
+
         .section-title {
             @apply text-5xl font-extrabold tracking-tight sm:text-6xl;
             background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
@@ -51,34 +72,48 @@
             -webkit-text-fill-color: transparent;
             display: inline-block;
         }
+
         .gradient-text {
             background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .reveal {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1), transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1);
         }
+
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
+
         @keyframes subtle-gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
+
         .hero-ambient-bg {
             background: linear-gradient(-45deg, var(--bg-primary), var(--bg-secondary), var(--bg-primary));
             background-size: 400% 400%;
             animation: subtle-gradient 15s ease infinite;
         }
+
         html.dark .hero-ambient-bg {
-             background: linear-gradient(-45deg, var(--bg-primary), #1a2035, var(--bg-primary));
-             background-size: 400% 400%;
-             animation: subtle-gradient 15s ease infinite;
+            background: linear-gradient(-45deg, var(--bg-primary), #1a2035, var(--bg-primary));
+            background-size: 400% 400%;
+            animation: subtle-gradient 15s ease infinite;
         }
 
         /* === Skill Box Styles === */
@@ -89,87 +124,142 @@
             border: 1px solid var(--border-color);
             overflow: hidden;
             background: var(--card-bg);
-            box-shadow: 0 6px 20px 0 var(--shadow-light); /* Improved initial shadow */
-            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out; /* Smoother transitions */
+            box-shadow: 0 6px 20px 0 var(--shadow-light);
+            /* Improved initial shadow */
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out;
+            /* Smoother transitions */
         }
+
         .skill-box:hover {
-            transform: translateY(-8px); /* More pronounced lift */
-            box-shadow: 0 16px 30px 0 var(--shadow-hover-light); /* More pronounced hover shadow */
-            border-color: var(--accent-primary); /* Highlight border on hover */
+            transform: translateY(-8px);
+            /* More pronounced lift */
+            box-shadow: 0 16px 30px 0 var(--shadow-hover-light);
+            /* More pronounced hover shadow */
+            border-color: var(--accent-primary);
+            /* Highlight border on hover */
         }
+
         html.dark .skill-box {
             box-shadow: 0 6px 20px 0 var(--shadow-dark);
         }
+
         html.dark .skill-box:hover {
             box-shadow: 0 16px 30px 0 var(--shadow-hover-dark);
         }
 
         @supports (backdrop-filter: blur(24px)) {
             .skill-box {
-                background: var(--card-bg-transparent, rgba(255, 255, 255, 0.85)); /* Slightly less transparent */
+                background: var(--card-bg-transparent, rgba(255, 255, 255, 0.85));
+                /* Slightly less transparent */
                 -webkit-backdrop-filter: blur(24px);
                 backdrop-filter: blur(24px);
             }
         }
+
         html.dark .skill-box {
-            --card-bg-transparent: rgba(31, 41, 55, 0.75); /* Slightly less transparent for dark */
-            border-color: rgba(255, 255, 255, 0.15); /* Slightly more visible dark border */
+            --card-bg-transparent: rgba(31, 41, 55, 0.75);
+            /* Slightly less transparent for dark */
+            border-color: rgba(255, 255, 255, 0.15);
+            /* Slightly more visible dark border */
         }
-        .skill-box::before, .skill-box::after {
+
+        .skill-box::before,
+        .skill-box::after {
             content: '';
             position: absolute;
             border-radius: 50%;
-            opacity: 0.12; /* Slightly more visible aurora */
-            filter: blur(100px); /* Reduced blur for crisper effect */
+            opacity: 0.12;
+            /* Slightly more visible aurora */
+            filter: blur(100px);
+            /* Reduced blur for crisper effect */
             z-index: -1;
-            transition: opacity 0.5s ease; /* Smooth transition for aurora opacity */
+            transition: opacity 0.5s ease;
+            /* Smooth transition for aurora opacity */
         }
-        .skill-box:hover::before, .skill-box:hover::after {
-            opacity: 0.18; /* Increased opacity on hover */
+
+        .skill-box:hover::before,
+        .skill-box:hover::after {
+            opacity: 0.18;
+            /* Increased opacity on hover */
         }
+
         .skill-box::before {
-            width: 220px; height: 220px; /* Slightly larger */
-            top: -60px; left: -60px; /* Adjusted position */
+            width: 220px;
+            height: 220px;
+            /* Slightly larger */
+            top: -60px;
+            left: -60px;
+            /* Adjusted position */
             background: radial-gradient(circle, var(--accent-primary), transparent 80%);
-            animation: move-aurora-1 28s infinite alternate ease-in-out; /* Slower, smoother animation */
+            animation: move-aurora-1 28s infinite alternate ease-in-out;
+            /* Slower, smoother animation */
         }
+
         .skill-box::after {
-            width: 220px; height: 220px; /* Slightly larger */
-            bottom: -60px; right: -60px; /* Adjusted position */
+            width: 220px;
+            height: 220px;
+            /* Slightly larger */
+            bottom: -60px;
+            right: -60px;
+            /* Adjusted position */
             background: radial-gradient(circle, var(--accent-secondary), transparent 80%);
-            animation: move-aurora-2 33s infinite alternate ease-in-out; /* Slower, smoother animation */
+            animation: move-aurora-2 33s infinite alternate ease-in-out;
+            /* Slower, smoother animation */
         }
+
         @keyframes move-aurora-1 {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            100% { transform: translate(50px, 70px) rotate(200deg); } /* More dynamic movement */
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(50px, 70px) rotate(200deg);
+            }
+
+            /* More dynamic movement */
         }
+
         @keyframes move-aurora-2 {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            100% { transform: translate(-50px, -70px) rotate(-200deg); } /* More dynamic movement */
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50px, -70px) rotate(-200deg);
+            }
+
+            /* More dynamic movement */
         }
+
         .skill-box-title {
             @apply text-2xl font-bold mb-8 flex items-center;
             color: var(--text-primary);
         }
+
         /* Using Multi-Column Layout for perfect alignment */
         .skill-box-content {
             column-count: 1;
             column-gap: 2.5rem;
         }
+
         @media (min-width: 500px) {
             .skill-box-content {
                 column-count: 2;
             }
         }
+
         .skill-item {
             @apply flex items-center gap-3 py-2;
             break-inside: avoid;
             -webkit-column-break-inside: avoid;
         }
+
         .skill-item i {
             @apply text-2xl w-6 text-center;
-            color: var(--accent-primary); /* Default for all Font Awesome icons */
+            color: var(--accent-primary);
+            /* Default for all Font Awesome icons */
         }
+
         /* Devicons will retain their colored versions by default from the devicon stylesheet */
         .skill-item .devicon-java-plain.colored,
         .skill-item .devicon-python-plain.colored,
@@ -184,7 +274,8 @@
         .skill-item .devicon-nodejs-plain.colored,
         .skill-item .devicon-express-original.colored,
         .skill-item .devicon-mongodb-plain.colored,
-        .skill-item .devicon-amazonwebservices-plain.colored, /* Changed from original-wordmark */
+        .skill-item .devicon-amazonwebservices-plain.colored,
+        /* Changed from original-wordmark */
         .skill-item .devicon-googlecloud-plain.colored,
         .skill-item .devicon-linux-plain.colored,
         .skill-item .devicon-docker-plain.colored,
@@ -197,40 +288,52 @@
         .skill-item .devicon-figma-plain.colored,
         .skill-item .devicon-graphql-plain.colored,
         .skill-item .devicon-prometheus-original.colored {
-            font-size: 1.8rem; /* Consistent size for all icons */
-            color: unset; /* Allow colored devicons to show their default colors */
+            font-size: 1.8rem;
+            /* Consistent size for all icons */
+            color: unset;
+            /* Allow colored devicons to show their default colors */
         }
+
         .skill-item span {
             @apply font-medium text-base;
             color: var(--text-secondary);
         }
 
         /* Timeline specific styles (Experience & Education) */
-        #experience-timeline-container, #education-timeline-container {
+        #experience-timeline-container,
+        #education-timeline-container {
             position: relative;
-            padding-left: 24px; /* Space for the line on mobile */
+            padding-left: 24px;
+            /* Space for the line on mobile */
         }
-        
-        #experience-timeline-container > .absolute, 
-        #education-timeline-container > .absolute {
-            left: 24px; /* Adjust line position for mobile */
+
+        #experience-timeline-container>.absolute,
+        #education-timeline-container>.absolute {
+            left: 24px;
+            /* Adjust line position for mobile */
             transform: translateX(-50%);
         }
 
         .timeline-item {
             position: relative;
             display: flex;
-            align-items: center; /* Vertically align icon with content */
+            align-items: center;
+            /* Vertically align icon with content */
             width: 100%;
-            margin-bottom: 2.5rem; /* Space between items */
-            padding-left: 48px; /* Space for the absolute icon */
-            box-sizing: border-box; /* Include padding in width calculation */
+            margin-bottom: 2.5rem;
+            /* Space between items */
+            padding-left: 48px;
+            /* Space for the absolute icon */
+            box-sizing: border-box;
+            /* Include padding in width calculation */
         }
-        
+
         .timeline-item-icon {
             position: absolute;
-            left: 0; /* Align to the left edge of the .timeline-item's padding */
-            top: 50%; /* Center vertically */
+            left: 0;
+            /* Align to the left edge of the .timeline-item's padding */
+            top: 50%;
+            /* Center vertically */
             transform: translateY(-50%);
             z-index: 20;
             display: flex;
@@ -253,25 +356,31 @@
             padding: 1.75rem;
             border: 1px solid var(--border-color);
             transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out;
-            flex-grow: 1; /* Allow content to fill remaining space */
+            flex-grow: 1;
+            /* Allow content to fill remaining space */
         }
+
         html.dark .timeline-item-content {
             box-shadow: 0 4px 15px var(--shadow-dark);
         }
+
         .timeline-item-content:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 20px var(--shadow-hover-light);
             border-color: var(--accent-primary);
         }
+
         html.dark .timeline-item-content:hover {
             box-shadow: 0 8px 20px var(--shadow-hover-dark);
         }
+
         /* Custom list styles for Education section */
         .timeline-item-content ul {
             list-style-type: none;
             padding-left: 0;
             margin-top: 0.75rem;
         }
+
         .timeline-item-content li {
             position: relative;
             padding-left: 1.5rem;
@@ -279,8 +388,10 @@
             color: var(--text-secondary);
             font-size: 0.95rem;
         }
+
         .timeline-item-content li::before {
-            content: '\f058'; /* Font Awesome check-circle icon */
+            content: '\f058';
+            /* Font Awesome check-circle icon */
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
             position: absolute;
@@ -290,82 +401,111 @@
         }
 
         @media (min-width: 768px) {
-            #experience-timeline-container, #education-timeline-container {
-                padding-left: 0; /* Remove mobile padding */
+
+            #experience-timeline-container,
+            #education-timeline-container {
+                padding-left: 0;
+                /* Remove mobile padding */
             }
 
-            #experience-timeline-container > .absolute, 
-            #education-timeline-container > .absolute {
-                left: 50%; /* Center line on desktop */
+            #experience-timeline-container>.absolute,
+            #education-timeline-container>.absolute {
+                left: 50%;
+                /* Center line on desktop */
                 transform: translateX(-50%);
             }
 
             .timeline-item {
-                display: flex; /* Ensure flex behavior */
-                justify-content: space-between; /* Distribute items */
+                display: flex;
+                /* Ensure flex behavior */
+                justify-content: space-between;
+                /* Distribute items */
                 align-items: center;
-                padding-left: 0; /* Remove mobile-specific padding */
-                width: 100%; /* Take full width */
+                padding-left: 0;
+                /* Remove mobile-specific padding */
+                width: 100%;
+                /* Take full width */
             }
 
             .timeline-item-content {
-                width: 45%; /* Each content block takes 45% of width */
-                max-width: none; /* Override max-width set for mobile */
+                width: 45%;
+                /* Each content block takes 45% of width */
+                max-width: none;
+                /* Override max-width set for mobile */
             }
-            
+
             .timeline-item:nth-child(odd) .timeline-item-content {
-                margin-right: calc(50% - 24px); /* Pushes content to the left of the line, accounting for icon width */
+                margin-right: calc(50% - 24px);
+                /* Pushes content to the left of the line, accounting for icon width */
                 margin-left: 0;
             }
 
             .timeline-item:nth-child(even) .timeline-item-content {
-                margin-left: calc(50% - 24px); /* Pushes content to the right of the line, accounting for icon width */
+                margin-left: calc(50% - 24px);
+                /* Pushes content to the right of the line, accounting for icon width */
                 margin-right: 0;
             }
 
             .timeline-item-icon {
-                left: 50%; /* Center the icon relative to the parent (which is full width) */
-                transform: translate(-50%, -50%); /* Truly center the icon */
+                left: 50%;
+                /* Center the icon relative to the parent (which is full width) */
+                transform: translate(-50%, -50%);
+                /* Truly center the icon */
             }
         }
 
         /* Project & Certification Cards */
-        .project-card, .certification-card {
+        .project-card,
+        .certification-card {
             background: var(--card-bg);
             border-radius: 1rem;
             box-shadow: 0 6px 20px 0 var(--shadow-light);
             transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out;
             border: 1px solid var(--border-color);
         }
-        html.dark .project-card, html.dark .certification-card {
+
+        html.dark .project-card,
+        html.dark .certification-card {
             box-shadow: 0 6px 20px 0 var(--shadow-dark);
         }
-        .project-card:hover, .certification-card:hover {
+
+        .project-card:hover,
+        .certification-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 16px 30px 0 var(--shadow-hover-light);
             border-color: var(--accent-primary);
         }
-        html.dark .project-card:hover, html.dark .certification-card:hover {
+
+        html.dark .project-card:hover,
+        html.dark .certification-card:hover {
             box-shadow: 0 16px 30px 0 var(--shadow-hover-dark);
         }
+
         .project-card img {
             border-top-left-radius: 1rem;
             border-top-right-radius: 1rem;
         }
+
         .certification-card .icon-wrapper {
-            background-color: var(--bg-secondary); /* Slightly different background for icon wrapper */
+            background-color: var(--bg-secondary);
+            /* Slightly different background for icon wrapper */
             transition: background-color 0.3s ease-out;
         }
+
         .certification-card:hover .icon-wrapper {
-            background-color: var(--accent-primary); /* Change background on hover */
+            background-color: var(--accent-primary);
+            /* Change background on hover */
         }
+
         .certification-card .gradient-text {
             transition: -webkit-text-fill-color 0.3s ease-out;
         }
+
         .certification-card:hover .gradient-text {
-            -webkit-text-fill-color: white; /* Change icon color on hover */
+            -webkit-text-fill-color: white;
+            /* Change icon color on hover */
         }
-        
+
         /* Achievement Cards */
         .achievement-card {
             padding: 1.5rem;
@@ -373,63 +513,90 @@
             box-shadow: 0 4px 15px var(--shadow-light);
             transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
         }
+
         html.dark .achievement-card {
             box-shadow: 0 4px 15px var(--shadow-dark);
         }
+
         .achievement-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 20px var(--shadow-hover-light);
         }
+
         html.dark .achievement-card:hover {
             box-shadow: 0 8px 20px var(--shadow-hover-dark);
         }
+
         .achievement-card.spotlight {
             background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
             color: white;
-            box-shadow: 0 8px 25px var(--accent-primary), 0 0 40px rgba(0,0,0,0.1); /* Enhanced spotlight shadow */
+            box-shadow: 0 8px 25px var(--accent-primary), 0 0 40px rgba(0, 0, 0, 0.1);
+            /* Enhanced spotlight shadow */
         }
+
         .achievement-card.spotlight:hover {
-            box-shadow: 0 12px 35px var(--accent-primary), 0 0 50px rgba(0,0,0,0.15);
+            box-shadow: 0 12px 35px var(--accent-primary), 0 0 50px rgba(0, 0, 0, 0.15);
             transform: translateY(-6px);
         }
+
         .achievement-card.spotlight .icon-bg {
             background-color: rgba(255, 255, 255, 0.2);
             color: white;
         }
     </style>
 </head>
+
 <body class="antialiased">
 
-    <header id="header" class="bg-[var(--bg-primary)]/80 backdrop-blur-lg sticky top-0 left-0 right-0 z-50 border-b border-[var(--border-color)]">
+    <header id="header"
+        class="bg-[var(--bg-primary)]/80 backdrop-blur-lg sticky top-0 left-0 right-0 z-50 border-b border-[var(--border-color)]">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <nav class="flex justify-between items-center py-4">
                 <a href="#hero" class="text-3xl font-bold tracking-wider gradient-text">OM</a>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#skills" class="text-base font-medium text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">Skills</a>
-                    <a href="#experience" class="text-base font-medium text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">Experience</a>
-                    <a href="#projects" class="text-base font-medium text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">Projects</a>
-                    <a href="#education" class="text-base font-medium text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">Education</a>
-                    <a href="#certifications" class="text-base font-medium text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">Certifications</a>
-                    <a href="#contact" class="text-base font-medium text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">Contact</a>
-                    <button id="theme-toggle" class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-2xl ml-4">
+                    <a href="#skills"
+                        class="text-base font-medium text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">Skills</a>
+                    <a href="#experience"
+                        class="text-base font-medium text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">Experience</a>
+                    <a href="#projects"
+                        class="text-base font-medium text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">Projects</a>
+                    <a href="#education"
+                        class="text-base font-medium text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">Education</a>
+                    <a href="#certifications"
+                        class="text-base font-medium text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">Certifications</a>
+                    <a href="#contact"
+                        class="text-base font-medium text-[var(--text-secondary)] hover:text-[var(--accent-primary)] transition-colors">Contact</a>
+                    <button id="theme-toggle"
+                        class="text-[var(--text-secondary)] hover:text-[var(--accent-primary)] text-2xl ml-4">
                         <i id="theme-icon-sun" class="fas fa-sun"></i>
                         <i id="theme-icon-moon" class="fas fa-moon hidden"></i>
                     </button>
-                    <a href="#contact" class="bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white px-5 py-2.5 rounded-lg font-semibold hover:opacity-90 transition-opacity text-base shadow-lg hover:shadow-indigo-500/50">Get in Touch</a>
+                    <a href="#contact"
+                        class="bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white px-5 py-2.5 rounded-lg font-semibold hover:opacity-90 transition-opacity text-base shadow-lg hover:shadow-indigo-500/50">Get
+                        in Touch</a>
                 </div>
                 <button id="mobile-menu-button" class="md:hidden text-2xl text-[var(--text-primary)]">
                     <i class="fas fa-bars"></i>
                 </button>
             </nav>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-[var(--bg-primary)]/95 backdrop-blur-lg border-t border-[var(--border-color)]">
-             <a href="#skills" class="block text-center py-3 px-4 text-lg text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">Skills</a>
-            <a href="#experience" class="block text-center py-3 px-4 text-lg text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">Experience</a>
-            <a href="#projects" class="block text-center py-3 px-4 text-lg text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">Projects</a>
-            <a href="#education" class="block text-center py-3 px-4 text-lg text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">Education</a>
-            <a href="#certifications" class="block text-center py-3 px-4 text-lg text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">Certifications</a>
-            <a href="#contact" class="block text-center py-3 px-4 text-lg text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">Contact</a>
-            <button id="mobile-theme-toggle" class="w-full py-3 px-4 text-lg text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">Toggle Theme</button>
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-[var(--bg-primary)]/95 backdrop-blur-lg border-t border-[var(--border-color)]">
+            <a href="#skills"
+                class="block text-center py-3 px-4 text-lg text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">Skills</a>
+            <a href="#experience"
+                class="block text-center py-3 px-4 text-lg text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">Experience</a>
+            <a href="#projects"
+                class="block text-center py-3 px-4 text-lg text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">Projects</a>
+            <a href="#education"
+                class="block text-center py-3 px-4 text-lg text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">Education</a>
+            <a href="#certifications"
+                class="block text-center py-3 px-4 text-lg text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">Certifications</a>
+            <a href="#contact"
+                class="block text-center py-3 px-4 text-lg text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">Contact</a>
+            <button id="mobile-theme-toggle"
+                class="w-full py-3 px-4 text-lg text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">Toggle
+                Theme</button>
         </div>
     </header>
 
@@ -437,19 +604,31 @@
         <section id="hero" class="relative pt-24 pb-16 md:pt-32 md:pb-24 hero-ambient-bg overflow-hidden">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                 <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">Omkar Mahesh</h1>
-                <p class="mt-4 text-xl md:text-2xl font-semibold gradient-text">Aspiring DevOps Engineer | Full-Stack Developer | Cloud & GenAI Enthusiast</p>
+                <p class="mt-4 text-xl md:text-2xl font-semibold gradient-text">Aspiring DevOps Engineer | Full-Stack
+                    Developer | Cloud & GenAI Enthusiast</p>
                 <p class="mt-8 max-w-3xl mx-auto text-lg text-[var(--text-secondary)]">
-                    Mastering the synergy between code, cloud, and automation. With a core of elite DSA expertise, I deliver end-to-end excellence in Full-Stack development (MERN & Next.js), implement resilient Cloud-native systems, and drive efficiency through advanced DevOps pipelines. My goal is to deliver not just features, but a competitive advantage.
+                    Mastering the synergy between code, cloud, and automation. With a core of elite DSA expertise, I
+                    deliver end-to-end excellence in Full-Stack development (MERN & Next.js), implement resilient
+                    Cloud-native systems, and drive efficiency through advanced DevOps pipelines. My goal is to deliver
+                    not just features, but a competitive advantage.
                 </p>
                 <div class="mt-10 flex flex-wrap justify-center items-center gap-6">
-                    <a href="https://raw.githubusercontent.com/omkarmm19/Resume-Omkar/main/Omkar%20Mahesh.pdf" target="_blank" download="Omkar-Mahesh-Resume.pdf" class="inline-flex items-center gap-2 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
+                    <a href="https://raw.githubusercontent.com/omkarmm19/Resume-Omkar/main/Omkar%20Mahesh.pdf"
+                        target="_blank" download="Omkar-Mahesh-Resume.pdf"
+                        class="inline-flex items-center gap-2 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
                         <i class="fas fa-file-arrow-down"></i>
                         View Resume
                     </a>
                     <div class="flex items-center space-x-6 text-3xl text-gray-500 dark:text-gray-400">
-                        <a id="linkedin-link" href="" target="_blank" class="hover:text-[var(--accent-primary)] transition-colors"><i class="fab fa-linkedin"></i></a>
-                        <a id="github-link" href="" target="_blank" class="hover:text-[var(--accent-primary)] transition-colors"><i class="fab fa-github"></i></a>
-                        <a id="leetcode-link" href="" target="_blank" class="hover:text-[var(--accent-primary)] transition-colors"><i class="fa-solid fa-code"></i></a>
+                        <a id="linkedin-link" href="" target="_blank"
+                            class="hover:text-[var(--accent-primary)] transition-colors"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a id="github-link" href="" target="_blank"
+                            class="hover:text-[var(--accent-primary)] transition-colors"><i
+                                class="fab fa-github"></i></a>
+                        <a id="leetcode-link" href="" target="_blank"
+                            class="hover:text-[var(--accent-primary)] transition-colors"><i
+                                class="fa-solid fa-code"></i></a>
                     </div>
                 </div>
             </div>
@@ -460,7 +639,8 @@
                 <div class="text-center mb-16 reveal">
                     <h2 class="section-title">Technical Skill Matrix</h2>
                     <p class="mt-4 max-w-2xl mx-auto text-lg text-[var(--text-secondary)]">
-                        A comprehensive overview of my capabilities across development, cloud infrastructure, and automation.
+                        A comprehensive overview of my capabilities across development, cloud infrastructure, and
+                        automation.
                     </p>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -468,10 +648,14 @@
                         <h3 class="skill-box-title"><i class="fas fa-code mr-4"></i>Languages</h3>
                         <div class="skill-box-content">
                             <div class="skill-item"><i class="devicon-java-plain colored"></i><span>Java</span></div>
-                            <div class="skill-item"><i class="devicon-python-plain colored"></i><span>Python</span></div>
-                            <div class="skill-item"><i class="devicon-cplusplus-plain colored"></i><span>C++</span></div>
-                            <div class="skill-item"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
-                            <div class="skill-item"><i class="devicon-typescript-plain colored"></i><span>TypeScript</span></div>
+                            <div class="skill-item"><i class="devicon-python-plain colored"></i><span>Python</span>
+                            </div>
+                            <div class="skill-item"><i class="devicon-cplusplus-plain colored"></i><span>C++</span>
+                            </div>
+                            <div class="skill-item"><i
+                                    class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
+                            <div class="skill-item"><i
+                                    class="devicon-typescript-plain colored"></i><span>TypeScript</span></div>
                             <div class="skill-item"><i class="fas fa-database"></i><span>SQL</span></div>
                             <div class="skill-item"><i class="devicon-html5-plain colored"></i><span>HTML</span></div>
                             <div class="skill-item"><i class="devicon-css3-plain colored"></i><span>CSS</span></div>
@@ -480,26 +664,38 @@
                     <div class="skill-box reveal">
                         <h3 class="skill-box-title"><i class="fas fa-cloud-upload-alt mr-4"></i>Cloud & DevOps</h3>
                         <div class="skill-box-content">
-                            <div class="skill-item"><i class="devicon-amazonwebservices-plain colored"></i><span>AWS</span></div>
-                            <div class="skill-item"><i class="devicon-googlecloud-plain colored"></i><span>Google Cloud (GCP)</span></div>
+                            <div class="skill-item"><i
+                                    class="devicon-amazonwebservices-plain colored"></i><span>AWS</span></div>
+                            <div class="skill-item"><i class="devicon-googlecloud-plain colored"></i><span>Google Cloud
+                                    (GCP)</span></div>
                             <div class="skill-item"><i class="devicon-linux-plain colored"></i><span>Linux</span></div>
-                            <div class="skill-item"><i class="devicon-docker-plain colored"></i><span>Docker</span></div>
+                            <div class="skill-item"><i class="devicon-docker-plain colored"></i><span>Docker</span>
+                            </div>
                             <div class="skill-item"><i class="fas fa-sync-alt"></i><span>CI/CD</span></div>
-                            <div class="skill-item"><i class="devicon-terraform-plain colored"></i><span>Terraform</span></div>
-                            <div class="skill-item"><i class="devicon-ansible-plain colored"></i><span>Ansible</span></div>
-                            <div class="skill-item"><i class="devicon-grafana-plain colored"></i><span>Grafana</span></div>
+                            <div class="skill-item"><i
+                                    class="devicon-terraform-plain colored"></i><span>Terraform</span></div>
+                            <div class="skill-item"><i class="devicon-ansible-plain colored"></i><span>Ansible</span>
+                            </div>
+                            <div class="skill-item"><i class="devicon-grafana-plain colored"></i><span>Grafana</span>
+                            </div>
                             <div class="skill-item"><i class="fas fa-people-carry-box"></i><span>Scrum</span></div>
                         </div>
                     </div>
                     <div class="skill-box reveal">
                         <h3 class="skill-box-title"><i class="fas fa-layer-group mr-4"></i>Frontend & Backend</h3>
                         <div class="skill-box-content">
-                            <div class="skill-item"><i class="devicon-react-original colored"></i><span>React.js</span></div>
-                            <div class="skill-item"><i class="devicon-nextjs-original colored"></i><span>Next.js</span></div>
-                            <div class="skill-item"><i class="devicon-tailwindcss-plain colored"></i><span>Tailwind CSS</span></div>
-                            <div class="skill-item"><i class="devicon-nodejs-plain colored"></i><span>Node.js</span></div>
-                            <div class="skill-item"><i class="devicon-express-original colored"></i><span>Express.js</span></div>
-                            <div class="skill-item"><i class="devicon-mongodb-plain colored"></i><span>MongoDB</span></div>
+                            <div class="skill-item"><i class="devicon-react-original colored"></i><span>React.js</span>
+                            </div>
+                            <div class="skill-item"><i class="devicon-nextjs-original colored"></i><span>Next.js</span>
+                            </div>
+                            <div class="skill-item"><i class="devicon-tailwindcss-plain colored"></i><span>Tailwind
+                                    CSS</span></div>
+                            <div class="skill-item"><i class="devicon-nodejs-plain colored"></i><span>Node.js</span>
+                            </div>
+                            <div class="skill-item"><i
+                                    class="devicon-express-original colored"></i><span>Express.js</span></div>
+                            <div class="skill-item"><i class="devicon-mongodb-plain colored"></i><span>MongoDB</span>
+                            </div>
                             <div class="skill-item"><i class="fas fa-bolt"></i><span>REST APIs</span></div>
                         </div>
                     </div>
@@ -507,22 +703,29 @@
                         <h3 class="skill-box-title"><i class="fas fa-brain mr-4"></i>DSA & Foundations</h3>
                         <div class="skill-box-content">
                             <div class="skill-item"><i class="fas fa-check-double"></i><span>DSA (Java)</span></div>
-                            <div class="skill-item"><i class="fas fa-puzzle-piece"></i><span>Advanced Problem Solving</span></div>
-                            <div class="skill-item"><i class="fas fa-chart-line"></i><span>Algorithmic Analysis</span></div>
+                            <div class="skill-item"><i class="fas fa-puzzle-piece"></i><span>Advanced Problem
+                                    Solving</span></div>
+                            <div class="skill-item"><i class="fas fa-chart-line"></i><span>Algorithmic Analysis</span>
+                            </div>
                             <div class="skill-item"><i class="fas fa-object-group"></i><span>OOPS Concepts</span></div>
-                            <div class="skill-item"><i class="fas fa-memory"></i><span>Operating Systems (OS)</span></div>
+                            <div class="skill-item"><i class="fas fa-memory"></i><span>Operating Systems (OS)</span>
+                            </div>
                             <div class="skill-item"><i class="fas fa-database"></i><span>DBMS</span></div>
-                            <div class="skill-item"><i class="fas fa-network-wired"></i><span>Computer Networks (CN)</span></div>
+                            <div class="skill-item"><i class="fas fa-network-wired"></i><span>Computer Networks
+                                    (CN)</span></div>
                         </div>
                     </div>
                     <div class="skill-box reveal">
                         <h3 class="skill-box-title"><i class="fas fa-tools mr-4"></i>Developer Tools</h3>
                         <div class="skill-box-content">
                             <div class="skill-item"><i class="devicon-git-plain colored"></i><span>Git</span></div>
-                            <div class="skill-item"><i class="devicon-github-original colored"></i><span>GitHub</span></div>
-                            <div class="skill-item"><i class="devicon-vscode-plain colored"></i><span>VSCode</span></div>
+                            <div class="skill-item"><i class="devicon-github-original colored"></i><span>GitHub</span>
+                            </div>
+                            <div class="skill-item"><i class="devicon-vscode-plain colored"></i><span>VSCode</span>
+                            </div>
                             <div class="skill-item"><i class="fas fa-paper-plane"></i><span>Postman API</span></div>
-                            <div class="skill-item"><i class="devicon-firebase-plain colored"></i><span>Firebase</span></div>
+                            <div class="skill-item"><i class="devicon-firebase-plain colored"></i><span>Firebase</span>
+                            </div>
                             <div class="skill-item"><i class="devicon-figma-plain colored"></i><span>Figma</span></div>
                         </div>
                     </div>
@@ -546,20 +749,23 @@
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 reveal">
                     <h2 class="section-title">Professional Journey</h2>
-                    <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">My journey in tech has been defined by hands-on learning, tangible results, and continuous improvement.</p>
+                    <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">My journey in
+                        tech has been defined by hands-on learning, tangible results, and continuous improvement.</p>
                 </div>
                 <div id="experience-timeline-container" class="relative max-w-3xl mx-auto">
-                    </div>
+                </div>
             </div>
         </section>
-        
+
         <section id="projects" class="py-20 bg-[var(--bg-secondary)]">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 reveal">
                     <h2 class="section-title">Project Showcase</h2>
-                    <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">Highlights of my work where I've transformed ideas into functional applications.</p>
+                    <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">Highlights of
+                        my work where I've transformed ideas into functional applications.</p>
                 </div>
-                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"></div>
+                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                </div>
             </div>
         </section>
 
@@ -567,10 +773,12 @@
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 reveal">
                     <h2 class="section-title">Academic Foundation</h2>
-                    <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">Grounding my practical skills in core Computer Science principles with a specialization in Cloud and Automation.</p>
+                    <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">Grounding my
+                        practical skills in core Computer Science principles with a specialization in Cloud and
+                        Automation.</p>
                 </div>
                 <div id="education-timeline-container" class="relative max-w-3xl mx-auto">
-                    </div>
+                </div>
             </div>
         </section>
 
@@ -578,9 +786,11 @@
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 reveal">
                     <h2 class="section-title">Licenses & Certifications</h2>
-                    <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">My commitment to continuous learning, validated by industry credentials.</p>
+                    <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">My commitment
+                        to continuous learning, validated by industry credentials.</p>
                 </div>
-                <div id="certifications-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"></div>
+                <div id="certifications-grid"
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"></div>
             </div>
         </section>
 
@@ -588,18 +798,20 @@
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 reveal">
                     <h2 class="section-title">Key Achievements</h2>
-                    <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">Highlights of my accomplishments in competitive programming and leadership.</p>
+                    <p class="mt-8 max-w-3xl mx-auto text-xl text-[var(--text-secondary)] tracking-wide">Highlights of
+                        my accomplishments in competitive programming and leadership.</p>
                 </div>
                 <div id="achievements-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"></div>
             </div>
         </section>
     </main>
-    
+
     <footer id="contact" class="bg-gray-800 dark:bg-gray-900 text-gray-300">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div class="text-center">
                 <h2 class="text-4xl font-bold text-white">Get In Touch</h2>
-                <p class="mt-4 max-w-2xl mx-auto text-lg">I'm actively seeking new opportunities and collaborations. Feel free to reach out directly.</p>
+                <p class="mt-4 max-w-2xl mx-auto text-lg">I'm actively seeking new opportunities and collaborations.
+                    Feel free to reach out directly.</p>
             </div>
             <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-start max-w-4xl mx-auto">
                 <div class="text-center md:text-left">
@@ -607,7 +819,8 @@
                     <div class="space-y-4 text-lg">
                         <div class="flex items-center justify-center md:justify-start gap-3">
                             <i class="fas fa-envelope text-[var(--accent-primary)] text-xl w-6 text-center"></i>
-                            <a href="mailto:omkarmahesh12345@gmail.com" class="hover:underline">omkarmahesh12345@gmail.com</a>
+                            <a href="mailto:omkarmahesh12345@gmail.com"
+                                class="hover:underline">omkarmahesh12345@gmail.com</a>
                         </div>
                         <div class="flex items-center justify-center md:justify-start gap-3">
                             <i class="fas fa-phone text-[var(--accent-primary)] text-xl w-6 text-center"></i>
@@ -616,9 +829,12 @@
                     </div>
                 </div>
                 <div class="text-center md:text-left">
-                     <h3 class="text-2xl font-bold text-white mb-4">Send an Inquiry</h3>
-                     <p class="text-gray-400 mb-4">For project proposals or formal inquiries, please use the button below.</p>
-                     <a href="https://forms.gle/V4AaUsNXDPzP8kHJ8" target="_blank" class="inline-block bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-indigo-500/50">Open Inquiry Form</a>
+                    <h3 class="text-2xl font-bold text-white mb-4">Send an Inquiry</h3>
+                    <p class="text-gray-400 mb-4">For project proposals or formal inquiries, please use the button
+                        below.</p>
+                    <a href="https://forms.gle/V4AaUsNXDPzP8kHJ8" target="_blank"
+                        class="inline-block bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-indigo-500/50">Open
+                        Inquiry Form</a>
                 </div>
             </div>
             <div class="mt-16 border-t border-gray-700 pt-8 text-sm text-gray-400 text-center">
@@ -628,8 +844,8 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            
+        document.addEventListener('DOMContentLoaded', function () {
+
             const resumeData = {
                 links: {
                     linkedin: 'https://www.linkedin.com/in/omkar-mahesh-a99b70289/',
@@ -638,43 +854,71 @@
                 },
                 // =========== UPDATED EXPERIENCE DATA (Removed Freelance) ===========
                 experience: [
-                    { 
-                        role: 'Web Development Intern', 
-                        company: 'Coding Samurai', 
-                        date: 'July 2025 - August 2025', 
-                        desc: 'Architected and deployed a scalable, full-stack event management web application. Leveraged Next.js for SSR and performance, integrated Firebase for real-time database and auth, and deployed on Vercel, resulting in a 30% reduction in average page load time.', 
-                        icon: 'fa-solid fa-code' 
+                    {
+                        role: 'Web Development Intern',
+                        company: 'Coding Samurai',
+                        date: 'July 2025 - August 2025',
+                        desc: 'Architected and deployed a scalable, full-stack event management web application. Leveraged Next.js for SSR and performance, integrated Firebase for real-time database and auth, and deployed on Vercel, resulting in a 30% reduction in average page load time.',
+                        icon: 'fa-solid fa-code'
                     },
-                    { 
-                        role: 'Open Source Contributor', 
-                        company: 'GSSoC & Hacktoberfest \'24', 
-                        date: '2024', 
-                        desc: 'Actively contributed to 5+ open-source projects. Merged 15+ pull requests, resolving critical bugs and adding features. Enhanced UI components in React and optimized backend API endpoints in Node.js, improving application responsiveness and maintainability.', 
-                        icon: 'fa-solid fa-code-pull-request' 
+                    {
+                        role: 'Open Source Contributor',
+                        company: 'GSSoC & Hacktoberfest \'24',
+                        date: '2024',
+                        desc: 'Actively contributed to 5+ open-source projects. Merged 15+ pull requests, resolving critical bugs and adding features. Enhanced UI components in React and optimized backend API endpoints in Node.js, improving application responsiveness and maintainability.',
+                        icon: 'fa-solid fa-code-pull-request'
                     }
                 ],
                 // =========== ORIGINAL EDUCATION DATA (Restored) ===========
                 education: [
-                    { 
-                        role: 'B.Tech, CSE (Cloud Computing & Automation)', 
-                        company: 'VIT Bhopal University', 
-                        date: '2023 - 2027', 
+                    {
+                        role: 'B.Tech, CSE (Cloud Computing & Automation)',
+                        company: 'VIT Bhopal University',
+                        date: '2023 - 2027',
                         desc: `<ul>
                                    <li>CGPA: <strong>8.38/10.0</strong></li>
                                    <li><strong>Relevant Coursework:</strong> Data Structures & Algorithms, OOPS, Operating Systems, Computer Networks, Database Management Systems.</li>
                                    <li><strong>Key Skills:</strong> Gained hands-on experience in Full-Stack Development, Cloud service management (AWS/GCP), and CI/CD pipeline implementation.</li>
                                    <li><strong>Leadership:</strong> Event Management Lead for the Mozilla Firefox Club, organizing technical workshops and coding events for 500+ students.</li>
-                               </ul>`, 
-                        icon: 'fa-solid fa-graduation-cap' 
+                               </ul>`,
+                        icon: 'fa-solid fa-graduation-cap'
                     }
                 ],
                 projects: [
+                    {
+                        title: 'HotReload — Go CLI Dev Tool',
+                        desc: 'Built a Go CLI tool that watches project files and automatically rebuilds and restarts servers during development. Implemented filesystem monitoring with fsnotify, file filtering, and a 300ms debounce to prevent redundant rebuilds. Designed modular components with crash-loop protection and graceful process termination.',
+                        tech: ['Go', 'fsnotify', 'CLI', 'Process Management'],
+                        image: 'https://placehold.co/600x400/111827/9ca3af?text=HotReload+CLI',
+                        link: 'https://www.loom.com/share/cb4f2b8444a34fea9570accc484c0531'
+                    },
+                    {
+                        title: 'Forge Todo App',
+                        desc: 'Developed a full-stack task management app with JWT authentication and REST APIs for secure CRUD operations. Containerized services using Docker Compose and implemented CI/CD with GitHub Actions for automated builds and deployment. Deployed on Vercel with Neon PostgreSQL for scalable production hosting.',
+                        tech: ['Next.js', 'Express.js', 'TypeScript', 'PostgreSQL', 'Docker', 'Prisma', 'GitHub Actions'],
+                        image: 'https://placehold.co/600x400/111827/9ca3af?text=Forge+Todo+App',
+                        link: 'https://forge-todo-cloud.vercel.app/'
+                    },
                     {
                         title: 'Place Prep - AI Voice Interview Platform',
                         desc: 'Engineered a full-stack AI interview simulator using Next.js, providing users with realistic voice-based practice and instant, AI-driven performance feedback.',
                         tech: ['Next.js', 'React', 'Tailwind', 'OpenAI API', 'Deepgram'],
                         image: 'https://placehold.co/600x400/111827/9ca3af?text=Place+Prep',
                         link: 'https://place-prep.vercel.app/'
+                    },
+                    {
+                        title: 'Dynamic MERN Portfolio',
+                        desc: 'Built a highly interactive, responsive personal portfolio using the MERN stack. Features include a dynamic content management system via MongoDB, real-time email integration with Nodemailer, and a premium "Cyberpunk Elegance" UI powered by Framer Motion.',
+                        tech: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'Tailwind', 'Framer Motion'],
+                        image: 'https://placehold.co/600x400/111827/9ca3af?text=Portfolio',
+                        link: 'https://github.com/omkarmm19/Portfolio-Omkar'
+                    },
+                    {
+                        title: 'Eira - AI Voice Assistant',
+                        desc: 'Developed an AI-powered virtual assistant in Python capable of real-time voice interaction, web navigation, and intelligent search. Integrated conversational AI, speech recognition, and text-to-speech APIs to simulate a natural digital companion experience.',
+                        tech: ['Python', 'Speech Recognition', 'Edge TTS', 'OpenRouter API', 'Google Search API'],
+                        image: 'https://placehold.co/600x400/111827/9ca3af?text=Eira+AI',
+                        link: 'https://github.com/omkarmm19/Eira'
                     },
                     {
                         title: 'NewsVITaa - Event Management System',
@@ -702,9 +946,9 @@
                     { title: 'Python Essentials', issuer: 'Vityarthi', icon: 'fa-brands fa-python' }
                 ],
                 achievements: [
-                    { title: '1st Rank in Google Gen AI Exchange', issuer: 'Google Program 2025', icon: 'fa-solid fa-trophy', spotlight: true},
-                    { title: 'Leetcode DSA 100 Days Challenge', issuer: 'Completed in Java', icon: 'fa-solid fa-laptop-code', spotlight: false},
-                    { title: 'Event Management Lead', issuer: 'Mozilla Firefox & VITKult Clubs', icon: 'fa-solid fa-users', spotlight: false},
+                    { title: '1st Rank in Google Gen AI Exchange', issuer: 'Google Program 2025', icon: 'fa-solid fa-trophy', spotlight: true },
+                    { title: 'Leetcode DSA 100 Days Challenge', issuer: 'Completed in Java', icon: 'fa-solid fa-laptop-code', spotlight: false },
+                    { title: 'Event Management Lead', issuer: 'Mozilla Firefox & VITKult Clubs', icon: 'fa-solid fa-users', spotlight: false },
                 ]
             };
 
@@ -712,7 +956,7 @@
             document.getElementById('linkedin-link').href = resumeData.links.linkedin;
             document.getElementById('github-link').href = resumeData.links.github;
             document.getElementById('leetcode-link').href = resumeData.links.leetcode;
-            
+
             // Dynamic Year in Footer
             document.getElementById('current-year').textContent = new Date().getFullYear();
 
@@ -748,9 +992,9 @@
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
             mobileMenu.addEventListener('click', (e) => {
-                if(e.target.tagName === 'A') mobileMenu.classList.add('hidden');
+                if (e.target.tagName === 'A') mobileMenu.classList.add('hidden');
             });
-            
+
             // Timeline Populator
             function populateTimeline(containerId, data) {
                 const timelineContainer = document.getElementById(containerId);
@@ -759,7 +1003,7 @@
                 let itemsHtml = data.map((item, index) => {
                     // Determine desktop alignment class based on index
                     const desktopAlignmentClass = (index % 2 === 0) ? '' : 'md:flex-row-reverse';
-                    
+
                     return `
                         <div class="timeline-item reveal ${desktopAlignmentClass}">
                             <div class="timeline-item-icon"><i class="${item.icon}"></i></div>
@@ -772,7 +1016,7 @@
                         </div>
                     `;
                 }).join('');
-                
+
                 // Add the vertical line to the timeline container
                 timelineContainer.innerHTML = `
                     <div class="absolute w-0.5 h-full bg-[var(--border-color)]" style="top: 0;">
@@ -780,7 +1024,7 @@
                     </div>
                 ` + itemsHtml;
             }
-            
+
             // Generic Section Populator
             const populateSection = (gridId, data, renderer) => {
                 const grid = document.getElementById(gridId);
@@ -796,11 +1040,11 @@
                 <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="project-card flex flex-col reveal">
                     <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover">
                     <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold">${project.title}</h3>
-                        <p class="mt-2 text-[var(--text-secondary)] flex-grow">${project.desc}</p>
-                        <div class="mt-6 pt-4 border-t border-[var(--border-color)]">
-                             <h4 class="font-semibold text-sm text-[var(--text-secondary)] mb-2">Core Technologies</h4>
-                             <div class="flex flex-wrap gap-2">${project.tech.map(t => `<span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-300 text-xs font-medium px-2.5 py-0.5 rounded-full">${t}</span>`).join('')}</div>
+                        <h3 class="text-xl font-bold mb-2">${project.title}</h3>
+                        <p class="text-sm leading-relaxed text-[var(--text-secondary)] flex-grow" style="overflow-wrap:break-word;word-break:break-word;">${project.desc}</p>
+                        <div class="mt-5 pt-4 border-t border-[var(--border-color)]">
+                             <h4 class="font-semibold text-xs uppercase tracking-wider text-[var(--text-secondary)] mb-2">Core Technologies</h4>
+                             <div class="flex flex-wrap gap-2">${project.tech.map(t => `<span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-300 text-xs font-medium px-2.5 py-1 rounded-full">${t}</span>`).join('')}</div>
                         </div>
                     </div>
                 </a>`);
@@ -849,13 +1093,13 @@
                             timelineLine.style.transform = 'scaleY(1)'; // Animate timeline line
                         }
                     } else {
-                         // Optional: You can uncomment this block if you want elements to hide again
-                         // when they scroll out of view, and the animation to re-trigger on re-entry.
-                         // entry.target.classList.remove('visible');
-                         // const timelineLine = entry.target.querySelector('[id$="-line"]');
-                         // if (timelineLine) {
-                         //     timelineLine.style.transform = 'scaleY(0)';
-                         // }
+                        // Optional: You can uncomment this block if you want elements to hide again
+                        // when they scroll out of view, and the animation to re-trigger on re-entry.
+                        // entry.target.classList.remove('visible');
+                        // const timelineLine = entry.target.querySelector('[id$="-line"]');
+                        // if (timelineLine) {
+                        //     timelineLine.style.transform = 'scaleY(0)';
+                        // }
                     }
                 });
             }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
@@ -868,4 +1112,5 @@
         });
     </script>
 </body>
+
 </html>
