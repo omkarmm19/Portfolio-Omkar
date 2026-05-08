@@ -74,7 +74,7 @@ const projects = [
     {
         title: 'Dynamic MERN Portfolio',
         desc: 'Built a highly interactive, responsive personal portfolio using the MERN stack. Features include a dynamic content management system via MongoDB, real-time email integration with Nodemailer, and a premium "Cyberpunk Elegance" UI powered by Framer Motion.',
-        tech: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'Tailwind', 'Framer Motion'],
+        tech: ['MongoDB', 'Express.js', 'React.js', 'Tailwind', 'Framer Motion'],
         image: 'https://placehold.co/600x400/111827/9ca3af?text=Portfolio',
         link: 'https://github.com/omkarmm19/Portfolio-Omkar'
     },
@@ -103,6 +103,7 @@ const projects = [
 ];
 
 const certifications = [
+    { title: 'Cloud Computing and Distributed Systems', issuer: 'NPTEL', icon: 'fa-solid fa-microchip', link: 'https://drive.google.com/file/d/1Q8a-JriSJzNFOw8nunz4ft1NhKf7Tztt/view?usp=sharing' },
     { title: 'Google IT Support Certificate', issuer: 'Google', icon: 'fa-brands fa-google', link: 'https://www.credly.com/badges/7d04edcd-5d4f-4e25-bed1-48138478c5d2/public_url' },
     { title: 'The Bits and Bytes of Computer Networking', issuer: 'Google', icon: 'fa-brands fa-google', link: 'https://drive.google.com/file/d/1KL7XlRQkuywLr_UejbRvXnhw3ET-bRLn/view?usp=drive_link' },
     { title: 'Oracle Certified AI Foundations Associate', issuer: 'Oracle', icon: 'devicon-oracle-original colored', link: 'https://drive.google.com/file/d/1CfKuinaQwsQCh9elpbqLJ8M3ZpSZ7uiY/view?usp=drive_link' },
@@ -110,7 +111,7 @@ const certifications = [
     { title: 'DevOps, Agile & Design Thinking', issuer: 'IBM', icon: 'fa-solid fa-infinity', link: 'https://courses.vit.skillsnetwork.site/certificates/9c348048d331464cbcedaabd3cd335ac' },
     { title: 'Azure Data Fundamentals', issuer: 'Microsoft', icon: 'fa-brands fa-microsoft', link: 'https://www.credly.com/badges/68487755-3375-4887-a1b3-4268023b3ec7/public_url' },
     { title: 'DevOps Fundamentals', issuer: 'IBM', icon: 'fa-solid fa-infinity', link: 'https://courses.vit.skillsnetwork.site/certificates/d0bde818921c4b5982b1e4e647a77f9b' },
-    { title: 'Introduction to Internet of Things, IIT Kharagpur', issuer: 'NPTEL', icon: 'fa-solid fa-microchip', link: 'https://drive.google.com/file/d/1EyED9jpmtWrlA8iqAo9s1n0TSwSxnQo2/view?usp=drive_link' },
+    { title: 'Introduction to Internet of Things', issuer: 'NPTEL', icon: 'fa-solid fa-microchip', link: 'https://drive.google.com/file/d/1EyED9jpmtWrlA8iqAo9s1n0TSwSxnQo2/view?usp=drive_link' },
     { title: 'Gen AI Academy', issuer: 'Google', icon: 'fa-brands fa-google', link: 'https://certificate.hack2skill.com/user/genai2/2025H2S04GENAI-A100367' },
     { title: 'API Fundamentals Expert', issuer: 'Postman', icon: 'devicon-postman-plain colored', link: 'https://badgr.com/public/assertions/toYF93bjSFKvqWqrHA9i2w' },
     { title: 'Data Visualization', issuer: 'TATA Forage', icon: 'fa-solid fa-chart-bar', link: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Tata/MyXvBcppsW2FkNYCX_Tata%20Group_nvcYESxQthhFMataX_1725794820145_completion_certificate.pdf' },
@@ -132,7 +133,6 @@ const skills = [
         items: [
             { name: 'Java', icon: 'devicon-java-plain colored' },
             { name: 'Python', icon: 'devicon-python-plain colored' },
-            { name: 'C++', icon: 'devicon-cplusplus-plain colored' },
             { name: 'JavaScript', icon: 'devicon-javascript-plain colored' },
             { name: 'TypeScript', icon: 'devicon-typescript-plain colored' },
             { name: 'SQL', icon: 'fas fa-database' },
@@ -160,11 +160,11 @@ const skills = [
         category: 'Cloud & DevOps',
         icon: 'fas fa-cloud-upload-alt',
         items: [
+            { name: 'Linux', icon: 'devicon-linux-plain colored' },
             { name: 'AWS', icon: 'devicon-amazonwebservices-plain colored' },
             { name: 'Docker', icon: 'devicon-docker-plain colored' },
             { name: 'Kubernetes', icon: 'devicon-kubernetes-plain colored' },
             { name: 'Google Cloud (GCP)', icon: 'devicon-googlecloud-plain colored' },
-            { name: 'Linux', icon: 'devicon-linux-plain colored' },
             { name: 'CI/CD', icon: 'fas fa-sync-alt' },
             { name: 'Terraform', icon: 'devicon-terraform-plain colored' },
             { name: 'Ansible', icon: 'devicon-ansible-plain colored' },
@@ -205,7 +205,6 @@ const skills = [
             { name: 'OpenAI API', icon: 'fas fa-lightbulb' },
             { name: 'LLMs & GenAI', icon: 'fas fa-brain' },
             { name: 'Prompt Engineering', icon: 'fas fa-keyboard' },
-            { name: 'RAG Systems', icon: 'fas fa-retweet' },
             { name: 'Streamlit', icon: 'fas fa-stream' },
             { name: 'Vertex AI', icon: 'fas fa-cloud' },
             { name: 'Google Cloud SDK', icon: 'fas fa-terminal' }

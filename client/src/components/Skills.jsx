@@ -3,24 +3,6 @@ import { motion } from 'framer-motion';
 import axios from 'axios';
 import Loading from './Loading';
 
-// Mock data (replace with API)
-const mockSkills = [
-    {
-        category: 'Languages',
-        icon: 'fas fa-code',
-        items: [
-            { name: 'Java', icon: 'devicon-java-plain colored' },
-            { name: 'Python', icon: 'devicon-python-plain colored' },
-            { name: 'C++', icon: 'devicon-cplusplus-plain colored' },
-            { name: 'JavaScript', icon: 'devicon-javascript-plain colored' },
-            { name: 'TypeScript', icon: 'devicon-typescript-plain colored' },
-            { name: 'SQL', icon: 'fas fa-database' },
-            { name: 'HTML', icon: 'devicon-html5-plain colored' },
-            { name: 'CSS', icon: 'devicon-css3-plain colored' }
-        ]
-    },
-    // ... we will fetch this actually
-];
 
 const Skills = () => {
     const [skills, setSkills] = useState([]);
