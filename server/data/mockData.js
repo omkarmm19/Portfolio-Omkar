@@ -125,20 +125,20 @@ const certifications = [
     // Google
     { title: 'Google IT Support Professional Certificate', issuer: 'Google', icon: 'fa-brands fa-google', link: 'https://www.credly.com/badges/7d04edcd-5d4f-4e25-bed1-48138478c5d2/public_url' },
     { title: 'Gen AI Academy', issuer: 'Google', icon: 'fa-brands fa-google', link: 'https://certificate.hack2skill.com/user/genai2/2025H2S04GENAI-A100367' },
-    { title: 'The Bits and Bytes of Computer Networking', issuer: 'Google', icon: 'fa-brands fa-google', link: 'https://drive.google.com/file/d/1KL7XlRQkuywLr_UejbRvXnhw3ET-bRLn/view?usp=drive_link' },
+    { title: 'The Bits and Bytes of Computer Networking', issuer: 'Google', icon: 'fa-brands fa-google', link: 'https://drive.google.com/file/d/1RM_JEV2iZ6GgyrXia8L-ORVejFJR55cu/view?usp=sharing' },
     // Postman
     { title: 'API Fundamentals Student Expert', issuer: 'Postman', icon: 'devicon-postman-plain colored', link: 'https://badgr.com/public/assertions/toYF93bjSFKvqWqrHA9i2w' },
     // Oracle
-    { title: 'Oracle Certified AI Foundations Associate', issuer: 'Oracle', icon: 'devicon-oracle-original colored', link: 'https://drive.google.com/file/d/1CfKuinaQwsQCh9elpbqLJ8M3ZpSZ7uiY/view?usp=drive_link' },
-    { title: 'Oracle Certified Cloud Foundations Associate', issuer: 'Oracle', icon: 'devicon-oracle-original colored', link: 'https://drive.google.com/file/d/1G8CVaYLL7PfoKPR6ibMccY1_ONSq5s4w/view?usp=drive_link' },
+    { title: 'Oracle Certified AI Foundations Associate', issuer: 'Oracle', icon: 'devicon-oracle-original colored', link: 'https://drive.google.com/file/d/1IB9YpfeEnJAj0C9cNYwCgPIjery1Jabq/view?usp=sharing' },
+    { title: 'Oracle Certified Cloud Foundations Associate', issuer: 'Oracle', icon: 'devicon-oracle-original colored', link: 'https://drive.google.com/file/d/1gswUO7jELq-Jy9p1gCFHZcRo1ZSs1O80/view?usp=sharing' },
     // NPTEL
     { title: 'Cloud Computing and Distributed Systems', issuer: 'NPTEL', icon: 'fa-solid fa-microchip', link: 'https://drive.google.com/file/d/1Q8a-JriSJzNFOw8nunz4ft1NhKf7Tztt/view?usp=sharing' },
-    { title: 'Introduction to Internet of Things', issuer: 'NPTEL', icon: 'fa-solid fa-microchip', link: 'https://drive.google.com/file/d/1EyED9jpmtWrlA8iqAo9s1n0TSwSxnQo2/view?usp=drive_link' },
+    { title: 'Introduction to Internet of Things', issuer: 'NPTEL', icon: 'fa-solid fa-microchip', link: 'https://drive.google.com/file/d/1A4zlPeUzu9Ixi-6htih1p1EoWjxbAPXR/view?usp=sharing' },
     // Forage
     { title: 'Data Visualization', issuer: 'TATA Forage', icon: 'fa-solid fa-chart-bar', link: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Tata/MyXvBcppsW2FkNYCX_Tata%20Group_nvcYESxQthhFMataX_1725794820145_completion_certificate.pdf' },
     // Vityarthi
-    { title: 'Fundamentals Of AIML', issuer: 'Vityarthi', icon: 'fa-solid fa-robot' },
-    { title: 'Python Essentials', issuer: 'Vityarthi', icon: 'fa-brands fa-python' }
+    { title: 'Fundamentals Of AIML', issuer: 'Vityarthi', icon: 'fa-solid fa-robot', link: 'https://drive.google.com/file/d/13zmb5ZCjhYvBzKLjhGo0pNvdt_EKLwFS/view?usp=sharing' },
+    { title: 'Python Essentials', issuer: 'Vityarthi', icon: 'fa-brands fa-python', link: 'https://drive.google.com/file/d/17Pfv-ITW9n52Xms5405Yp0El2Pp7GKMD/view?usp=sharing' }
 ];
 
 const achievements = [
