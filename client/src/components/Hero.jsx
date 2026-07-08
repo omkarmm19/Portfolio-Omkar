@@ -13,11 +13,18 @@ const Hero = () => {
     const [typingSpeed, setTypingSpeed] = useState(150);
 
     const roles = [
-        "Building Production-Grade AI Systems",
-        "AWS Certified Cloud Architect",
-        "FastAPI · PostgreSQL · Docker · AWS",
-        "Backend · DevOps · AI Engineer",
+        "Building FastAPI Backends · PostgreSQL · Docker",
+        "DevOps — CI/CD · Docker · AWS · Terraform",
+        "AI Systems with Groq Llama-3 & RAG Pipelines",
+        "Go CLI Tooling · IaC · Zero-touch Deployments",
         "Shipped. Real. Scalable."
+    ];
+
+    const openTo = [
+        { icon: 'fa-brands fa-python', label: 'Python FastAPI / AI Backend' },
+        { icon: 'fas fa-infinity',      label: 'DevOps & Cloud Engineering' },
+        { icon: 'fab fa-aws',           label: 'AWS Cloud' },
+        { icon: 'fas fa-graduation-cap',label: 'Internships · Full-time' },
     ];
 
     useEffect(() => {
@@ -62,9 +69,9 @@ const Hero = () => {
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16">
             {/* Background Glows */}
-            <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/15 rounded-full blur-[120px] -z-10 animate-pulse" />
-            <div className="absolute top-2/3 right-1/4 w-[300px] h-[300px] bg-cyan-500/10 rounded-full blur-[100px] -z-10" />
-            <div className="absolute top-1/4 left-1/4 w-[250px] h-[250px] bg-blue-600/10 rounded-full blur-[80px] -z-10" />
+            <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-purple-600/15 rounded-full blur-[130px] -z-10 animate-pulse" />
+            <div className="absolute top-2/3 right-1/4 w-[320px] h-[320px] bg-cyan-500/10 rounded-full blur-[100px] -z-10" />
+            <div className="absolute top-1/4 left-1/5 w-[260px] h-[260px] bg-blue-600/10 rounded-full blur-[80px] -z-10" />
 
             <div className="container mx-auto px-4 z-10 text-center max-w-4xl">
 
@@ -88,14 +95,14 @@ const Hero = () => {
                     {data.name}
                 </motion.h1>
 
-                {/* Subtitle */}
+                {/* Subtitle — now includes DevOps explicitly */}
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
                     className="text-base md:text-lg font-medium text-purple-300/80 tracking-widest mb-6"
                 >
-                    Backend Engineer &nbsp;&middot;&nbsp; Cloud Architect &nbsp;&middot;&nbsp; AI Engineer
+                    FastAPI Backend &nbsp;&middot;&nbsp; DevOps &amp; Cloud &nbsp;&middot;&nbsp; AI Engineer
                 </motion.p>
 
                 {/* Typewriter */}
@@ -103,7 +110,7 @@ const Hero = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.4 }}
-                    className="h-10 md:h-12 text-xl md:text-3xl font-light text-slate-300 mb-10"
+                    className="h-10 md:h-12 text-xl md:text-2xl font-light text-slate-300 mb-10"
                 >
                     <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
                         {text}
@@ -119,13 +126,15 @@ const Hero = () => {
                     className="max-w-2xl mx-auto mb-8"
                 >
                     <div className="relative px-6 py-5 rounded-2xl bg-white/[0.03] border border-white/[0.08] backdrop-blur-sm text-left">
-                        {/* Accent bar */}
                         <div className="absolute left-0 top-4 bottom-4 w-0.5 rounded-full bg-gradient-to-b from-purple-500 to-cyan-500" />
                         <p className="text-slate-300 text-sm md:text-base leading-relaxed">
-                            CS undergraduate specializing in{' '}
+                            CS undergrad specializing in{' '}
                             <span className="text-white font-semibold">Cloud Computing &amp; Automation</span>{' '}
-                            at VIT Bhopal. I build and ship production-grade systems — AI-powered backends,
-                            containerized microservices, and cloud infrastructure on AWS — end-to-end.
+                            at VIT Bhopal. I design and ship production-grade systems — FastAPI backends
+                            with PostgreSQL, containerized deployments with Docker &amp; Nginx,{' '}
+                            <span className="text-white font-semibold">cloud infrastructure on AWS</span>,
+                            and zero-touch CI/CD pipelines.
+                            Also building Go CLI tooling and LLM-powered AI platforms with Groq Llama-3.
                         </p>
                         <p className="text-slate-400 text-sm mt-3 font-medium tracking-wide">
                             Not demos. Not prototypes.{' '}
@@ -136,7 +145,7 @@ const Hero = () => {
                     </div>
                 </motion.div>
 
-                {/* AWS Cert Badges — moved here after About Me */}
+                {/* AWS Cert Badges */}
                 <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -161,16 +170,30 @@ const Hero = () => {
                     ))}
                 </motion.div>
 
-                {/* Open To Status */}
+                {/* Open To — individual tags (much cleaner) */}
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.8 }}
-                    className="flex justify-center mb-8"
+                    className="mb-8"
                 >
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/25 text-green-400 text-xs font-medium flex-wrap justify-center text-center">
-                        <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse inline-block shrink-0" />
-                        Open to: Backend Engineering &nbsp;&middot;&nbsp; AI Engineering &nbsp;&middot;&nbsp; DevOps / Cloud &nbsp;&middot;&nbsp; Remote &nbsp;&middot;&nbsp; Internships
+                    <p className="text-xs text-slate-500 uppercase tracking-widest mb-3 font-semibold">
+                        <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse inline-block mr-2 align-middle" />
+                        Open to opportunities
+                    </p>
+                    <div className="flex flex-wrap justify-center gap-2">
+                        {openTo.map((item, i) => (
+                            <motion.span
+                                key={i}
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: 0.85 + i * 0.07 }}
+                                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/[0.1] text-slate-300 text-xs font-medium hover:bg-white/[0.09] hover:border-purple-500/40 hover:text-white transition-all duration-200"
+                            >
+                                <i className={`${item.icon} text-purple-400 text-[11px]`} />
+                                {item.label}
+                            </motion.span>
+                        ))}
                     </div>
                 </motion.div>
 
@@ -178,7 +201,7 @@ const Hero = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.9 }}
+                    transition={{ delay: 1.0 }}
                     className="flex flex-wrap justify-center gap-4 mb-14"
                 >
                     <a
@@ -203,12 +226,12 @@ const Hero = () => {
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 1.05 }}
+                    transition={{ delay: 1.1 }}
                     className="flex justify-center gap-4"
                 >
                     {[
                         { href: data.socialLinks?.linkedin, icon: 'fab fa-linkedin', label: 'LinkedIn', hoverColor: 'hover:text-[#0A66C2] hover:border-[#0A66C2]/40' },
-                        { href: data.socialLinks?.github, icon: 'fab fa-github', label: 'GitHub', hoverColor: 'hover:text-white hover:border-white/40' },
+                        { href: data.socialLinks?.github,   icon: 'fab fa-github',   label: 'GitHub',   hoverColor: 'hover:text-white hover:border-white/40' },
                         { href: data.socialLinks?.leetcode, icon: 'fa-solid fa-code', label: 'LeetCode', hoverColor: 'hover:text-[#FFA116] hover:border-[#FFA116]/40' },
                     ].map((social, i) => (
                         <a
