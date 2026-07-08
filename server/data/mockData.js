@@ -79,7 +79,8 @@ const projects = [
         desc: 'Engineered a full-stack AI interview simulator using Next.js, providing users with realistic voice-based practice and instant, AI-driven performance feedback.',
         tech: ['Next.js', 'React', 'Tailwind', 'OpenAI API', 'Deepgram'],
         image: 'https://placehold.co/600x400/111827/9ca3af?text=Place+Prep',
-        link: 'https://place-prep.vercel.app/'
+        link: 'https://place-prep.vercel.app/',
+        gitLink: 'https://github.com/omkarmm19/PlacePrep'
     },
     {
         title: 'Dynamic MERN Portfolio',
@@ -101,7 +102,8 @@ const projects = [
         desc: 'Architected a scalable, serverless backend using the Firebase suite and engineered a responsive UI with React.js to streamline event discovery and registration.',
         tech: ['React.js', 'Firebase', 'JavaScript'],
         image: 'https://placehold.co/600x400/111827/9ca3af?text=NewsVITaa',
-        link: 'https://newsvita-59b66.web.app/'
+        link: 'https://newsvita-59b66.web.app/',
+        gitLink: 'https://github.com/omkarmm19/NewsVITaa'
     },
     {
         title: 'Serverless Music Player',
