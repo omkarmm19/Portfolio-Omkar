@@ -12,7 +12,33 @@ const Hero = () => {
     const [loopNum, setLoopNum] = useState(0);
     const [typingSpeed, setTypingSpeed] = useState(150);
 
-    const roles = ["Aspiring DevOps Engineer", "Backend Developer Python (FastAPI)", "AWS and Cloud Enthusiast", "Full Stack Developer MERN", "Problem Solver"];
+    const roles = [
+        "Building Production-Grade AI Systems",
+        "AWS Certified Cloud Architect",
+        "FastAPI · PostgreSQL · Docker · AWS",
+        "Backend · DevOps · AI Engineer",
+        "Shipped. Real. Scalable."
+    ];
+
+    const highlights = [
+        { icon: '🔩', label: 'Backend', desc: 'FastAPI, PostgreSQL, Redis, Docker' },
+        { icon: '☁️', label: 'AWS Certified', desc: 'EC2, VPC, RDS, Lambda, Terraform' },
+        { icon: '🤖', label: 'AI / LLM', desc: 'Groq Llama-3, RAG pipelines, GenAI' },
+        { icon: '⚙️', label: 'DevOps', desc: 'Go CLI, async, zero-touch CI/CD' },
+    ];
+
+    const awsCerts = [
+        {
+            label: 'AWS Solutions Architect',
+            sublabel: 'Associate',
+            link: 'https://www.credly.com/badges/e0541226-e871-4e0f-9fc8-609dfd24f873/public_url'
+        },
+        {
+            label: 'AWS Cloud Practitioner',
+            sublabel: 'Certified',
+            link: 'https://www.credly.com/badges/bad01b94-b5f9-4260-a1fb-8cc68aea78d5/public_url'
+        }
+    ];
 
     useEffect(() => {
         const fetchData = async () => {
@@ -29,27 +55,22 @@ const Hero = () => {
         fetchData();
     }, []);
 
-    // Typewriter Logic
     useEffect(() => {
         const handleType = () => {
             const i = loopNum % roles.length;
             const fullText = roles[i];
-
             setText(isDeleting
                 ? fullText.substring(0, text.length - 1)
                 : fullText.substring(0, text.length + 1)
             );
-
             setTypingSpeed(isDeleting ? 30 : 150);
-
             if (!isDeleting && text === fullText) {
-                setTimeout(() => setIsDeleting(true), 1500);
+                setTimeout(() => setIsDeleting(true), 1800);
             } else if (isDeleting && text === '') {
                 setIsDeleting(false);
                 setLoopNum(loopNum + 1);
             }
         };
-
         const timer = setTimeout(handleType, typingSpeed);
         return () => clearTimeout(timer);
     }, [text, isDeleting, loopNum]);
@@ -59,93 +80,165 @@ const Hero = () => {
     if (!data) return null;
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-            {/* Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[100px] -z-10 animate-pulse" />
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16">
+            {/* Background Glows */}
+            <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/15 rounded-full blur-[120px] -z-10 animate-pulse" />
+            <div className="absolute top-2/3 right-1/4 w-[300px] h-[300px] bg-cyan-500/10 rounded-full blur-[100px] -z-10" />
+            <div className="absolute top-1/4 left-1/4 w-[250px] h-[250px] bg-blue-600/10 rounded-full blur-[80px] -z-10" />
 
-            <div className="container mx-auto px-4 z-10 text-center">
+            <div className="container mx-auto px-4 z-10 text-center max-w-5xl">
+
+                {/* AWS Cert Badges */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8 }}
-                    className="relative inline-block mb-6"
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="flex flex-wrap justify-center gap-3 mb-8"
                 >
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full blur-lg opacity-50" />
-                    {/* Assuming no profile image URL in data yet, using placeholder or just name if intended */}
-                    {/* If you want a profile image, add <img> here. For now, strictly following text design. */}
+                    {awsCerts.map((cert, i) => (
+                        <a
+                            key={i}
+                            href={cert.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#FF9900]/40 bg-[#FF9900]/10 text-[#FF9900] text-xs font-bold tracking-wide hover:bg-[#FF9900]/20 hover:border-[#FF9900]/70 transition-all duration-200 hover:scale-105"
+                        >
+                            <i className="devicon-amazonwebservices-plain colored text-sm" />
+                            {cert.label}
+                            <span className="opacity-70 font-normal">— {cert.sublabel}</span>
+                            <i className="fas fa-external-link-alt text-[10px] opacity-50" />
+                        </a>
+                    ))}
                 </motion.div>
 
-                <motion.h2
+                {/* Greeting */}
+                <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 }}
-                    className="text-sm md:text-base font-medium tracking-widest text-cyan-400 uppercase mb-4"
+                    transition={{ delay: 0.15 }}
+                    className="text-xs md:text-sm font-semibold tracking-[0.3em] text-cyan-400 uppercase mb-3"
                 >
                     Hello, I'm
-                </motion.h2>
+                </motion.p>
 
+                {/* Name */}
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 }}
-                    className="text-6xl md:text-8xl font-bold font-display tracking-tight text-white mb-6"
+                    transition={{ delay: 0.25 }}
+                    className="text-6xl md:text-8xl font-bold font-display tracking-tight text-white mb-3"
                 >
                     {data.name}
                 </motion.h1>
 
+                {/* Subtitle */}
+                <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.35 }}
+                    className="text-base md:text-lg font-medium text-purple-300/80 tracking-widest mb-6"
+                >
+                    Backend Engineer &nbsp;&middot;&nbsp; Cloud Architect &nbsp;&middot;&nbsp; AI Engineer
+                </motion.p>
+
+                {/* Typewriter */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.4 }}
-                    className="h-12 text-2xl md:text-4xl font-light text-slate-300 mb-8"
+                    transition={{ delay: 0.45 }}
+                    className="h-10 md:h-12 text-xl md:text-3xl font-light text-slate-300 mb-8"
                 >
                     <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
                         {text}
                     </span>
-                    <span className="animate-blink">|</span>
+                    <span className="animate-blink text-purple-400">|</span>
                 </motion.div>
 
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 }}
-                    className="max-w-2xl mx-auto text-slate-400 text-lg leading-relaxed mb-10"
-                >
-                    {data.description}
-                </motion.p>
-
+                {/* 4 Key Highlight Cards */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.6 }}
-                    className="flex flex-wrap justify-center gap-4"
+                    transition={{ delay: 0.55 }}
+                    className="grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-3xl mx-auto mb-8"
+                >
+                    {highlights.map((h, i) => (
+                        <motion.div
+                            key={i}
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.55 + i * 0.08 }}
+                            className="bg-white/[0.04] border border-white/[0.08] rounded-xl p-3.5 hover:bg-white/[0.07] hover:border-purple-500/30 transition-all duration-200 text-left group cursor-default"
+                        >
+                            <div className="text-xl mb-1.5">{h.icon}</div>
+                            <div className="text-xs font-bold text-white group-hover:text-purple-300 transition-colors">{h.label}</div>
+                            <div className="text-[11px] text-slate-500 mt-0.5 leading-snug">{h.desc}</div>
+                        </motion.div>
+                    ))}
+                </motion.div>
+
+                {/* Open To Status */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.85 }}
+                    className="flex justify-center mb-8"
+                >
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/25 text-green-400 text-xs font-medium flex-wrap justify-center text-center">
+                        <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse inline-block shrink-0" />
+                        Open to: Backend Engineering &nbsp;&middot;&nbsp; AI Engineering &nbsp;&middot;&nbsp; DevOps / Cloud &nbsp;&middot;&nbsp; Remote &nbsp;&middot;&nbsp; Internships
+                    </div>
+                </motion.div>
+
+                {/* CTA Buttons */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.95 }}
+                    className="flex flex-wrap justify-center gap-4 mb-14"
                 >
                     <a
                         href="#projects"
-                        className="px-8 py-4 rounded-full bg-white text-black font-bold text-lg hover:scale-105 transition-transform"
+                        className="group px-8 py-3.5 rounded-full bg-gradient-to-r from-purple-600 to-cyan-600 text-white font-bold text-base hover:scale-105 hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] transition-all duration-300 flex items-center gap-2"
                     >
-                        View Work
+                        <i className="fas fa-rocket text-sm group-hover:rotate-12 transition-transform duration-300" />
+                        View My Work
                     </a>
                     <a
                         href={data.resumeLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-8 py-4 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium text-lg backdrop-blur-sm transition-all"
+                        className="px-8 py-3.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 hover:border-white/30 text-white font-medium text-base backdrop-blur-sm transition-all duration-300 flex items-center gap-2"
                     >
+                        <i className="fas fa-file-alt text-sm" />
                         Resume
                     </a>
                 </motion.div>
 
+                {/* Social Links */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.8 }}
-                    className="mt-16 flex justify-center gap-8 text-2xl text-slate-400"
+                    transition={{ delay: 1.1 }}
+                    className="flex justify-center gap-4"
                 >
-                    <a href={data.socialLinks.linkedin} className="hover:text-purple-400 transition-colors transform hover:-translate-y-1 block"><i className="fab fa-linkedin"></i></a>
-                    <a href={data.socialLinks.github} className="hover:text-white transition-colors transform hover:-translate-y-1 block"><i className="fab fa-github"></i></a>
-                    <a href={data.socialLinks.leetcode} className="hover:text-yellow-500 transition-colors transform hover:-translate-y-1 block"><i className="fa-solid fa-code"></i></a>
+                    {[
+                        { href: data.socialLinks?.linkedin, icon: 'fab fa-linkedin', label: 'LinkedIn', hoverColor: 'hover:text-[#0A66C2] hover:border-[#0A66C2]/40' },
+                        { href: data.socialLinks?.github, icon: 'fab fa-github', label: 'GitHub', hoverColor: 'hover:text-white hover:border-white/40' },
+                        { href: data.socialLinks?.leetcode, icon: 'fa-solid fa-code', label: 'LeetCode', hoverColor: 'hover:text-[#FFA116] hover:border-[#FFA116]/40' },
+                    ].map((social, i) => (
+                        <a
+                            key={i}
+                            href={social.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title={social.label}
+                            className={`w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-slate-400 text-lg ${social.hoverColor} hover:bg-white/10 hover:-translate-y-1.5 transition-all duration-200`}
+                        >
+                            <i className={social.icon} />
+                        </a>
+                    ))}
                 </motion.div>
+
             </div>
         </section>
     );
