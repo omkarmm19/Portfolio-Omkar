@@ -20,26 +20,6 @@ const Hero = () => {
         "Shipped. Real. Scalable."
     ];
 
-    const highlights = [
-        { icon: '🔩', label: 'Backend', desc: 'FastAPI, PostgreSQL, Redis, Docker' },
-        { icon: '☁️', label: 'AWS Certified', desc: 'EC2, VPC, RDS, Lambda, Terraform' },
-        { icon: '🤖', label: 'AI / LLM', desc: 'Groq Llama-3, RAG pipelines, GenAI' },
-        { icon: '⚙️', label: 'DevOps', desc: 'Go CLI, async, zero-touch CI/CD' },
-    ];
-
-    const awsCerts = [
-        {
-            label: 'AWS Solutions Architect',
-            sublabel: 'Associate',
-            link: 'https://www.credly.com/badges/e0541226-e871-4e0f-9fc8-609dfd24f873/public_url'
-        },
-        {
-            label: 'AWS Cloud Practitioner',
-            sublabel: 'Certified',
-            link: 'https://www.credly.com/badges/bad01b94-b5f9-4260-a1fb-8cc68aea78d5/public_url'
-        }
-    ];
-
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -86,36 +66,13 @@ const Hero = () => {
             <div className="absolute top-2/3 right-1/4 w-[300px] h-[300px] bg-cyan-500/10 rounded-full blur-[100px] -z-10" />
             <div className="absolute top-1/4 left-1/4 w-[250px] h-[250px] bg-blue-600/10 rounded-full blur-[80px] -z-10" />
 
-            <div className="container mx-auto px-4 z-10 text-center max-w-5xl">
-
-                {/* AWS Cert Badges */}
-                <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    className="flex flex-wrap justify-center gap-3 mb-8"
-                >
-                    {awsCerts.map((cert, i) => (
-                        <a
-                            key={i}
-                            href={cert.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#FF9900]/40 bg-[#FF9900]/10 text-[#FF9900] text-xs font-bold tracking-wide hover:bg-[#FF9900]/20 hover:border-[#FF9900]/70 transition-all duration-200 hover:scale-105"
-                        >
-                            <i className="devicon-amazonwebservices-plain colored text-sm" />
-                            {cert.label}
-                            <span className="opacity-70 font-normal">— {cert.sublabel}</span>
-                            <i className="fas fa-external-link-alt text-[10px] opacity-50" />
-                        </a>
-                    ))}
-                </motion.div>
+            <div className="container mx-auto px-4 z-10 text-center max-w-4xl">
 
                 {/* Greeting */}
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.15 }}
+                    transition={{ delay: 0.1 }}
                     className="text-xs md:text-sm font-semibold tracking-[0.3em] text-cyan-400 uppercase mb-3"
                 >
                     Hello, I'm
@@ -125,7 +82,7 @@ const Hero = () => {
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.25 }}
+                    transition={{ delay: 0.2 }}
                     className="text-6xl md:text-8xl font-bold font-display tracking-tight text-white mb-3"
                 >
                     {data.name}
@@ -135,7 +92,7 @@ const Hero = () => {
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.35 }}
+                    transition={{ delay: 0.3 }}
                     className="text-base md:text-lg font-medium text-purple-300/80 tracking-widest mb-6"
                 >
                     Backend Engineer &nbsp;&middot;&nbsp; Cloud Architect &nbsp;&middot;&nbsp; AI Engineer
@@ -145,8 +102,8 @@ const Hero = () => {
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.45 }}
-                    className="h-10 md:h-12 text-xl md:text-3xl font-light text-slate-300 mb-8"
+                    transition={{ delay: 0.4 }}
+                    className="h-10 md:h-12 text-xl md:text-3xl font-light text-slate-300 mb-10"
                 >
                     <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
                         {text}
@@ -154,25 +111,53 @@ const Hero = () => {
                     <span className="animate-blink text-purple-400">|</span>
                 </motion.div>
 
-                {/* 4 Key Highlight Cards */}
+                {/* About Me */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.55 }}
-                    className="grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-3xl mx-auto mb-8"
+                    transition={{ delay: 0.5 }}
+                    className="max-w-2xl mx-auto mb-8"
                 >
-                    {highlights.map((h, i) => (
-                        <motion.div
+                    <div className="relative px-6 py-5 rounded-2xl bg-white/[0.03] border border-white/[0.08] backdrop-blur-sm text-left">
+                        {/* Accent bar */}
+                        <div className="absolute left-0 top-4 bottom-4 w-0.5 rounded-full bg-gradient-to-b from-purple-500 to-cyan-500" />
+                        <p className="text-slate-300 text-sm md:text-base leading-relaxed">
+                            CS undergraduate specializing in{' '}
+                            <span className="text-white font-semibold">Cloud Computing &amp; Automation</span>{' '}
+                            at VIT Bhopal. I build and ship production-grade systems — AI-powered backends,
+                            containerized microservices, and cloud infrastructure on AWS — end-to-end.
+                        </p>
+                        <p className="text-slate-400 text-sm mt-3 font-medium tracking-wide">
+                            Not demos. Not prototypes.{' '}
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 font-bold">
+                                Shipped. Real. Scalable.
+                            </span>
+                        </p>
+                    </div>
+                </motion.div>
+
+                {/* AWS Cert Badges — moved here after About Me */}
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.65 }}
+                    className="flex flex-wrap justify-center gap-3 mb-8"
+                >
+                    {[
+                        { label: 'AWS Solutions Architect — Associate', link: 'https://www.credly.com/badges/e0541226-e871-4e0f-9fc8-609dfd24f873/public_url' },
+                        { label: 'AWS Cloud Practitioner — Certified', link: 'https://www.credly.com/badges/bad01b94-b5f9-4260-a1fb-8cc68aea78d5/public_url' },
+                    ].map((cert, i) => (
+                        <a
                             key={i}
-                            initial={{ opacity: 0, y: 15 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.55 + i * 0.08 }}
-                            className="bg-white/[0.04] border border-white/[0.08] rounded-xl p-3.5 hover:bg-white/[0.07] hover:border-purple-500/30 transition-all duration-200 text-left group cursor-default"
+                            href={cert.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#FF9900]/40 bg-[#FF9900]/10 text-[#FF9900] text-xs font-semibold tracking-wide hover:bg-[#FF9900]/20 hover:border-[#FF9900]/70 transition-all duration-200 hover:scale-105"
                         >
-                            <div className="text-xl mb-1.5">{h.icon}</div>
-                            <div className="text-xs font-bold text-white group-hover:text-purple-300 transition-colors">{h.label}</div>
-                            <div className="text-[11px] text-slate-500 mt-0.5 leading-snug">{h.desc}</div>
-                        </motion.div>
+                            <i className="devicon-amazonwebservices-plain colored text-sm" />
+                            {cert.label}
+                            <i className="fas fa-external-link-alt text-[10px] opacity-50" />
+                        </a>
                     ))}
                 </motion.div>
 
@@ -180,7 +165,7 @@ const Hero = () => {
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.85 }}
+                    transition={{ delay: 0.8 }}
                     className="flex justify-center mb-8"
                 >
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/25 text-green-400 text-xs font-medium flex-wrap justify-center text-center">
@@ -193,7 +178,7 @@ const Hero = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.95 }}
+                    transition={{ delay: 0.9 }}
                     className="flex flex-wrap justify-center gap-4 mb-14"
                 >
                     <a
@@ -218,7 +203,7 @@ const Hero = () => {
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 1.1 }}
+                    transition={{ delay: 1.05 }}
                     className="flex justify-center gap-4"
                 >
                     {[

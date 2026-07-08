@@ -19,7 +19,7 @@ Open to internships and real-world project collaborations (2027 batch).`,
         github: 'https://github.com/omkarmm19',
         leetcode: 'https://leetcode.com/u/omkarmm19/'
     },
-    resumeLink: 'https://raw.githubusercontent.com/omkarmm19/Resume-Omkar/main/Omkar%20Mahesh.pdf'
+    resumeLink: 'https://raw.githubusercontent.com/omkarmm19/Resume-Omkar/main/Omkar_Mahesh_Resume.pdf'
 };
 
 const experience = [
@@ -44,7 +44,7 @@ const education = [
         role: 'B.Tech, CSE (Cloud Computing & Automation)',
         company: 'VIT Bhopal University',
         date: '2023 - 2027',
-        desc: 'CGPA: 8.54/10.0. Relevant Coursework: Data Structures & Algorithms, OOPS, Operating Systems, Computer Networks, Database Management Systems. Key Skills: Gained hands-on experience in Full-Stack Development, Cloud service management (AWS/GCP), and CI/CD pipeline implementation. Leadership: Event Management Lead for the Mozilla Firefox Club, organizing technical workshops and coding events for 500+ students.',
+        desc: 'CGPA: 8.6/10.0. Relevant Coursework: Data Structures & Algorithms, OOPS, Operating Systems, Computer Networks, Database Management Systems. Key Skills: Gained hands-on experience in Full-Stack Development, Cloud service management (AWS/GCP), and CI/CD pipeline implementation. Leadership: Event Management Lead for the Mozilla Firefox Club, organizing technical workshops and coding events for 500+ students.',
         icon: 'fa-solid fa-graduation-cap'
     }
 ];
