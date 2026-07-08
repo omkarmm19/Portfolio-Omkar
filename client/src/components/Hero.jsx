@@ -128,13 +128,16 @@ const Hero = () => {
                     <div className="relative px-6 py-5 rounded-2xl bg-white/[0.03] border border-white/[0.08] backdrop-blur-sm text-left">
                         <div className="absolute left-0 top-4 bottom-4 w-0.5 rounded-full bg-gradient-to-b from-purple-500 to-cyan-500" />
                         <p className="text-slate-300 text-sm md:text-base leading-relaxed">
-                            CS undergrad specializing in{' '}
-                            <span className="text-white font-semibold">Cloud Computing &amp; Automation</span>{' '}
-                            at VIT Bhopal. I design and ship production-grade systems — FastAPI backends
-                            with PostgreSQL, containerized deployments with Docker &amp; Nginx,{' '}
-                            <span className="text-white font-semibold">cloud infrastructure on AWS</span>,
-                            and zero-touch CI/CD pipelines.
-                            Also building Go CLI tooling and LLM-powered AI platforms with Groq Llama-3.
+                            CS undergrad at{' '}
+                            <span className="text-white font-semibold">VIT Bhopal</span>{' '}
+                            specializing in Cloud Computing &amp; Automation —{' '}
+                            <span className="text-white font-semibold">CGPA 8.6</span>, graduating 2027.
+                            I design and ship production-grade backend systems, containerized cloud infrastructure,
+                            and AI-powered applications across the full engineering lifecycle.
+                        </p>
+                        <p className="text-slate-400 text-sm mt-2.5 leading-relaxed">
+                            Strong in <span className="text-purple-300 font-medium">Python · FastAPI · DevOps · AWS · Docker · CI/CD · Go</span>
+                            {' '}— from API design &amp; database architecture to zero-touch deployments.
                         </p>
                         <p className="text-slate-400 text-sm mt-3 font-medium tracking-wide">
                             Not demos. Not prototypes.{' '}
