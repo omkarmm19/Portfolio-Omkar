@@ -110,7 +110,8 @@ const projects = [
         desc: 'Deployed a serverless music player using AWS S3 for hosting and CloudFront for secure, low-latency content delivery, providing a seamless streaming experience.',
         tech: ['AWS S3', 'AWS CloudFront', 'HTML', 'CSS', 'JS'],
         image: 'https://placehold.co/600x400/111827/9ca3af?text=Music+Player',
-        link: 'https://dqwynj1udvvj0.cloudfront.net'
+        link: 'https://dqwynj1udvvj0.cloudfront.net',
+        gitLink: 'https://github.com/omkarmm19/Serverless-Music-Player'
     },
 
 ];
