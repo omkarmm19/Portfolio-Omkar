@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from '@emailjs/browser';
+import axios from 'axios';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -11,6 +12,17 @@ const Contact = () => {
     });
     const [status, setStatus] = useState('idle'); // idle, loading, success, error
     const [statusMsg, setStatusMsg] = useState('');
+    const [info, setInfo] = useState(null);
+
+    useEffect(() => {
+        axios.get(`${import.meta.env.VITE_API_URL}/api/general`)
+            .then(res => setInfo(res.data))
+            .catch(() => setInfo({
+                email: 'omkarmahesh12345@gmail.com',
+                phone: '+91 7019936868',
+                location: 'Bidar, Karnataka'
+            }));
+    }, []);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -96,7 +108,7 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <h4 className="text-white font-bold text-lg">Email</h4>
-                                    <p className="text-[var(--text-secondary)]">omkarmahesh12345@gmail.com</p>
+                                    <p className="text-[var(--text-secondary)]">{info?.email || 'omkarmahesh12345@gmail.com'}</p>
                                 </div>
                             </div>
 
@@ -106,7 +118,7 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <h4 className="text-white font-bold text-lg">Phone</h4>
-                                    <p className="text-[var(--text-secondary)]">+91 7019936868</p>
+                                    <p className="text-[var(--text-secondary)]">{info?.phone || '+91 7019936868'}</p>
                                 </div>
                             </div>
 
@@ -116,7 +128,7 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <h4 className="text-white font-bold text-lg">Location</h4>
-                                    <p className="text-[var(--text-secondary)]">Bangalore, India</p>
+                                    <p className="text-[var(--text-secondary)]">{info?.location || 'Bidar, Karnataka'}</p>
                                 </div>
                             </div>
                         </div>

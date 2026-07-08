@@ -2,7 +2,7 @@ const generalInfo = {
     name: 'Omkar Mahesh',
     title: 'Aspiring DevOps Engineer | Python Backend (FastAPI) | MERN Developer | Cloud Enthusiast',
     subtitle: 'Cloud & GenAI Enthusiast',
-    description: `Pre-Final Year B.Tech CSE (Cloud Computing & Automation) | VITB ’27
+    description: `Pre-Final Year B.Tech CSE (Cloud Computing & Automation) | VITB '27
 
 Cloud & DevOps-focused CSE student skilled in building and automating scalable infrastructure using AWS, Docker, Kubernetes, and CI/CD.
 
@@ -51,21 +51,31 @@ const education = [
 
 const projects = [
     {
+        title: 'DocuCraft — AI Document Platform',
+        desc: 'Shipped a full-stack AI document platform integrating Groq Llama-3 via structured JSON-mode prompting to generate PPT, DOCX, and PDF — serving real users across 5 themes and 4–15 slide configs. Built FastAPI backend with PostgreSQL via SQLAlchemy for user auth and per-user download history. Containerized with Docker Compose and automated CI/CD via GitHub Actions for zero-touch deployment in under 3 minutes.',
+        tech: ['FastAPI', 'React', 'PostgreSQL', 'SQLAlchemy', 'Groq API', 'Docker', 'GitHub Actions'],
+        image: 'https://placehold.co/600x400/111827/9ca3af?text=DocuCraft',
+        link: 'https://docuucraft.netlify.app',
+        gitLink: 'https://github.com/omkarmm19/docucraft'
+    },
+    {
+        title: 'Forge Todo — Devopsified',
+        desc: 'Engineered a full-stack task manager with FastAPI, React, and PostgreSQL across 4 core resources with user-isolated CRUD. Implemented JWT auth and bcrypt hashing, securing 100% of access routes. Orchestrated 4 services (frontend, backend, database, proxy) using Docker Compose and Nginx for one-command deployment. Automated Docker builds via GitHub Actions CI/CD with multi-stage builds cutting image size by 40%.',
+        tech: ['FastAPI', 'React', 'PostgreSQL', 'Docker', 'Nginx', 'GitHub Actions'],
+        image: 'https://placehold.co/600x400/111827/9ca3af?text=Forge+Todo+App',
+        link: 'https://forge-todo-cloud.vercel.app/',
+        gitLink: 'https://github.com/omkarmm19/forge-todo-cloud'
+    },
+    {
         title: 'HotReload — Go CLI Dev Tool',
-        desc: 'Built a Go CLI tool that watches project files and automatically rebuilds and restarts servers during development. Implemented filesystem monitoring with fsnotify, file filtering, and a 300ms debounce to prevent redundant rebuilds. Designed modular components with crash-loop protection and graceful process termination.',
+        desc: 'Built a Go CLI tool that watches project files and automatically rebuilds and restarts servers during development — cutting developer feedback loop by 60%. Implemented filesystem monitoring with fsnotify and a 300ms debounce, reducing redundant build triggers by 80%. Designed 4 modular components (watcher, builder, runner, engine) with SIGTERM→SIGKILL escalation guaranteeing zero orphan processes.',
         tech: ['Go', 'fsnotify', 'CLI', 'Process Management'],
         image: 'https://placehold.co/600x400/111827/9ca3af?text=HotReload+CLI',
-        link: 'https://www.loom.com/share/cb4f2b8444a34fea9570accc484c0531'
+        link: 'https://www.loom.com/share/cb4f2b8444a34fea9570accc484c0531',
+        gitLink: 'https://github.com/omkarmm19/hotreload'
     },
     {
-        title: 'Forge Todo App',
-        desc: 'Developed a full-stack task management app with JWT authentication and REST APIs for secure CRUD operations. Containerized services using Docker Compose and implemented CI/CD with GitHub Actions for automated builds and deployment. Deployed on Vercel with Neon PostgreSQL for scalable production hosting.',
-        tech: ['Next.js', 'Express.js', 'TypeScript', 'PostgreSQL', 'Docker', 'Prisma', 'GitHub Actions'],
-        image: 'https://placehold.co/600x400/111827/9ca3af?text=Forge+Todo+App',
-        link: 'https://forge-todo-cloud.vercel.app/'
-    },
-    {
-        title: 'Place Prep - AI Voice Interview Platform',
+        title: 'Place Prep — AI Voice Interview Platform',
         desc: 'Engineered a full-stack AI interview simulator using Next.js, providing users with realistic voice-based practice and instant, AI-driven performance feedback.',
         tech: ['Next.js', 'React', 'Tailwind', 'OpenAI API', 'Deepgram'],
         image: 'https://placehold.co/600x400/111827/9ca3af?text=Place+Prep',
@@ -73,20 +83,21 @@ const projects = [
     },
     {
         title: 'Dynamic MERN Portfolio',
-        desc: 'Built a highly interactive, responsive personal portfolio using the MERN stack. Features include a dynamic content management system via MongoDB, real-time email integration with Nodemailer, and a premium "Cyberpunk Elegance" UI powered by Framer Motion.',
+        desc: 'Built a highly interactive, responsive personal portfolio using the MERN stack. Features include a dynamic content management system via MongoDB, real-time email integration with Nodemailer, and a premium UI powered by Framer Motion animations.',
         tech: ['MongoDB', 'Node.js', 'Express.js', 'React.js', 'Tailwind', 'Framer Motion'],
         image: 'https://placehold.co/600x400/111827/9ca3af?text=Portfolio',
-        link: 'https://github.com/omkarmm19/Portfolio-Omkar'
+        link: 'https://portfolio-omkar-mern.vercel.app/',
+        gitLink: 'https://github.com/omkarmm19/Portfolio-Omkar'
     },
     {
-        title: 'Eira - AI Voice Assistant',
+        title: 'Eira — AI Voice Assistant',
         desc: 'Developed an AI-powered virtual assistant in Python capable of real-time voice interaction, web navigation, and intelligent search. Integrated conversational AI, speech recognition, and text-to-speech APIs to simulate a natural digital companion experience.',
         tech: ['Python', 'Speech Recognition', 'Edge TTS', 'OpenRouter API', 'Google Search API'],
         image: 'https://placehold.co/600x400/111827/9ca3af?text=Eira+AI',
         link: 'https://github.com/omkarmm19/Eira'
     },
     {
-        title: 'NewsVITaa - Event Management System',
+        title: 'NewsVITaa — Event Management System',
         desc: 'Architected a scalable, serverless backend using the Firebase suite and engineered a responsive UI with React.js to streamline event discovery and registration.',
         tech: ['React.js', 'Firebase', 'JavaScript'],
         image: 'https://placehold.co/600x400/111827/9ca3af?text=NewsVITaa',
@@ -103,18 +114,29 @@ const projects = [
 ];
 
 const certifications = [
-    { title: 'Cloud Computing and Distributed Systems', issuer: 'NPTEL', icon: 'fa-solid fa-microchip', link: 'https://drive.google.com/file/d/1Q8a-JriSJzNFOw8nunz4ft1NhKf7Tztt/view?usp=sharing' },
-    { title: 'Google IT Support Certificate', issuer: 'Google', icon: 'fa-brands fa-google', link: 'https://www.credly.com/badges/7d04edcd-5d4f-4e25-bed1-48138478c5d2/public_url' },
+    // AWS — Most Prestigious (newest first)
+    { title: 'AWS Certified Solutions Architect — Associate', issuer: 'Amazon Web Services', icon: 'devicon-amazonwebservices-plain colored', link: 'https://www.credly.com/badges/e0541226-e871-4e0f-9fc8-609dfd24f873/public_url' },
+    { title: 'AWS Certified Cloud Practitioner', issuer: 'Amazon Web Services', icon: 'devicon-amazonwebservices-plain colored', link: 'https://www.credly.com/badges/bad01b94-b5f9-4260-a1fb-8cc68aea78d5/public_url' },
+    // Microsoft
+    { title: 'Azure Data Fundamentals (DP-900)', issuer: 'Microsoft', icon: 'fa-brands fa-microsoft', link: 'https://www.credly.com/badges/68487755-3375-4887-a1b3-4268023b3ec7/public_url' },
+    // IBM
+    { title: 'DevOps Fundamentals', issuer: 'IBM', icon: 'fa-solid fa-infinity', link: 'https://courses.vit.skillsnetwork.site/certificates/d0bde818921c4b5982b1e4e647a77f9b' },
+    { title: 'DevOps, Agile & Design Thinking', issuer: 'IBM', icon: 'fa-solid fa-infinity', link: 'https://courses.vit.skillsnetwork.site/certificates/9c348048d331464cbcedaabd3cd335ac' },
+    // Google
+    { title: 'Google IT Support Professional Certificate', issuer: 'Google', icon: 'fa-brands fa-google', link: 'https://www.credly.com/badges/7d04edcd-5d4f-4e25-bed1-48138478c5d2/public_url' },
+    { title: 'Gen AI Academy', issuer: 'Google', icon: 'fa-brands fa-google', link: 'https://certificate.hack2skill.com/user/genai2/2025H2S04GENAI-A100367' },
     { title: 'The Bits and Bytes of Computer Networking', issuer: 'Google', icon: 'fa-brands fa-google', link: 'https://drive.google.com/file/d/1KL7XlRQkuywLr_UejbRvXnhw3ET-bRLn/view?usp=drive_link' },
+    // Postman
+    { title: 'API Fundamentals Student Expert', issuer: 'Postman', icon: 'devicon-postman-plain colored', link: 'https://badgr.com/public/assertions/toYF93bjSFKvqWqrHA9i2w' },
+    // Oracle
     { title: 'Oracle Certified AI Foundations Associate', issuer: 'Oracle', icon: 'devicon-oracle-original colored', link: 'https://drive.google.com/file/d/1CfKuinaQwsQCh9elpbqLJ8M3ZpSZ7uiY/view?usp=drive_link' },
     { title: 'Oracle Certified Cloud Foundations Associate', issuer: 'Oracle', icon: 'devicon-oracle-original colored', link: 'https://drive.google.com/file/d/1G8CVaYLL7PfoKPR6ibMccY1_ONSq5s4w/view?usp=drive_link' },
-    { title: 'DevOps, Agile & Design Thinking', issuer: 'IBM', icon: 'fa-solid fa-infinity', link: 'https://courses.vit.skillsnetwork.site/certificates/9c348048d331464cbcedaabd3cd335ac' },
-    { title: 'Azure Data Fundamentals', issuer: 'Microsoft', icon: 'fa-brands fa-microsoft', link: 'https://www.credly.com/badges/68487755-3375-4887-a1b3-4268023b3ec7/public_url' },
-    { title: 'DevOps Fundamentals', issuer: 'IBM', icon: 'fa-solid fa-infinity', link: 'https://courses.vit.skillsnetwork.site/certificates/d0bde818921c4b5982b1e4e647a77f9b' },
+    // NPTEL
+    { title: 'Cloud Computing and Distributed Systems', issuer: 'NPTEL', icon: 'fa-solid fa-microchip', link: 'https://drive.google.com/file/d/1Q8a-JriSJzNFOw8nunz4ft1NhKf7Tztt/view?usp=sharing' },
     { title: 'Introduction to Internet of Things', issuer: 'NPTEL', icon: 'fa-solid fa-microchip', link: 'https://drive.google.com/file/d/1EyED9jpmtWrlA8iqAo9s1n0TSwSxnQo2/view?usp=drive_link' },
-    { title: 'Gen AI Academy', issuer: 'Google', icon: 'fa-brands fa-google', link: 'https://certificate.hack2skill.com/user/genai2/2025H2S04GENAI-A100367' },
-    { title: 'API Fundamentals Expert', issuer: 'Postman', icon: 'devicon-postman-plain colored', link: 'https://badgr.com/public/assertions/toYF93bjSFKvqWqrHA9i2w' },
+    // Forage
     { title: 'Data Visualization', issuer: 'TATA Forage', icon: 'fa-solid fa-chart-bar', link: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Tata/MyXvBcppsW2FkNYCX_Tata%20Group_nvcYESxQthhFMataX_1725794820145_completion_certificate.pdf' },
+    // Vityarthi
     { title: 'Fundamentals Of AIML', issuer: 'Vityarthi', icon: 'fa-solid fa-robot' },
     { title: 'Python Essentials', issuer: 'Vityarthi', icon: 'fa-brands fa-python' }
 ];
@@ -131,8 +153,9 @@ const skills = [
         category: 'Languages',
         icon: 'fas fa-code',
         items: [
-            { name: 'Java', icon: 'devicon-java-plain colored' },
             { name: 'Python', icon: 'devicon-python-plain colored' },
+            { name: 'Java', icon: 'devicon-java-plain colored' },
+            { name: 'Go', icon: 'devicon-go-plain colored' },
             { name: 'JavaScript', icon: 'devicon-javascript-plain colored' },
             { name: 'TypeScript', icon: 'devicon-typescript-plain colored' },
             { name: 'SQL', icon: 'fas fa-database' },

@@ -7,6 +7,7 @@ const generalInfoSchema = new mongoose.Schema({
     description: String,
     email: String,
     phone: String,
+    location: String,
     socialLinks: {
         linkedin: String,
         github: String,
