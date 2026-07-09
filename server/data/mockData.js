@@ -59,6 +59,13 @@ const projects = [
         gitLink: 'https://github.com/omkarmm19/docucraft'
     },
     {
+        title: 'Production-Ready AWS Infrastructure — Terraform',
+        desc: 'Designed and provisioned a highly available AWS infrastructure using Terraform IaC — VPC with public/private subnets, Internet Gateway, NAT Gateway, ALB, Auto Scaling Group, EC2, and PostgreSQL RDS. Modularized Terraform code with reusable modules and remote state management via S3 and DynamoDB. Implemented IAM roles, security groups, and CloudWatch monitoring. Deployed a Dockerized web application on EC2 behind an Application Load Balancer.',
+        tech: ['Terraform', 'AWS', 'VPC', 'EC2', 'PostgreSQL RDS', 'ALB', 'Auto Scaling', 'Docker', 'CloudWatch'],
+        image: 'https://placehold.co/600x400/111827/9ca3af?text=Terraform+AWS',
+        gitLink: 'https://github.com/omkarmm19/terraform-aws-production-infrastructure'
+    },
+    {
         title: 'Forge Todo — Devopsified',
         desc: 'Engineered a full-stack task manager with FastAPI, React, and PostgreSQL across 4 core resources with user-isolated CRUD. Implemented JWT auth and bcrypt hashing, securing 100% of access routes. Orchestrated 4 services (frontend, backend, database, proxy) using Docker Compose and Nginx for one-command deployment. Automated Docker builds via GitHub Actions CI/CD with multi-stage builds cutting image size by 40%.',
         tech: ['FastAPI', 'React', 'PostgreSQL', 'Docker', 'Nginx', 'GitHub Actions'],
