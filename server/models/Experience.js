@@ -5,7 +5,8 @@ const experienceSchema = new mongoose.Schema({
     company: { type: String, required: true },
     date: { type: String, required: true },
     desc: { type: String, required: true },
-    icon: { type: String, default: 'fa-solid fa-briefcase' }
+    icon: { type: String, default: 'fa-solid fa-briefcase' },
+    order: { type: Number, default: 0 }
 });
 
 module.exports = mongoose.model('Experience', experienceSchema);

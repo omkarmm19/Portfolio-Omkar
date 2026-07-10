@@ -72,7 +72,7 @@ exports.getSkills = async (req, res) => {
 exports.getCertifications = async (req, res) => {
     try {
         if (!isConnected()) throw new Error("DB not connected");
-        const certifications = await Certification.find().sort({ date: -1 });
+        const certifications = await Certification.find().sort({ order: 1 });
         if (!certifications.length) throw new Error("No data found");
         res.json(certifications);
     } catch (err) {
@@ -84,7 +84,7 @@ exports.getCertifications = async (req, res) => {
 exports.getAchievements = async (req, res) => {
     try {
         if (!isConnected()) throw new Error("DB not connected");
-        const achievements = await Achievement.find().sort({ date: -1 });
+        const achievements = await Achievement.find().sort({ order: 1 });
         if (!achievements.length) throw new Error("No data found");
         res.json(achievements);
     } catch (err) {

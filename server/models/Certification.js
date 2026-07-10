@@ -5,8 +5,7 @@ const certificationSchema = new mongoose.Schema({
     issuer: { type: String, required: true },
     icon: String,
     link: String,
-    order: { type: Number, default: 0 },
-    date: String // YYYY-MM-DD for easy sorting
+    order: { type: Number, default: 0 }
 });
 
 module.exports = mongoose.model('Certification', certificationSchema);
